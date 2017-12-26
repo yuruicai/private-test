@@ -1,0 +1,507 @@
+body, div, h1, h2, h3, h4, h5, h6, form, input, textarea, p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+}
+
+/* layout */
+body {
+    font: normal 14px/1.5 Tahoma, Helvetica, arial, sans-serif;
+    color: #000;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#doc {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: #4e83d6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#l-hd {
+    width: 980px;
+    margin: 40px auto 60px 360px;
+    height: 10%;
+    overflow: hidden;
+}
+
+#l-bd {
+    width: 980px;
+    margin: 0 auto 40px;
+    height: 70%;
+}
+
+#l-ft {
+    color: #999;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    width: 980px;
+    margin: 0 auto;
+}
+
+/* classes */
+.cf {
+    zoom: 1;
+}
+
+.cf:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.tip-error {
+    font-size: 12px;
+    padding: 5px 10px;
+    background: #fcf2f2;
+    border: 1px #f7dde2 solid;
+    color: #cc2222;
+    margin-bottom: 10px;
+}
+
+.logo {
+    background: url(/static/images/sso-logo.png) no-repeat left;
+    padding-left: 172px;
+    height: 60px;
+    overflow: hidden;
+    display: block;
+    float: left;
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.logo h1 {
+    margin-left: 10px;
+    border-left: 2px solid #EF7E2B;
+    padding-left: 10px;
+    color: #EF7E2B;
+    line-height: 36px;
+    font-size: 28px;
+    letter-spacing: 2px;
+    background: url('/static/images/login-center-logo.png') no-repeat 10px;
+    text-indent: -999px;
+    width: 179px;
+    height: 36px;
+}
+
+/* btn */
+.btn {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    padding: 7px 20px 6px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'SimSun', Arial;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    background-repeat: repeat-x;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #4e83d6;
+    border-color: #3361a4;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF689BEC', endColorstr='#FF4E83D6');
+    background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #689BEC), color-stop(100%, #4e83d6));
+    background-image: -webkit-linear-gradient(top, #689BEC, #4e83d6);
+    background-image: -moz-linear-gradient(top, #689BEC, #4e83d6);
+    background-image: -o-linear-gradient(top, #689BEC, #4e83d6);
+    background-image: linear-gradient(top, #689BEC, #4e83d6);
+}
+
+.btn:hover {
+    background-color: #5689d8;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF73A3F0', endColorstr='#FF5689D8');
+    background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #73a3f0), color-stop(100%, #5689d8));
+    background-image: -webkit-linear-gradient(top, #73A3F0, #5689d8);
+    background-image: -moz-linear-gradient(top, #73A3F0, #5689d8);
+    background-image: -o-linear-gradient(top, #73A3F0, #5689d8);
+    background-image: linear-gradient(top, #73A3F0, #5689d8);
+}
+
+.promotion-banner {
+    float: left;
+}
+
+.promotion-banner img {
+    width: 480px;
+}
+
+.login-section-bg {
+    float: right;
+    border: 8px #f2f2f2 solid;
+}
+
+.login-section {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 262px;
+    border: 1px #ddd solid;
+    padding: 10px 25px 20px;
+}
+
+.login-section h2 {
+    font-weight: normal;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.login-tabs {
+    margin-bottom: 30px;
+    border-bottom: 1px #ddd solid;
+    padding-bottom: 5px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.login-toggle {
+    display: inline-block;
+    text-align: center;
+}
+
+.login-toggle,
+.login-toggle:link,
+.login-toggle:visited,
+.login-toggle:active {
+    margin: 0 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    color: #aaa;
+}
+
+.login-toggle:hover,
+.login-toggle.is-active {
+    cursor: pointer;
+    text-decoration: none;
+    color: #444;
+}
+
+.login-status {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    text-indent: -9999px;
+    background: #444;
+    height: 1px;
+    line-height: 1px;
+    -webkit-transition: all 0.2s ease-out; 
+    transition: all 0.2s ease-out; 
+}
+
+.login-type-qrcode .login-status {
+    width: 96px;
+    left: 150px;
+}
+
+.login-type-form .login-status {
+    width: 96px;
+    left: 20px;
+}
+
+.login-type-otp .login-status {
+    width: 96px;
+    left: 20px;
+}
+
+.login-type-mobile .login-status {
+    width: 96px;
+    left: 150px;
+}
+
+.login-qrcode-container h2 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-qrcode-download {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.login-form {
+    padding-bottom: 20px;
+}
+
+.login-form .tips {
+    color: #666;
+    font-size: 12px
+}
+
+.form-field {
+    margin-top: 10px;
+    position: relative;
+}
+
+.form-field .icon {
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    top: 8px;
+    left: 9px;
+    line-height: 18px;
+    vertical-align: text-top;
+    background: url(/static/images/icon-login.png) no-repeat;
+    padding-right: 9px;
+    border-right: 1px solid #999;
+}
+
+.form-field .icon-password {
+    background-position: 0 -20px;
+}
+
+.form-field input[type="text"], .form-field input[type="password"] {
+    height: 24px;
+    line-height: 24px;
+    padding: 5px 5px 5px 45px;
+    vertical-align: top;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+
+.form-field input[type="text"]:focus, .form-field input[type="password"]:focus {
+    border-color: #4e83d6;
+    outline: 0;
+}
+
+#login-username {
+    width: 110px;
+    padding-right: 105px;
+}
+
+#login-password {
+    width: 210px;
+}
+
+.form-field .mail-suffix {
+    position: absolute;
+    display: inline-block;
+    right: 10px;
+    top: 6px;
+    font-family: Tahoma, Helvetica, arial, sans-serif;
+    color: #666;
+    line-height: 24px;
+}
+
+.form-field-other .forget-password {
+    float: right;
+    font-size: 12px;
+}
+
+.form-field-submit {
+    margin-top: 20px;
+}
+
+.form-field-submit .btn {
+    letter-spacing: 8px;
+}
+
+.form-field input.ipt-captcha {
+    padding-left: 10px;
+    width: 80px;
+    float: left;
+}
+
+.form-field .captcha-field {
+    float: left;
+    margin-left: 10px;
+}
+
+.form-field .captcha-field img {
+    height: 42px;
+}
+
+.form-horizontal {
+    margin-top: 20px;
+}
+
+.login-form.form-horizontal {
+    padding-bottom: 0;
+}
+
+.form-field-label {
+    float: left;
+    width: 80px;
+    font-weight: bold;
+    text-align: right;
+    line-height: 30px;
+}
+
+.form-field-controls {
+    margin-left: 85px;
+    line-height: 30px;
+}
+
+.form-field .phone-number {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-field input.phone-check {
+    font-size: 13px;
+    padding: 3px 6px;
+    height: 24px;
+    line-height: 24px;
+    width: 80px;
+}
+
+.btn-recheck {
+    margin-top: 6px;
+    vertical-align: middle;
+    zoom: 1;
+    padding: 6px 10px;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    background-repeat: repeat-x;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    color: #333;
+    background-color: #fafafa;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFAFAFA', endColorstr='#FFEEEEEE');
+    background-image: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #fafafa), color-stop(100%, #eee));
+    background-image: -webkit-linear-gradient(top, #fafafa, #eee);
+    background-image: -moz-linear-gradient(top, #fafafa, #eee);
+    background-image: -o-linear-gradient(top, #fafafa, #eee);
+    background-image: linear-gradient(top, #fafafa, #eee);
+}
+
+.btn-recheck[disabled] {
+    background: #d9d9d9;
+    cursor: auto;
+    color: #888;
+}
+
+.login-help {
+    padding-left: 56px;
+    padding-right: 56px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.qrcode-message {
+    position: absolute;
+    top: 0;
+    left: 56px;
+    background: rgb(254, 254, 254);
+    background: rgba(254, 254, 254, .9);
+    width: 150px;
+    height: 110px;
+    padding-top: 40px;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+    font-size: 24px;
+}
+
+.qrcode-message .btn {
+    width: auto;
+    font-size: 13px;
+    padding: 3px 13px;
+}
+
+.qrcode-message-warn {
+}
+
+.login-desc {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.qr-text {
+    font-size: 12px;
+    color: #f76120;
+    margin-top: 10px;
+    text-align: center;
+}
+.success-tip {
+    float: left;
+    position: relative;
+    left: 2px;
+    width: 36px;
+    height: 36px;
+    border-radius: 22px;
+    -moz-border-radius: 22px;
+    -webkit-border-radius: 22px;
+    border: 4px solid #4e83d6;
+    margin-top: 12px;
+}
+.success-flag {
+    margin: 7px 0 0 5px;
+    width: 20px;
+    height: 10px;
+    border-left: 6px solid  #4e83d6;
+    border-bottom: 6px solid  #4e83d6;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+.success-txt {
+    float: left;
+    margin: 10px 0 0 3px;
+}
+
+.success-txt-top {
+    font-size: 19px;
+}
+
+.success-txt-bottom {
+    color: #f76120;
+    font-weight: bold;
+    font-size: 12px;
+}

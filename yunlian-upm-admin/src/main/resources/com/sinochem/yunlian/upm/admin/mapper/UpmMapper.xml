@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinochem.yunlian.upm.admin.mapper.UpmMapper">
+
+    <resultMap id="AclMenuForRole" type="com.sinochem.yunlian.upm.admin.domain.AclMenuForRole">
+        <id column="roleId" property="roleId" jdbcType="VARCHAR"/>
+        <result column="menuId" property="menuId" jdbcType="VARCHAR"/>
+        <result column="parentId" property="parentId" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="SMALLINT"/>
+    </resultMap>
+    <resultMap id="appResultMap" type="com.sinochem.yunlian.upm.admin.domain.AclApplication" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="NAME" property="name" jdbcType="VARCHAR" />
+        <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+        <result column="appkey" property="appkey" jdbcType="VARCHAR" />
+        <result column="secret" property="secret" jdbcType="VARCHAR" />
+        <result column="url" property="url" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="SMALLINT" />
+        <result column="image1" property="image1" jdbcType="VARCHAR" />
+        <result column="image2" property="image2" jdbcType="VARCHAR" />
+        <result column="use_upm" property="useUpm" jdbcType="SMALLINT" />
+    </resultMap>
+
+    <select id="selectResource" resultType="String">
+        select distinct m.url from acl_application a, acl_menu m, acl_role_permission_rlt rp,
+        acl_user_role_rlt ur where ur.user_id = #{userId} and a.appkey = #{appkey} and ur.role_id = rp.role_id
+        and ur.status = 0 and m.id = rp.permission_id and rp.status = 0 and a.id = m.application_id and m.status = 0 and m.url is not null and m.url <![CDATA[<>]]> '';
+    </select>
+
+    <select id="selectPermission" resultType="String">
+        select distinct m.permission
+        from acl_application a, acl_menu m, acl_role_permission_rlt rp,
+        acl_user_role_rlt ur where a.id = m.application_id and m.id = rp.permission_id and rp.role_id = ur.role_id and ur.user_id = #{userId} and a.appkey = #{appkey} and ur.status = 0 and
+         rp.status = 0 and m.status = 0 and m.permission is not null and m.permission <![CDATA[<>]]> '';
+    </select>
+
+    <select id="selectRole" resultType="AclRole">
+        select distinct r.* from acl_role r, acl_user_role_rlt ur, acl_application a where
+        ur.role_id = r.id and ur.rlt_type = 1 and r.application_id = a.id and ur.status = 0 and r.status = 0
+        and ur.user_id = #{userId} and a.appkey = #{appkey};
+    </select>
+
+    <select id="selectAppResource" resultType="String">
+        select distinct m.url
+        from acl_application a, acl_menu m, acl_role_permission_rlt rp
+        where m.id = rp.permission_id and rp.status = 0 and m.status = 0 and a.id = m.application_id and a.appkey = #{appkey}
+        and m.url is not null and m.url <![CDATA[<>]]> '';
+    </select>
+
+    <select id="selectMenu" resultType="MenuItem">
+        select distinct m.id,  m.parent_id, m.title, m.url, m.sort_num, m.show_type, m.create_time from
+        acl_application a, acl_menu m, acl_role_permission_rlt rp,
+        acl_user_role_rlt ur, acl_role r where ur.user_id = #{userId} and a.appkey = #{appkey} and ur.status = 0
+        and ur.role_id = rp.role_id and rp.status = 0 and m.id = rp.permission_id and
+        a.id = m.application_id and m.status = 0 and ur.role_id = r.id and r.status = 0 and m.is_show = 1
+        order by m.parent_id, m.sort_num;
+    </select>
+
+    <select id="selectAppMenu" resultType="MenuItem">
+        select distinct m.id,  m.parent_id, m.title, m.url, m.sort_num, m.show_type from
+        acl_application a, acl_menu m, acl_role_permission_rlt rp,
+        acl_role r where a.appkey = #{appkey}
+        and rp.status = 0 and m.id = rp.permission_id and rp.role_id = r.id and
+        a.id = m.application_id and m.status = 0 and r.status = 0 and m.is_show = 1
+        order by m.parent_id, m.sort_num;
+    </select>
+
+    <select id="selectAppManagers" resultType="com.sinochem.yunlian.upm.admin.bean.AppManagerBean">
+        select
+          u.id as id,
+          u.name as name,
+          u.login_name as login,
+          ric.application_id as appId
+        from acl_role_instance_context ric, acl_user_role_rlt ul, acl_user u
+        where ric.application_id = #{appId}
+          and ric.user_role_rlt_id=ul.id and ul.status=0
+          and ul.user_id=u.id and u.status=1;
+    </select>
+
+    <select id="selectApps4Manager" resultType="com.sinochem.yunlian.upm.admin.domain.AclApplication">
+        select distinct a.id, a.NAME, a.role_id, a.appkey, a.secret, a.url, a.status, a.image1, a.image2, a.use_upm
+        from acl_user_role_rlt ur, acl_role_instance_context ric, acl_application a
+        where ur.user_id=#{userId} and ur.id = ric.user_role_rlt_id and ric.application_id = a.id and ur.status = 0;
+    </select>
+
+    <select id="getMenuByRoleId" resultMap="AclMenuForRole" parameterType="map">
+        select
+        DISTINCT per.role_id as roleId, menu.id as menuId, menu.parent_id as parentId, menu.title as title
+        from
+        acl_menu menu
+        left join (SELECT * FROM acl_role_permission_rlt WHERE role_id = #{roleId}) per
+        on menu.id = per.permission_id
+        where menu.status = 0
+        and menu.application_id = #{appId} order by menu.title
+    </select>
+
+    <select id="selectAppsByUser" resultMap="appResultMap">
+      select distinct a.id, a.NAME, a.role_id, a.appkey, a.url, a.status, a.image1, a.image2, a.use_upm
+      from
+      (select distinct aa.id, aa.NAME, aa.role_id, aa.appkey, aa.url, aa.status, aa.image1, aa.image2, aa.use_upm
+      from acl_application as aa,acl_role as ar , acl_user_role_rlt as aur
+      where aa.id=ar.application_id and ar.id=aur.role_id and aa.status=0 and ar.status=0 and aur.status=0 and  aur.user_id=#{userId} and aa.use_upm = 1
+      union
+      select distinct aaa.id, aaa.NAME, aaa.role_id, aaa.appkey, aaa.url, aaa.status, aaa.image1, aaa.image2, aaa.use_upm
+      from acl_application as aaa where aaa.use_upm = 0 and aaa.status = 0) a
+    </select>
+</mapper>

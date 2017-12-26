@@ -1,0 +1,37 @@
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote,table, th, td,iframe,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video,span,p {
+  margin: 0;
+  padding: 0;
+}
+.clearfix{
+  zoom:1;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  line-height:0;
+  visibility: hidden;
+}
+li{
+  list-style:none;
+  vertical-align:center;
+}
+a{
+  cursor:pointer;
+  outline:none;
+}
+a:hover{
+  text-decoration: none;
+}
+a:focus{
+  text-decoration: none;
+}
+a:visited,a:active{
+  text-decoration: none;
+}
+img{
+  border:0;
+  border:none;
+}

@@ -1,0 +1,74 @@
+.controls .help-block {
+    margin-top: 10px;
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    #l-hd {
+        min-height: 52px;
+    }
+    
+    #l-hd .logo {
+        margin-top: 10px;
+    }
+    
+    #l-hd .user-info {
+        margin-top: 28px;
+    }
+    
+    #l-hd .navbar {
+        display: none;
+    }
+    
+    #l-hd .navbar-inner {
+        margin-right: 0;
+    }
+    
+    #l-bd {
+        min-height: 400px;
+    }
+    
+    #l-bd .container-fluid {
+        padding: 5px 25px;
+    }
+    
+    .dl-horizontal dt {
+        text-align: left;
+        width: 60px;
+    }
+    
+    .dl-horizontal dd {
+        margin-left: 60px;
+    }
+    
+    .form-horizontal dl,
+    .form-horizontal .control-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-horizontal .control-label {
+        float: none;
+        text-align: left;
+    }
+    
+    .form-horizontal .controls {
+        display: block;
+        margin-left: 0;
+    }
+    
+    .form-horizontal .controls input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        height: 32px;
+        line-height: 1.6;
+        padding: 3px 10px;
+    }
+    
+    .form-horizontal .controls .help-inline {
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:component-scan base-package="com.sinochem.yunlian"/>
+    <!-- Enables the Spring Task @Scheduled programming model -->
+    <task:executor id="executor" pool-size="5"/>
+    <task:scheduler id="scheduler" pool-size="10"/>
+    <task:annotation-driven executor="executor" scheduler="scheduler"/>
+
+    <bean id="upmAuthService" class="com.sinochem.yunlian.upm.tools.UpmAuthService">
+        <property name="clientId" value="upm"/>
+        <property name="secret" value="${upm.secret}"/>
+    </bean>
+    <!-- mtFilter -->
+    <bean id="sinochemYunlianFilter" class="com.sinochem.yunlian.upm.filter.spring.FilterFactoryBean">
+        <!--<property name="cacheManager" ref ="ehCacheManager" />-->
+        <property name="unauthorizedUrl" value="/unauthorized"/>
+        <property name="autoLoad" value="false" />
+        <property name="loginUrl" value="${sso_host}"/>
+        <property name="authUrl" value="${upm_host}" />
+        <property name="filterChainDefinitions">
+            <value>
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+            </value>
+        </property>
+    </bean>
+
+    <bean id="smsService" class="com.sinochem.yunlian.upm.admin.service.SMSService">
+        <property name="smsUrl" value="${smsUrl}"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,130 @@
+/*
+* 页面临时CSS放入地方
+* 请按照HTML结构将一些临时的CSS片段放入其中
+* 请合理利用作用域，继承关系, 以避免全局样式冲突等问题, 提高样式重用度
+* 请将注释写清除，如\/* page:xx, module:xx *\/
+*/
+
+/* 页面框架总体信息 */
+#l-hd .user-info { margin-top:33px; }
+#l-hd .user-info li.dropdown { display:inline-block; padding-right:10px; }
+
+/* 顶部信息 */
+#l-bd .bd-top  .logo-mis { float:left; width:178px; height:57px; }
+#l-bd .bd-top  .logo-mis img { width:178px; height:57px; }
+#l-bd .bd-top  .logo-mis a { background-color:transparent; }
+#l-bd .bd-top  .top-menu  { position:absolute; left:182px; top:27px; width:500px; font-size:14px; }
+#l-bd .bd-top  .top-menu li { float:left; height:30px; margin-right:5px; }
+#l-bd .bd-top  .top-menu li a { float:left; height:30px; line-height:30px;padding:0 15px; background-color:#718BD6;color:#fff; border-radius:5px 5px 0 0; }
+#l-bd .bd-top  .top-menu .current{ background-color:#83aa14; }
+#l-bd .bd-top  .user-info { position:absolute; top:15px; right:10px; text-align:right; font-size:12px; color:#555; width:400px;}
+#l-bd .bd-top  .user-info form select  { margin-left:5px; font-size:12px; color:#555;}
+#l-bd .bd-top  .user-info  a {color:#399; text-decoration:none; }
+#l-bd .bd-top  .user-info  a:hover { text-decoration:underline; background-color:transparent; }
+
+/*通用样式*/
+#l-bd .bd-top-box { padding: 10px; background-color:#f3f3f3 }
+.nav-tabs { padding-left: 30px; margin-top: 10px; }
+.user-column { border: 1px solid #C7C7C7; border-radius: 4px; box-shadow: 0 0 10px #DDDDDD; padding:0 5px; overflow:auto; height:754px; }
+.shadow-box { background-color:#f0f0f0; border:1px solid #bfbfbf; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); box-shadow:0 0 10px rgba(0, 0, 0, 0.1); border-radius:3px;padding:20px; margin-top:10px; }
+.role-save-btn { margin: 10px 5px; }
+#selectedRoles span { padding: 0 8px; }
+#selectedRoles i.cancelSelectedRole { color:#09d; cursor:pointer; }
+#selectedUsers span { padding: 0 8px; }
+#selectedUsers i.cancelSelectedUser { color:#09d; cursor:pointer; }
+td.row-trigger { word-break:break-all; }
+
+#sign-up .sign-box { margin: 0 auto; width:600px;}
+#sign-up h1 { font-size:20px; text-align:center; color:#777; }
+.password-box,
+.resetPassword,
+.resource-edit,
+.password-mod { width:600px; margin: 0 auto; }
+.permission-edit { width:1000px; margin: 0 auto; }
+
+.resetPassword .dl-horizontal dt,
+.password-mod .dl-horizontal dt,
+.resetPassword .dl-horizontal dd,
+.password-mod .dl-horizontal dd { font-weight: normal; }
+
+.resetPassword .dl-horizontal,
+.password-mod .dl-horizontal { margin:20px 0; }
+
+.home-page { width:1000px; margin: 0 auto; }
+.home-page .row-box { height:150px; margin:10px; }
+.home-page .row-box .btn { margin-bottom:4px; }
+.home-page .row-box h3 { font-size:2em; margin-bottom:10px; }
+
+#resource-list { min-height:100px; }
+#permission-box .permission-rs,
+.permission-edit .resource-rs { margin-left:10px;min-height:50px; min-width:100px; float:left; cursor:pointer; }
+
+
+/** role permission **/
+#role-permissions .role-list { float: left; width: 320px; height: 100%; border: 1px solid #C7C7C7; border-radius: 4px; box-shadow: 0 0 10px #DDDDDD; overflow: auto; background: #ddd; }
+#role-permissions .role-info { padding-top: 10px; }
+#role-permissions .role-info div { padding-left:20px;  }
+#role-permissions .role-permissions-info { margin-left: 330px; min-height: 500px; overflow: hidden; }
+#role-permissions .role-permissions-info .description { position: absolute; padding: 2px 5px; color: #fff; top: -0; left: 20px; background: #0088cc; }
+#role-permissions .role-search { background:#fff; padding: 10px; font-weight: bold; }
+#role-permissions .role-permissions { padding: 10px; }
+#role-permissions .role-permissions .current-permissions { float: left;  width: 350px; }
+#role-permissions .role-permissions .permissions-list { margin-left: 360px; border-left: 2px solid #ddd; padding-left: 20px; }
+#role-permissions .role-permissions .permissions-list input[type="checkbox"] { margin: 0px; margin-top: -6px; margin-right: 4px;  }
+
+#userconf-singleconf .role-search { background:#fff; padding: 10px; font-weight: bold; }
+#user-singleconf .description { position: absolute; padding: 2px 5px; color: #fff; top: -0; left: 20px; background: #0088cc; }
+#user-singleconf .role-save { background: none repeat scroll 0 0 #EEEEEE; border: 1px solid #FFFFFF; bottom: 25px; height: 36px; padding: 5px 10px; position: fixed; width: 100%; }
+
+#position-roleconf .description { position: absolute; padding: 2px 5px; color: #fff; top: -0; left: 20px; background: #0088cc; }
+#position-roleconf .role-save { background: none repeat scroll 0 0 #EEEEEE; border: 1px solid #FFFFFF; bottom: 25px; height: 36px; padding: 5px 10px; position: fixed; width: 100%; }
+#position-roleconf .position-role-del { margin-right: 15px; }
+.del-role { margin-top: 20px; }
+
+#org-position-role .position-role-list #org-position-role-list { margin:0; }
+#user-selectedList { margin:10px; padding:10px; box-shadow:0 0 10px #DDDDDD; }
+#deleteIcon { margin:10px; text-align:center; }
+#deleteIcon .btn { margin: 0 30px; }
+#user-newList #userlist { min-height:500px; }
+#user-newList .permission-list table td,
+#user-newList .role-list-box table td { word-break: break-word; }
+/** menu list **/
+#menu-operation-list #menu-list { margin:0 10px; }
+#menu-operation-list .menu-search { background:#fff; padding: 10px; font-weight: bold; }
+
+/** permission roles  **/
+#permission-roles-conf .permission-list { padding-left: 20px; }
+#permission-roles-conf .role-search { background:#fff; padding: 10px; font-weight: bold; }
+#permission-roles-conf .description { position: absolute; padding: 2px 5px; color: #fff; top: -0; left: 20px; background: #0088cc; }
+#permission-roles-conf .role-save { background: none repeat scroll 0 0 #EEEEEE; border: 1px solid #FFFFFF; bottom: 25px; height: 36px; padding: 5px 10px; position: fixed; width: 100%; }
+
+.widget-autocomplete-complete-list label {display: inline }
+#role-permissions-conf .rolelist { padding-left: 20px; }
+#role-permissions-conf .role-save { background: none repeat scroll 0 0 #EEEEEE; border: 1px solid #FFFFFF; bottom: 25px; height: 36px; padding: 5px 10px; position: fixed; width: 100%; }
+
+/*菜单列表*/
+#menu-operation-list .menulist #hide-all, #menu-operation-list .menulist #show-all { margin-top:10px; }
+#menu-operation-list .menulist #menu-list li { line-height:26px }
+#menu-operation-list .menulist .subMenus.shadow-box { padding:10px 10px }
+#menu-list .menu { padding:3px 8px; color: #0f91cf; border: 1px dashed #ccc; text-decoration: none; cursor:pointer; }
+#menu-list .menu:hover { text-decoration: none; background:#0f91cf; color:#fff; cursor:pointer; }
+#menu-list .menu.current { background-color:#45abab; padding:5px 8px; font-size:14px; color:#fff; border:none; }
+#menu-list .submenu { padding:0 3px; color: #0f91cf; text-decoration: none; cursor:pointer; }
+#menu-list .submenu:hover { text-decoration: none; background:#0f91cf; color:#fff; cursor:pointer; }
+#menu-list .submenu.current { background-color:#45abab; color:#fff; border-radius:2px; padding:2px; font-size:14px; color:#fff; }
+
+#user-singleconf .single-userconf,
+#user-singleconf .role-list {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+#user-singleconf .single-userconf {
+    width: 32%;
+}
+
+#user-singleconf .role-list {
+    width: 65%;
+    margin-left: 3%;
+}

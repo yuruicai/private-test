@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# 2014-05-22 v1.0.2
+CACHE:
+    /static/js/zepto.min.js
+    /static/css/styleApp.css
+    /static/css/style.css
+    /static/images/logo.png
+    /login
+    /login/?f=ios&redirect_uri=mtxm://login&tenant=fengjr.com
+    /login/?f=android&redirect_uri=mtxm://login&tenant=fengjr.com
+NETWORK:
+    *
+FALLBACK
+    /login /login
+    /login/?f=ios&redirect_uri=mtxm://login&tenant=fengjr.com /login/?f=ios&redirect_uri=mtxm://login&tenant=fengjr.com
+    /login/?f=android&redirect_uri=mtxm://login&tenant=fengjr.com /login/?f=android&redirect_uri=mtxm://login&tenant=fengjr.com

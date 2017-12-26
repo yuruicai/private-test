@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+    <excludes>
+        <pattern>/*.ajax</pattern>
+        <pattern>/*.jsp</pattern>
+        <pattern>/home</pattern>
+    </excludes>
+    <decorator name="common" page="common.ftl">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>

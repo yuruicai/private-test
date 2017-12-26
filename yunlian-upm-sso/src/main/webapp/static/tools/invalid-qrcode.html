@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="zh-hans">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+        <link rel="stylesheet" href="../css/normalize.css">
+        <style>
+            body {
+                background: black;
+                text-align: center;
+            }
+            #invalid-qrcode {
+                margin-top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <svg id="invalid-qrcode" width="120" height="120"></svg>
+        <script src="../node_modules/snapsvg/dist/snap.svg.js"></script>
+        <script>
+            var s = Snap('#invalid-qrcode');
+            var l1 = s.paper.line(70, 70, 115, 115);
+            l2 = s.paper.line(115, 70, 70, 115);
+            [l1, l2].forEach(function(l) {
+                l.attr({
+                    stroke: '#eb484d',
+                    strokeWidth: 12
+                });
+            });
+            var r1 = s.paper.rect(0, 0, 50, 50);
+            var r2 = s.paper.rect(0, 70, 50, 120);
+            var r3 = s.paper.rect(70, 0, 120, 50);
+            [r1, r2, r3].forEach(function(r) {
+                r.attr({
+                    fill: '#bcc2c4'
+                });
+            })
+            var ir1 = s.paper.rect(10, 10, 30, 30);
+            var ir2 = s.paper.rect(80, 10, 30, 30);
+            var ir3 = s.paper.rect(10, 80, 30, 30);
+            [ir1, ir2, ir3].forEach(function(ir) {
+                ir.attr({
+                    fill: '#bcc2c4',
+                    stroke: 'black',
+                    strokeWidth: 6
+                });
+            });
+            console.log(s.toString())
+        </script>
+    </body> </html>

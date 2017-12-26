@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="zh-hans">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <style>
+            body {
+                background: #2e3132;
+                text-align: center;
+                padding-top: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <svg id="icon-confirm" width="190" height="114"></svg>
+        <script src="/static/node_modules/snapsvg/dist/snap.svg.js"></script>
+        <script>
+            var s = Snap('#icon-confirm');
+            var rc = s.paper.rect(10, 0, 160, 90);
+            rc.attr({
+                fill: '#181b1e'
+            });
+            var rcb = s.paper.rect(10, 90, 160, 9);
+            rcb.attr({
+                fill: '#565b5d'
+            });
+            var rs = s.paper.rect(80, 99, 20, 9);
+            rs.attr({
+                fill: '#464b4c'
+            });
+            var rsb = s.paper.rect(60, 108, 60, 5);
+            rsb.attr({
+                fill: '#565b5d'
+            });
+            var rp = s.paper.rect(140, 43, 40, 70, 3, 3);
+            rp.attr({
+                fill: '#737a7d'
+            });
+            var rpi = s.paper.rect(145, 50, 30, 50);
+            rpi.attr({
+                fill: '#181b1e'
+            });
+            var rpc = s.paper.circle(160, 106.5, 4);
+            rpc.attr({
+                fill: '#737a7d',
+                stroke: '#181b1e'
+            });
+            console.log(s.toString());
+        </script>
+    </body> </html>

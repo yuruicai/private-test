@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinochem.yunlian.upm.admin.mapper.AclUserRoleSourceMapper" >
+  <resultMap id="BaseResultMap" type="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSource" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="acl_user_role_rltid" property="aclUserRoleRltid" jdbcType="VARCHAR" />
+    <result column="source_type" property="sourceType" jdbcType="SMALLINT" />
+    <result column="source_rlt_id" property="sourceRltId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, acl_user_role_rltid, source_type, source_rlt_id, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSourceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from acl_user_role_source
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from acl_user_role_source
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from acl_user_role_source
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSourceExample" >
+    delete from acl_user_role_source
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSource" >
+    insert into acl_user_role_source (id, acl_user_role_rltid, source_type, 
+      source_rlt_id, status)
+    values (#{id,jdbcType=VARCHAR}, #{aclUserRoleRltid,jdbcType=VARCHAR}, #{sourceType,jdbcType=SMALLINT}, 
+      #{sourceRltId,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSource" >
+    insert into acl_user_role_source
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="aclUserRoleRltid != null" >
+        acl_user_role_rltid,
+      </if>
+      <if test="sourceType != null" >
+        source_type,
+      </if>
+      <if test="sourceRltId != null" >
+        source_rlt_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="aclUserRoleRltid != null" >
+        #{aclUserRoleRltid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null" >
+        #{sourceType,jdbcType=SMALLINT},
+      </if>
+      <if test="sourceRltId != null" >
+        #{sourceRltId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSourceExample" resultType="java.lang.Integer" >
+    select count(*) from acl_user_role_source
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update acl_user_role_source
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aclUserRoleRltid != null" >
+        acl_user_role_rltid = #{record.aclUserRoleRltid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceType != null" >
+        source_type = #{record.sourceType,jdbcType=SMALLINT},
+      </if>
+      <if test="record.sourceRltId != null" >
+        source_rlt_id = #{record.sourceRltId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update acl_user_role_source
+    set id = #{record.id,jdbcType=VARCHAR},
+      acl_user_role_rltid = #{record.aclUserRoleRltid,jdbcType=VARCHAR},
+      source_type = #{record.sourceType,jdbcType=SMALLINT},
+      source_rlt_id = #{record.sourceRltId,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=SMALLINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSource" >
+    update acl_user_role_source
+    <set >
+      <if test="aclUserRoleRltid != null" >
+        acl_user_role_rltid = #{aclUserRoleRltid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null" >
+        source_type = #{sourceType,jdbcType=SMALLINT},
+      </if>
+      <if test="sourceRltId != null" >
+        source_rlt_id = #{sourceRltId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSource" >
+    update acl_user_role_source
+    set acl_user_role_rltid = #{aclUserRoleRltid,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=SMALLINT},
+      source_rlt_id = #{sourceRltId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserRoleSourceExample" id="selectByExampleWithRowbounds" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from acl_user_role_source
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

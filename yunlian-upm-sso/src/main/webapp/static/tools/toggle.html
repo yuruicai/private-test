@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="zh-hans">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <style>
+            body {
+                background: #2e3132;
+                text-align: center;
+                padding-top: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <svg id="icon-toggle-qrcode" class="icon-toggle" width="40" height="40" style="background-color:white;"></svg>
+        <svg id="icon-toggle-form" class="icon-toggle" width="40" height="40" style="background-color:white;"></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <polygon points="100,10 250,150 200,110"
+                     style="fill:lime;stroke:purple;stroke-width:1" />
+                     </svg>
+        <script src="/static/node_modules/snapsvg/dist/snap.svg.js"></script>
+        <script>
+
+            var qrcode = Snap('#icon-toggle-qrcode');
+            var polygon = qrcode.paper.polygon(0, 5, 0, 0, 40, 0, 40, 40, 35, 40, 0, 5);
+            polygon.attr({
+                fill: '#f2f2f2'
+            });
+            var cscreen = qrcode.paper.rect(13, 3, 24, 15);
+            cscreen.attr({
+                fill: '#808080'
+            });
+            var cscreenbottom = qrcode.paper.rect(13, 18, 24, 2);
+            cscreenbottom.attr({
+                fill: '#696969'
+            });
+            var cfoothold = qrcode.paper.rect(22, 20, 6, 1);
+            cfoothold.attr({
+                fill: '#737373'
+            });
+            var cfootholdbottom = qrcode.paper.rect(19, 21, 12, 2);
+            cfootholdbottom.attr({
+                fill: '#696969'
+            });
+            console.log(qrcode.toString());
+
+            var form = Snap('#icon-toggle-form');
+            var formpolygon = form.paper.polygon(0, 5, 0, 0, 40, 0, 40, 40, 35, 40, 0, 5);
+            formpolygon.attr({
+                fill: '#f2f2f2'
+            });
+            var position = form.paper.rect(26, 4, 10, 10);
+            position.attr({
+                fill: 'transparent',
+                stroke: '#404040',
+                strokeWidth: '2px'
+            });
+            var positioninner = form.paper.rect(29, 7, 4, 4);
+            positioninner.attr({
+                fill: '#404040'
+            });
+
+            var pointsposition = [
+            '21, 6, 3, 5',
+            '17, 8, 2, 2',
+            '11, 6, 4, 3',
+            '19, 12, 3, 3',
+
+            '28, 17, 5, 3',
+            '34, 20, 3, 3',
+            '30, 23, 2, 2',
+            '35, 26, 2, 2',
+            ];
+
+            var i;
+            var point;
+            for (i = 0; i < pointsposition.length; i++) {
+                point = form.paper.rect.apply( form.paper, pointsposition[i].split(',').map(function(v) {
+                    return v.trim();
+                }));
+            }
+            console.log(form.toString());
+        </script>
+    </body>
+</html>
