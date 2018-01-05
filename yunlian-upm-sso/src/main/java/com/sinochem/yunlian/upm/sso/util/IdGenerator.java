@@ -1,5 +1,6 @@
 package com.sinochem.yunlian.upm.sso.util;
 
+import com.sinochem.yunlian.upm.sso.cache.RedisUtil;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisConnectionException;
@@ -18,14 +19,10 @@ import java.util.List;
  * ID的数据结构算法参考自https://github.com/hengyunabc/redis-id-generator
  */
 public class IdGenerator {
-	private List<JedisPool> jedisPools;
-	
-	public List<JedisPool> getJedisPools() {
-		return jedisPools;
-	}
-	public void setJedisPools(List<JedisPool> jedisPools) {
-		this.jedisPools = jedisPools;
-	}
+
+	private RedisUtil redisUtil;
+
+
 	
 	/**
 	 * 获取秒，毫秒，自增数
@@ -35,12 +32,9 @@ public class IdGenerator {
 	 */
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	private List<Long> generatIdMeta(int jedisPoolIdx,String miliSecondKey){
-		if(jedisPools==null||jedisPools.size()==0){
-			return new ArrayList<Long>();
-		}
-		JedisPool jedisPool=this.jedisPools.get(jedisPoolIdx);
+
 		int startStep=jedisPoolIdx;//起始步长
-		int step=jedisPools.size();//总步长
+		int step=20;//总步长
 		String luaScript=""
 				+"\r\nlocal step = "+step+";"//步长
 				+"\r\nlocal key = '"+miliSecondKey+"';"
@@ -55,16 +49,16 @@ public class IdGenerator {
 				+"\r\nreturn {tonumber(now[1]), tonumber(now[2]), count + "+startStep+"}";
 		Jedis jedis = null;
 		try {
-			jedis = jedisPool.getResource();
+			jedis = redisUtil.getJedis();
 			return (List<Long>)jedis.eval(luaScript);
 		} catch (JedisConnectionException e) {
 			if(jedis!=null){
-				jedisPool.returnBrokenResource(jedis);
+				redisUtil.returnBrokenResource(jedis);
 			}
 			throw new RuntimeException(e.getMessage(), e);
 		} finally {
 			if(jedis!=null){
-				jedisPool.returnResource(jedis);
+				redisUtil.returnResource(jedis);
 			}
 		}
 	}
@@ -76,10 +70,6 @@ public class IdGenerator {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public long generatIdByIncr(String key){
 		key="_incr_"+key;
-		if(jedisPools==null||jedisPools.size()==0){
-			return -1;
-		}
-		JedisPool jedisPool=this.jedisPools.get(0);
 		int maxMantissa=4194304;//2的22次方
 		String luaScript=""
 				+"\r\nlocal count = tonumber(redis.call('INCR', '"+key+"'));"
@@ -90,45 +80,41 @@ public class IdGenerator {
 				+"\r\nreturn {tonumber(now[1]), tonumber(now[2]), count}";
 		Jedis jedis = null;
 		try {
-			jedis = jedisPool.getResource();
+			jedis = redisUtil.getJedis();
 			List<Long> rs= (List<Long>)jedis.eval(luaScript);
 			long second=rs.get(0),microSecond=rs.get(1),seq=rs.get(2);
 			return buildIdBit(second, microSecond, seq);
 		} catch (JedisConnectionException e) {
 			if(jedis!=null){
-				jedisPool.returnBrokenResource(jedis);
+				redisUtil.returnBrokenResource(jedis);
 			}
 			throw new RuntimeException(e.getMessage(), e);
 		} finally {
 			if(jedis!=null){
-				jedisPool.returnResource(jedis);
+				redisUtil.returnResource(jedis);
 			}
 		}
 	}	
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public long generatIdByIncr(String key,int expire){
 		key="_incr_"+key;
-		if(jedisPools==null||jedisPools.size()==0){
-			return -1;
-		}
-		JedisPool jedisPool=this.jedisPools.get(0);
 		String luaScript=""
 				+"\r\nlocal count = tonumber(redis.call('INCR', '"+key+"'));"
 				+"\r\nredis.call('EXPIRE', '"+key+"', "+expire+");"				
 				+"\r\nreturn count";
 		Jedis jedis = null;
 		try {
-			jedis = jedisPool.getResource();
+			jedis = redisUtil.getJedis();
 			Long ret= (Long)jedis.eval(luaScript);
 			return ret;
 		} catch (JedisConnectionException e) {
 			if(jedis!=null){
-				jedisPool.returnBrokenResource(jedis);
+				redisUtil.returnBrokenResource(jedis);
 			}
 			throw new RuntimeException(e.getMessage(), e);
 		} finally {
 			if(jedis!=null){
-				jedisPool.returnResource(jedis);
+				redisUtil.returnResource(jedis);
 			}
 		}
 	}		
@@ -139,7 +125,7 @@ public class IdGenerator {
 	 * @return
 	 */
 	public long generatShardId(String shardName,long shardId){
-		int startStep=(int)shardId%jedisPools.size();
+		int startStep=(int)shardId%20;
 		shardId=shardId%4096;
 		List<Long> meta=generatIdMeta(startStep, "_gsid_"+shardName+"_"+shardId);
 		return buildId64Bit(meta.get(0), meta.get(1), meta.get(2), shardId);
@@ -208,19 +194,13 @@ public class IdGenerator {
 		String seriaNumber = dateStr + String.format("%05d", seriaNo); 
 		return seriaNumber;
 	}
-	
-	public static void main(String[] args) {
-		JedisPool jp=new JedisPool("127.0.0.1",6379);
-		IdGenerator ig=new IdGenerator();
-		ig.setJedisPools(new ArrayList());
-		ig.getJedisPools().add(jp);
-		Long s=ig.generatIdByIncr("loginToken");
-		Long ss = ig.generatShardId("test",1);
-		Long sss = ig.generatShardId("test",1);
-		Long ssss = ig.generatShardId("test",1);
-	    System.out.println(s);
-		System.out.println(ss);
-		System.out.println(sss);
-		System.out.println(ssss);
+
+	public RedisUtil getRedisUtil() {
+		return redisUtil;
 	}
+
+	public void setRedisUtil(RedisUtil redisUtil) {
+		this.redisUtil = redisUtil;
+	}
+
 }

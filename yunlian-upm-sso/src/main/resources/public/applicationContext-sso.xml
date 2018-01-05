@@ -36,6 +36,7 @@
         <property name="maxWaitMillis" value="${redis.pool.maxWaitMillis}"/>
         <property name="serverHosts" value="${redis.server.host}"/>
         <property name="masterName" value="${redis.masterName}"/>
+        <property name="password" value="${redis.pool.password}"/>
     </bean>
 
     <bean id="smsService" class="com.sinochem.yunlian.upm.sso.service.SMSService">
@@ -43,43 +44,8 @@
     </bean>
 
     <bean id="idGenerator" class="com.sinochem.yunlian.upm.sso.util.IdGenerator">
-        <property name="jedisPools">
-            <list>
-                <ref bean="jedisPool1"></ref>
-            </list>
+        <property name="redisUtil">
+           <ref bean="redisUtil"/>
         </property>
-    </bean>
-
-    <bean id="jedisPool1" class="redis.clients.jedis.JedisPool">
-        <constructor-arg index="0" ref ="jedisConfig"/>
-        <constructor-arg index="1" value="127.0.0.1"/>
-        <constructor-arg index="2" value="6379" type="int" />
-        <!--<constructor-arg index="3" value="${redis.main.timeout}" type="int" />
-        <constructor-arg index="4" value="${redis.main.passwd}"/>-->
-    </bean>
-
-    <bean id="jedisConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <!--  &lt;!&ndash; 最小空闲连接数, 默认0 &ndash;&gt;
-          <property name="minIdle" value="${jedis.minIdle}" />
-          &lt;!&ndash; 最大空闲连接数, 默认8个 &ndash;&gt;
-          <property name="maxIdle" value="${jedis.maxIdle}" />
-          &lt;!&ndash; 最大连接数, 默认8个&ndash;&gt;
-          <property name="maxTotal" value="${jedis.maxTotal}" />
-          &lt;!&ndash; 在获取连接的时候检查有效性, 默认false &ndash;&gt;
-          <property name="testOnBorrow" value="${jedis.testOnBorrow}" />
-          &lt;!&ndash; 在返回连接的时候检查有效性, 默认false &ndash;&gt;
-          <property name="testOnReturn" value="${jedis.testOnReturn}" />
-          &lt;!&ndash; 在空闲时检查有效性, 默认false  &ndash;&gt;
-          <property name="testWhileIdle" value="${jedis.testWhileIdle}" />
-          &lt;!&ndash; 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true &ndash;&gt;
-          <property name="blockWhenExhausted" value="${jedis.blockWhenExhausted}" />
-          &lt;!&ndash; 获取连接时的最大等待毫秒数(如果设置为阻塞时BlockWhenExhausted),如果超时就抛异常, 小于零:阻塞不确定的时间,  默认-1 &ndash;&gt;
-          <property name="maxWaitMillis" value="${jedis.maxWaitMillis}" />
-          &lt;!&ndash; 逐出连接的最小空闲时间 默认1800000毫秒(30分钟) &ndash;&gt;
-          <property name="minEvictableIdleTimeMillis" value="${jedis.minEvictableIdleTimeMillis}" />
-          &lt;!&ndash; 逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1 &ndash;&gt;
-          <property name="timeBetweenEvictionRunsMillis" value="${jedis.timeBetweenEvictionRunsMillis}" />
-          &lt;!&ndash; 对象空闲多久后逐出, 当空闲时间>该值 且 空闲连接>最大空闲数 时直接逐出,不再根据MinEvictableIdleTimeMillis判断  (默认逐出策略) &ndash;&gt;
-          <property name="softMinEvictableIdleTimeMillis" value="${jedis.softMinEvictableIdleTimeMillis}" />-->
     </bean>
 </beans>

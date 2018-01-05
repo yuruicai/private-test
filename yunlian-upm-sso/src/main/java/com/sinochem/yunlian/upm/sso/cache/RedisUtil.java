@@ -3,7 +3,10 @@ package com.sinochem.yunlian.upm.sso.cache;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.*;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.JedisSentinelPool;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
@@ -23,38 +26,22 @@ public class RedisUtil {
 
     private String masterName;
 
-//    private static JedisSentinelPool sentinelPool;
+    private String password;
 
-    private static JedisPool sentinelPool;
+    private static JedisSentinelPool sentinelPool;
+
+
 
 
     @PostConstruct
     public void init() {
         try {
-//            sentinelPool = initPool();
-            initJedisPool();
-            //logger.info("----------------init pool end.-------------");
+            sentinelPool = initPool();
+            logger.info("----------------init pool end.-------------");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    private void initJedisPool(){
-
-        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-        jedisPoolConfig.setMaxIdle(getMaxIdle());
-        jedisPoolConfig.setMaxTotal(getMaxTotal());
-        jedisPoolConfig.setMaxWaitMillis(getMaxWaitMillis());
-
-        if(sentinelPool == null){
-            String ipStr = "127.0.0.1";
-            int portStr = 6379;
-            sentinelPool = new JedisPool(jedisPoolConfig, ipStr,portStr);
-
-        }
-
-    }
-
 
     private JedisSentinelPool initPool() {
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
@@ -72,7 +59,7 @@ public class RedisUtil {
         }
 
         logger.info("init pool sentinels={}", sentinels);
-        return new JedisSentinelPool(getMasterName(), sentinels, jedisPoolConfig);
+        return new JedisSentinelPool(getMasterName(), sentinels, jedisPoolConfig,5000,password);
     }
 
     /**
@@ -81,10 +68,10 @@ public class RedisUtil {
      * @return
      */
     public synchronized Jedis getJedis() {
-        //logger.info("------ get jedis begin -------");
+        logger.info("------ get jedis begin -------");
         try {
             if (sentinelPool != null) {
-                //logger.info("------ sentinelPool is not null,return instance. -------");
+                logger.info("------ sentinelPool is not null,return instance. -------");
                 return sentinelPool.getResource();
             } else {
                 return null;
@@ -105,6 +92,14 @@ public class RedisUtil {
             sentinelPool.returnResource(jedis);
         }
     }
+
+    public void returnBrokenResource(Jedis resource) {
+        if (resource != null) {
+            sentinelPool.returnBrokenResource(resource);
+        }
+
+    }
+
 
 
     public void destroy() {
@@ -224,5 +219,13 @@ public class RedisUtil {
 
     public void setMasterName(String masterName) {
         this.masterName = masterName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

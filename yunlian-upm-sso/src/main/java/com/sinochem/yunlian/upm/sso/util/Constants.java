@@ -31,7 +31,7 @@ public class Constants {
 
     public static final Integer SESSION_TIMEOUT = 3600*24*7;
     public static final Integer PC_SESSION_TIMEOUT = 3600*24*7;
-    public static final Integer APP_SESSION_TIMEOUT = 3600*2;
+    public static final Integer APP_SESSION_TIMEOUT = 3600*24*7;
     public static final Integer TICKET_TIMEOUT = 300;
     public static final Integer SESSION_COOKIE_TIMEOUT = SESSION_TIMEOUT * 2;
 

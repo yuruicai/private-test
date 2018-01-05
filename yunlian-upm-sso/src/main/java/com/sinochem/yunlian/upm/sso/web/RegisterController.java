@@ -60,18 +60,17 @@ class RegisterController {
             if (StringUtil.isBlank(username) || StringUtil.isBlank(password)) {
                 return AjaxResultUtil.resultAjax("用户名或密码不能为空",11104,data);
             }
-            // TODO: 2017/12/8 取消注册手机验证 
-            /*if (StringUtil.isBlank(ssmCaptcha) ) {
+            if (StringUtil.isBlank(ssmCaptcha) ) {
                 return AjaxResultUtil.resultAjax("短信验证码不能为空",11104,data);
-            }*/
+            }
             if (StringUtil.isBlank(rsaEncryptKey) ) {
-                return AjaxResultUtil.resultAjax("缺少解密参数：rsaEncryptKey",11104,data);
+                return AjaxResultUtil.resultAjax("缺少解密参数",11104,data);
             }
             //IP限制判断
             if (timesLimitService.isIpLoginTimesOver()) {
                 TraceContext.put("status", Status.fail);
                 String limitIp = (String) TraceContext.get(Constants.CONTEXT_IP_KEY);
-                return AjaxResultUtil.resultAjax("ip访问受限,Ip地址:"+limitIp+",今天累计错误操作已超过100次了,请明天再试!",12001,data);
+                //return AjaxResultUtil.resultAjax("ip访问受限,Ip地址:"+limitIp+",今天累计错误操作已超过100次了,请明天再试!",12001,data);
             }
             //手机号是否已注册
             boolean isRepeat = registerService.existMobile(username);
@@ -79,21 +78,19 @@ class RegisterController {
                 return AjaxResultUtil.resultAjax("该手机号已被注册", 11302, data);
             }
             //短信验证码
-            // TODO: 2017/12/8 取消注册手机验证 
-            /*String ssoMobile =
+            String ssoMobile =
                     ssoCacheFacade.getObject("smsMobile" + ssmCaptchaId, String.class);
-            if (StringUtil.isBlank(ssoMobile) && !username.equals(ssoMobile)) {
-                return AjaxResultUtil.resultAjax("注册的手机号和发送验证码的手机号不一致", 11208, data);
+            if (ssoMobile!=null && StringUtil.isNotBlank(ssoMobile) && !username.equals(ssoMobile)) {
+                return AjaxResultUtil.resultAjax("请按照正确的流程输入验证码", 11208, data);
             }
             boolean isCorrectSSM =
                     ssoCaptchaService.validateResponseForID(ssmCaptchaId, ssmCaptcha.toLowerCase());
             if (!isCorrectSSM) {
-                return AjaxResultUtil.resultAjax("无效的短信验证码", 11206, data);
-            }*/
+                return AjaxResultUtil.resultAjax("对不起，请输入正确的验证码", 11206, data);
+            }
             //解密,加偏移向量
             String rsaRandomKey = RSAUtils.decryptByPrivateKey(rsaEncryptKey);
             password = AESUtils.decryptData(rsaRandomKey, password);
-            // TODO: 2017/12/11 校验密码 
             String msg = userService.checkerPasswordLevel(username, password);
             if(StringUtil.isNotBlank(msg)){
                 return AjaxResultUtil.resultAjax(msg,11304,data);
@@ -103,7 +100,6 @@ class RegisterController {
             if (StringUtil.isNotBlank(registerMessage)) {
                 return AjaxResultUtil.resultAjax("注册失败", 11206, data);
             }
-            // TODO: 2017/12/6 修改为注册后免登录
             //生成token,考虑加密
             String token = SSOUtil.generateSid();
             LOG.info("generate new token " + token);

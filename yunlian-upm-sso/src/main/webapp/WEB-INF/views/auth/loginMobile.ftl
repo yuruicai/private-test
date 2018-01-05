@@ -61,7 +61,7 @@
                     <div class="form-field">
                         <input type="text" class="input-captcha" name="captcha" value="" autocomplete="off" placeholder="验证码"/>
                         <img id="imageCapto" class="img-captcha" alt="验证码" src="/generatImage"
-                             onclick="(function(img) {var src = img.src.split('?')[0];img.src = src+'?p='+new Date().getTime();})(this);">
+                             onclick="(function(img) {var src = img.src.split('?')[0];img.src = src+'?captchaId='+new Date().getTime();})(this);">
                     </div>
                 </#if>
                 <div>

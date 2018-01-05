@@ -64,9 +64,9 @@ public class SsoController {
                 return AjaxResultUtil.resultAjax("用户名或密码不能为空",11104,data);
             }
             if (StringUtil.isBlank(rsaEncryptKey) ) {
-                return AjaxResultUtil.resultAjax("缺少解密参数：rsaEncryptKey",11104,data);
+                return AjaxResultUtil.resultAjax("缺少解密参数",11104,data);
             }
-            // TODO: 2017/12/8  校验用户是否已登录,考虑是否踢出已登录用户,
+            //校验用户是否已登录,考虑是否踢出已登录用户,
             // app端和pc端可以同时登录,需要注意不能以用户名来获取用户信息,要以token来获取用户信息
             /*if(sessionService.getUserSession(username)!=null){
                 return AjaxResultUtil.resultAjax("用户已登录",11104,data);
@@ -75,21 +75,19 @@ public class SsoController {
             String rsaRandomKey = RSAUtils.decryptByPrivateKey(rsaEncryptKey);
             password = AESUtils.decryptData(rsaRandomKey, password);
             //IP访问受限
-            // TODO: 2017/12/19 测试注释 
-            /*if(timesLimitService.isIpLoginTimesOver()){
+            if(timesLimitService.isIpLoginTimesOver()){
                TraceContext.put("status", Status.fail);
                String limitIp = (String) TraceContext.get(Constants.CONTEXT_IP_KEY);
-               return AjaxResultUtil.resultAjax("ip访问受限,Ip地址:"+limitIp+",今天累计错误操作已超过100次了,请明天再试!",12001,data);
-            }*/
+               //return AjaxResultUtil.resultAjax("ip访问受限,Ip地址:"+limitIp+",今天累计错误操作已超过100次了,请明天再试!",12001,data);
+            }
             Boolean isMobile = (Boolean) TraceContext.get(Constants.CONTEXT_ISMOBILE_KEY);
             // freeze账号状态判断
-            // TODO: 2017/11/28 测试注释
-            /*boolean freeze = timesLimitService.executeIsFreeze(username);
+            boolean freeze = timesLimitService.executeIsFreeze(username);
             TraceContext.put("freeze", freeze);
             if (freeze) {
                 TraceContext.put("status", Status.fail);
-                return AjaxResultUtil.resultAjax("访问受限,由于重试过多，账号已临时冻结，请一小时后再试或者找回密码",12007,data);
-            }*/
+                //return AjaxResultUtil.resultAjax("访问受限,由于重试过多，账号已临时冻结，请一小时后再试或者找回密码",12007,data);
+            }
             //判断用户是否存在
             AclUser aclUser = userService.getByLoginName(username);
             if(aclUser == null){
@@ -125,7 +123,6 @@ public class SsoController {
                 TraceContext.put("status", Status.fail);
                 int freezeLimit = timesLimitService.executeFreezeLimit(username);
                 TraceContext.put("freezeLimit", freezeLimit);
-                // TODO: 2017/11/28 测试注释
                 /*if (freezeLimit != -1) {
                    return AjaxResultUtil.resultAjax("密码错误，请重新输入，多次重试将临时冻结账号，剩余重试次数" + freezeLimit,11301,data);
                 } else {
@@ -133,7 +130,7 @@ public class SsoController {
                 }*/
                 return AjaxResultUtil.resultAjax("密码错误，请重新输入",11301,data);
             }
-            // TODO: 2017/12/7 区分移动端和pc端的token
+            //  区分移动端和pc端的token
             String ua = request.getHeader("User-Agent");
             boolean isApp = CheckUaUtil.isMobileDevice(ua);
             UserForSeesion user = null;
@@ -168,7 +165,7 @@ public class SsoController {
                     ApiUtil.parse(request.getReader(), new TypeReference<Map<String,String>>() {});
             String token = params.get("token");
             if(StringUtil.isBlank(token) ){
-                return AjaxResultUtil.resultAjax("token不能为空",11104,data);
+                return AjaxResultUtil.resultAjax("认证token不能为空",11104,data);
             }
             UserForSeesion user = null;
             Session session = sessionService.getSession(token);
@@ -198,15 +195,16 @@ public class SsoController {
                     ApiUtil.parse(request.getReader(), new TypeReference<Map<String,String>>() {});
             String token = params.get("token");
             if(StringUtil.isBlank(token)){
-                return AjaxResultUtil.resultAjax("缺少token",11105,data);
+                return AjaxResultUtil.resultAjax("认证token不能为空",11105,data);
             }
             UserForSeesion user = null;
             String ua = request.getHeader("User-Agent");
             boolean isApp = CheckUaUtil.isMobileDevice(ua);
-            if(isApp){
+            //先从pcSession key中获取数据
+            user = sessionService.getPcSessionUserAndRefresh(token);
+            //pc中获取不到,再从app中获取
+            if(user==null || user.toLongId()==null){
                 user = sessionService.getAppSessionUserAndRefresh(token);
-            }else{
-                user = sessionService.getPcSessionUserAndRefresh(token);
             }
             if(user==null || user.toLongId()==null){
                 return AjaxResultUtil.resultAjax("token:"+token+",已失效,请登录",10002,data);

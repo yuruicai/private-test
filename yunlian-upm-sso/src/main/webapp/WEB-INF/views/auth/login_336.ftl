@@ -62,7 +62,7 @@
 
                                     <div class="captcha-field">
                                         <img id="imageCaptcha" alt="点击更新验证码" 
-                                        title="点击更新验证码" src="/generatImage">
+                                        title="点击更新验证码" src="/api/generatImage">
                                     </div>
                                 </div>
                                 </#if>

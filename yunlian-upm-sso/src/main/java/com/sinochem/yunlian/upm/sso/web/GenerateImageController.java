@@ -61,6 +61,8 @@ public class GenerateImageController {
             }
             Captcha captcha = ssoCaptchaService.generateAndStoreCaptcha(captchaId);
             CaptchaServletUtil.writeImage(response, captcha.getImage());
+            String captchaString = ssoCaptchaService.getCaptchaString(captchaId);
+            LOG.info("测试redis："+captchaString);
             return AjaxResultUtil.resultSuccessAjax(data);
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,7 +6,7 @@ exports.init = function(config) {
     function renderImg() {
         if(img){
             var src = img.src.split('?')[0];
-            img.src = src+'?p=' + new Date().getTime();
+            img.src = src+'?captchaId=' + new Date().getTime();
         }
     }
     renderImg();

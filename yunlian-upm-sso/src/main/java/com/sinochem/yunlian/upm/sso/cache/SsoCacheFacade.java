@@ -147,7 +147,7 @@ public class SsoCacheFacade {
         Jedis jedis = null;
         try {
             jedis = redisUtil.getJedis();
-            String [] keyArr = new String[keys.size()];
+            String[] keyArr = new String[keys.size()];
             if(jedis != null){
                 jedis.del(keys.toArray(keyArr));
             }

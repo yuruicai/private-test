@@ -60,10 +60,10 @@ public class PasswordController {
                 return AjaxResultUtil.resultAjax("手机号或密码不能为空",11104,data);
             }
             if (StringUtil.isBlank(rsaEncryptKey) ) {
-                return AjaxResultUtil.resultAjax("缺少解密参数：rsaEncryptKey",11104,data);
+                return AjaxResultUtil.resultAjax("缺少解密参数",11104,data);
             }
             if (StringUtil.isBlank(ssmCaptcha) ) {
-                return AjaxResultUtil.resultAjax("短信验证码不能为空：rsaEncryptKey",11104,data);
+                return AjaxResultUtil.resultAjax("短信验证码不能为空",11104,data);
             }
             //验证用户的有效性及状态
             AclUser aclUser = userService.getByMobile(mobile);
@@ -76,11 +76,11 @@ public class PasswordController {
             //短信验证码
             String ssoMobile = ssoCacheFacade.getObject("smsMobile" + ssmCaptchaId, String.class);
             if(ssoMobile!=null && StringUtil.isNotBlank(ssoMobile) && !mobile.equals(ssoMobile)){
-                return AjaxResultUtil.resultAjax("注册的手机号和发送验证码的手机号不一致", 11208, data);
+                return AjaxResultUtil.resultAjax("请按照正确的流程输入验证码", 11208, data);
             }
             boolean isCorrectSSM = ssoCaptchaService.validateResponseForID(ssmCaptchaId, ssmCaptcha.toLowerCase());
             if(!isCorrectSSM) {
-                return AjaxResultUtil.resultAjax("无效的短信验证码", 11206, data);
+                return AjaxResultUtil.resultAjax("对不起，请输入正确的验证码", 11206, data);
             }
             //解密,加偏移向量
             String rsaRandomKey = RSAUtils.decryptByPrivateKey(rsaEncryptKey);
@@ -115,10 +115,10 @@ public class PasswordController {
                 return AjaxResultUtil.resultAjax("手机号或密码不能为空",11104,data);
             }
             if (StringUtil.isBlank(rsaEncryptKey) ) {
-                return AjaxResultUtil.resultAjax("缺少解密参数：rsaEncryptKey",11104,data);
+                return AjaxResultUtil.resultAjax("缺少解密参数",11104,data);
             }
             if (StringUtil.isBlank(token) ) {
-                return AjaxResultUtil.resultAjax("token不能为空",11104,data);
+                return AjaxResultUtil.resultAjax("认证token不能为空",11104,data);
             }
             //验证用户的有效性及状态
             AclUser aclUser = userService.getByMobile(mobile);

@@ -22,8 +22,8 @@
             <div class="control-group">
                 <div class="controls">
                     <img id="imageCapto" alt="验证码" src="/generatImage"
-                    onclick="(function(img) {var src = img.src.split('?')[0];img.src = src+'?p='+new Date().getTime();})(this);">
-                    <a href="javascript:(function(img) {var src = img.src.split('?')[0];img.src = src+'?p='+new Date().getTime();})(document.getElementById('imageCapto'));">看不清楚？点击换一张</a>
+                    onclick="(function(img) {var src = img.src.split('?')[0];img.src = src+'?captchaId='+new Date().getTime();})(this);">
+                    <a href="javascript:(function(img) {var src = img.src.split('?')[0];img.src = src+'?captchaId='+new Date().getTime();})(document.getElementById('imageCapto'));">看不清楚？点击换一张</a>
                 </div>
             </div>
             <div class="control-group">

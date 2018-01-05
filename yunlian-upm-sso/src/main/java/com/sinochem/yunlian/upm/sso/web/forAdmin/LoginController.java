@@ -193,16 +193,16 @@ public class LoginController {
         userCookie.saveTo(request, response);
 
         //验证图片验证码
-        boolean needCaptcha = loginService.executeCurrentNeedCaptcha(aclUser.getLoginName());
-//        TraceContext.put("needCaptcha", needCaptcha);
-//        model.addAttribute("needCaptcha", needCaptcha ? "true" : "false");
-//        if (needCaptcha) {
-//            String ret = loginService.verifyCaptcha(request, captcha, username, service);
-//            if(ret != null){
-//                model.addAttribute("error", ret);
-//                return loginView(model, appkey);
-//            }
-//        }
+        /*boolean needCaptcha = loginService.executeCurrentNeedCaptcha(aclUser.getLoginName());
+        TraceContext.put("needCaptcha", needCaptcha);
+        model.addAttribute("needCaptcha", needCaptcha ? "true" : "false");
+        if (needCaptcha) {
+            String ret = loginService.verifyCaptcha(request, captcha, username, service);
+            if(ret != null){
+                model.addAttribute("error", ret);
+                return loginView(model, appkey);
+            }
+        }*/
 
         try {
             String loginIp = (String) TraceContext.get(Constants.CONTEXT_IP_KEY);
