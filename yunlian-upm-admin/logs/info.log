@@ -1,0 +1,940 @@
+2018-01-05 11:49:27,737 INFO  (ContextLoader.java:307) - Root WebApplicationContext: initialization started
+2018-01-05 11:49:27,905 INFO  (AbstractApplicationContext.java:577) - Refreshing Root WebApplicationContext: startup date [Fri Jan 05 11:49:27 CST 2018]; root of context hierarchy
+2018-01-05 11:49:27,961 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [spring/mt-mybatis.xml]
+2018-01-05 11:49:28,357 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/applicationContext-admin.xml]
+2018-01-05 11:49:28,873 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/applicationContext-ehcache.xml]
+2018-01-05 11:49:29,573 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [database.properties]
+2018-01-05 11:49:29,573 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [config.properties]
+2018-01-05 11:49:29,574 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [config-center.properties]
+2018-01-05 11:49:29,584 INFO  (AutowiredAnnotationBeanPostProcessor.java:153) - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-05 11:49:29,683 INFO  (ExecutorConfigurationSupport.java:165) - Initializing ExecutorService 
+2018-01-05 11:49:29,683 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'executor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:29,684 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'executor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:29,735 INFO  (ExecutorConfigurationSupport.java:165) - Initializing ExecutorService  'scheduler'
+2018-01-05 11:49:29,735 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'scheduler' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:29,769 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:29,860 INFO  (EhCacheManagerFactoryBean.java:129) - Initializing EhCache CacheManager
+2018-01-05 11:49:30,108 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'cacheManager' of type [class org.springframework.cache.ehcache.EhCacheManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:30,324 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'cacheManager' of type [class net.sf.ehcache.CacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:30,566 INFO  (Slf4jMLog.java:203) - MLog clients using slf4j logging.
+2018-01-05 11:49:30,641 INFO  (Slf4jMLog.java:203) - Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10]
+2018-01-05 11:49:30,813 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'dataSource' of type [class com.mchange.v2.c3p0.ComboPooledDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:31,620 INFO  (Slf4jMLog.java:203) - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 2, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2swgz59s1ii5wu21hvd0h8|7e10b592, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2swgz59s1ii5wu21hvd0h8|7e10b592, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://10.144.130.201:3307/yunlian_upm?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+2018-01-05 11:49:32,689 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionFactory' of type [class org.mybatis.spring.SqlSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,697 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionFactory' of type [class org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,749 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionTemplate' of type [class org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,760 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'upmMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,763 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserRoleSourceMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,767 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserRoleRltMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,769 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,771 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRolePermissionRltMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,773 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRoleMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,775 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRoleInstanceContextMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,777 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclMenuMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,778 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclApplicationMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,804 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'upmAuthService' of type [class com.sinochem.yunlian.upm.tools.UpmAuthService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 11:49:32,815 INFO  (FilterFactoryBean.java:169) - defaultDefinitions: {/mt-sso=login, /logout=logout, /favicon.ico=anon, /static/**=anon}
+2018-01-05 11:49:32,815 INFO  (FilterFactoryBean.java:170) - authUrls: null
+2018-01-05 11:49:32,815 INFO  (FilterFactoryBean.java:171) - filterChainDefinitions: 
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+            
+2018-01-05 11:49:32,816 INFO  (FilterFactoryBean.java:156) - merged urls: /mt-sso = login
+/logout = logout
+/favicon.ico = anon
+/static/** = anon
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+
+2018-01-05 11:49:34,467 INFO  (Reflections.java:205) - Reflections took 174 ms to scan 1 urls, producing 1 keys and 11 values 
+2018-01-05 11:49:34,478 INFO  (ConstantUtil.java:35) - constant:[class com.sinochem.yunlian.upm.admin.constant.CommonStatus, class com.sinochem.yunlian.upm.admin.constant.UserRoleType, class com.sinochem.yunlian.upm.admin.constant.RolePermissionRltStatus, class com.sinochem.yunlian.upm.admin.constant.MenuStatus, class com.sinochem.yunlian.upm.admin.constant.UserRoleSourceType, class com.sinochem.yunlian.upm.admin.constant.UserStatus, class com.sinochem.yunlian.upm.admin.constant.UserType, class com.sinochem.yunlian.upm.admin.constant.SMSStatus, class com.sinochem.yunlian.upm.admin.constant.MenuType, class com.sinochem.yunlian.upm.admin.constant.ContextAttrType, class com.sinochem.yunlian.upm.admin.constant.RoleStatus]
+2018-01-05 11:49:34,478 INFO  (ConstantUtil.java:42) - begin create D:\git\zhongshihua\yunlian-upm\yunlian-upm-admin\src\main\webapp\WEB-INF\views\helper\includeHelper.ftl
+2018-01-05 11:49:34,840 INFO  (ContextLoader.java:347) - Root WebApplicationContext: initialization completed in 7090 ms
+2018-01-05 11:49:35,019 INFO  (FrameworkServlet.java:488) - FrameworkServlet 'appServlet': initialization started
+2018-01-05 11:49:35,024 INFO  (AbstractApplicationContext.java:577) - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 11:49:35 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 11:49:35,025 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/webmvc-basic-webapp.xml]
+2018-01-05 11:49:35,244 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/webmvc-config.xml]
+2018-01-05 11:49:35,373 INFO  (AutowiredAnnotationBeanPostProcessor.java:153) - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-05 11:49:36,314 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/access/denied]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.AccessController.accessDenied()
+2018-01-05 11:49:36,327 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/urls],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.resource(java.lang.String)
+2018-01-05 11:49:36,327 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/authResource],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.auth(java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 11:49:36,330 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/menus],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.menus(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,331 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/monitor/alive]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.api.APIController.monitorAlive()
+2018-01-05 11:49:36,332 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/authPerm],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.authPerm(java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 11:49:36,332 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/permissions/{userId}/{appkey}],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.authPerm(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,333 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getUserById],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserById(java.lang.String)
+2018-01-05 11:49:36,333 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/userApps],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.userApps(java.lang.String)
+2018-01-05 11:49:36,334 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/roles/{userId}/{appkey}],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.userRoles(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,335 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getAllUser],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserByLoginName(java.lang.Integer,java.lang.Long)
+2018-01-05 11:49:36,335 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getUserByLoginName],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserByLoginName(java.lang.String)
+2018-01-05 11:49:36,341 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/delete],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.delete(java.lang.String)
+2018-01-05 11:49:36,341 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/create],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.create()
+2018-01-05 11:49:36,343 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/list],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.list(com.sinochem.yunlian.upm.util.Page,org.springframework.ui.Model)
+2018-01-05 11:49:36,344 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/save],methods=[POST]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.save(com.sinochem.yunlian.upm.admin.domain.AclApplication,org.springframework.ui.Model)
+2018-01-05 11:49:36,344 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/getRoles]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.getRoles(java.lang.String)
+2018-01-05 11:49:36,345 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/addAppManager]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.addAppManager(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,345 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/initDefaultRole]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.initDefaultRole()
+2018-01-05 11:49:36,347 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/deleteAppManager]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.deleteAppManager(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,347 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/edit],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.edit(java.lang.String,org.springframework.ui.Model)
+2018-01-05 11:49:36,348 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/changeRole]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.changeRole(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,350 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/queryByAppkey.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.queryByAppkey(java.lang.String)
+2018-01-05 11:49:36,351 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/managerList]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.AppController.managerList(com.sinochem.yunlian.upm.util.Page,java.lang.String)
+2018-01-05 11:49:36,352 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/uploadImage],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.uploadImageFile(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2018-01-05 11:49:36,364 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/saveUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.saveUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,365 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/updateUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.updateUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,365 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/roleList],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.roleList(javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,366 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/deleteUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.deleteUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,368 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.index() throws java.io.IOException
+2018-01-05 11:49:36,370 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/unauthorized],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.unauthorized() throws java.io.IOException
+2018-01-05 11:49:36,378 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.ssoHome(javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-01-05 11:49:36,387 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/apps.ajax],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.IndexController.getAllowApps() throws java.io.IOException
+2018-01-05 11:49:36,389 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/list]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.MenuController.list(com.sinochem.yunlian.upm.admin.bean.MenuListBean,javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,390 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/delete]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.deleteMenu(com.sinochem.yunlian.upm.admin.domain.AclMenu,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 11:49:36,390 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/moveMenu]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.MenuController.moveMenu(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 11:49:36,392 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/getMenu.ajax]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.getMenu(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-01-05 11:49:36,392 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/save]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.saveMenu(com.sinochem.yunlian.upm.admin.bean.MenuBean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 11:49:36,397 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/create],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.create()
+2018-01-05 11:49:36,398 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.list(com.sinochem.yunlian.upm.admin.bean.RoleListBean,com.sinochem.yunlian.upm.util.Page)
+2018-01-05 11:49:36,398 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/save],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.save(com.sinochem.yunlian.upm.admin.bean.RoleBean)
+2018-01-05 11:49:36,399 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/permission],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.permission(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,399 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/getMenus/{roleId}]}" onto public void com.sinochem.yunlian.upm.admin.web.RoleController.getMenus(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 11:49:36,400 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.edit(com.sinochem.yunlian.upm.admin.bean.RoleBean)
+2018-01-05 11:49:36,402 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/delete]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.deleteRole(java.lang.String)
+2018-01-05 11:49:36,402 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/createRole],methods=[POST]}" onto public void com.sinochem.yunlian.upm.admin.web.RoleController.createRole(com.sinochem.yunlian.upm.admin.bean.RoleBean,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2018-01-05 11:49:36,402 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/createCode.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.createCode(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,403 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/listOfApp]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.listOfApp()
+2018-01-05 11:49:36,403 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/permission],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.savePermission(java.lang.String,java.lang.String[]) throws java.io.IOException
+2018-01-05 11:49:36,412 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/disable]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.disable(java.lang.String)
+2018-01-05 11:49:36,413 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/enable]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.enable(java.lang.String)
+2018-01-05 11:49:36,414 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/profile],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.profile(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2018-01-05 11:49:36,414 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/view],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.profile(java.lang.String,org.springframework.ui.Model)
+2018-01-05 11:49:36,414 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/save],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserController.saveUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 11:49:36,415 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/modPassword]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.modPassword(java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.Model) throws java.io.IOException
+2018-01-05 11:49:36,415 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserController.userlist(com.sinochem.yunlian.upm.admin.bean.UserListBean,com.sinochem.yunlian.upm.util.Page,org.springframework.ui.Model)
+2018-01-05 11:49:36,415 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/mobile]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.mobile(java.lang.String)
+2018-01-05 11:49:36,416 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/recovery]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.recovery(java.lang.String)
+2018-01-05 11:49:36,416 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/resetPass]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.resetPassBySys(java.lang.String)
+2018-01-05 11:49:36,417 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/freeze]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.freeze(java.lang.String)
+2018-01-05 11:49:36,418 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/addUserCheck],methods=[POST]}" onto public com.sinochem.yunlian.upm.admin.model.react.FengResult com.sinochem.yunlian.upm.admin.web.UserController.addUserCheck(com.sinochem.yunlian.upm.admin.domain.AclUser,javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,419 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/users.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.allUser()
+2018-01-05 11:49:36,419 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/updateUser],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.updateUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 11:49:36,420 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/delUser],methods=[POST]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.delUser(java.lang.String,org.springframework.ui.Model)
+2018-01-05 11:49:36,420 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/addUser],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.addUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 11:49:36,424 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/delete]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.delete(java.lang.String,java.lang.String)
+2018-01-05 11:49:36,425 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/save]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.save(javax.servlet.http.HttpServletRequest)
+2018-01-05 11:49:36,425 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/singleConf]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.singleConf(java.lang.String)
+2018-01-05 11:49:36,427 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/roleConf.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.roleConf(java.lang.String)
+2018-01-05 11:49:36,427 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/listHaveRole],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.listHaveRole(com.sinochem.yunlian.upm.admin.bean.UserListBean,com.sinochem.yunlian.upm.util.Page,java.lang.String)
+2018-01-05 11:49:36,428 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/listHaveRoleNon/{roleId}]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.listHaveRoleNon(com.sinochem.yunlian.upm.admin.bean.UserListBean,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 11:49:37,922 INFO  (RequestMappingHandlerAdapter.java:532) - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 11:49:35 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 11:49:38,167 INFO  (RequestMappingHandlerAdapter.java:532) - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 11:49:35 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 11:49:38,447 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-05 11:49:38,457 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/static/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-05 11:49:38,464 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-05 11:49:38,470 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-05 11:49:38,474 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/favicon.ico] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-05 11:49:38,565 INFO  (FreeMarkerConfigurer.java:127) - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-05 11:49:38,895 INFO  (FrameworkServlet.java:507) - FrameworkServlet 'appServlet': initialization completed in 3875 ms
+2018-01-05 12:48:50,948 INFO  (ContextLoader.java:307) - Root WebApplicationContext: initialization started
+2018-01-05 12:48:51,141 INFO  (AbstractApplicationContext.java:577) - Refreshing Root WebApplicationContext: startup date [Fri Jan 05 12:48:51 CST 2018]; root of context hierarchy
+2018-01-05 12:48:51,208 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [spring/mt-mybatis.xml]
+2018-01-05 12:48:51,876 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/applicationContext-admin.xml]
+2018-01-05 12:48:52,805 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/applicationContext-ehcache.xml]
+2018-01-05 12:48:54,300 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [database.properties]
+2018-01-05 12:48:54,301 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [config.properties]
+2018-01-05 12:48:54,302 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [config-center.properties]
+2018-01-05 12:48:54,347 INFO  (AutowiredAnnotationBeanPostProcessor.java:153) - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-05 12:48:54,538 INFO  (ExecutorConfigurationSupport.java:165) - Initializing ExecutorService 
+2018-01-05 12:48:54,538 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'executor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:48:54,539 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'executor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:48:54,623 INFO  (ExecutorConfigurationSupport.java:165) - Initializing ExecutorService  'scheduler'
+2018-01-05 12:48:54,625 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'scheduler' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:48:54,675 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:48:54,737 INFO  (EhCacheManagerFactoryBean.java:129) - Initializing EhCache CacheManager
+2018-01-05 12:48:55,244 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'cacheManager' of type [class org.springframework.cache.ehcache.EhCacheManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:48:55,869 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'cacheManager' of type [class net.sf.ehcache.CacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:48:56,877 INFO  (Slf4jMLog.java:203) - MLog clients using slf4j logging.
+2018-01-05 12:48:56,994 INFO  (Slf4jMLog.java:203) - Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10]
+2018-01-05 12:48:57,479 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'dataSource' of type [class com.mchange.v2.c3p0.ComboPooledDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:00,396 INFO  (Slf4jMLog.java:203) - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 2, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2swgz59s1ikacltc6hje3|6075711a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2swgz59s1ikacltc6hje3|6075711a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://10.144.130.201:3307/yunlian_upm?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+2018-01-05 12:49:02,598 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionFactory' of type [class org.mybatis.spring.SqlSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,623 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionFactory' of type [class org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,776 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionTemplate' of type [class org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,790 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'upmMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,794 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserRoleSourceMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,797 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserRoleRltMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,802 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,804 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRolePermissionRltMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,806 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRoleMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:02,875 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRoleInstanceContextMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:03,068 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclMenuMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:03,071 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclApplicationMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:03,295 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'upmAuthService' of type [class com.sinochem.yunlian.upm.tools.UpmAuthService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 12:49:03,318 INFO  (FilterFactoryBean.java:169) - defaultDefinitions: {/mt-sso=login, /logout=logout, /favicon.ico=anon, /static/**=anon}
+2018-01-05 12:49:03,318 INFO  (FilterFactoryBean.java:170) - authUrls: null
+2018-01-05 12:49:03,319 INFO  (FilterFactoryBean.java:171) - filterChainDefinitions: 
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+            
+2018-01-05 12:49:03,320 INFO  (FilterFactoryBean.java:156) - merged urls: /mt-sso = login
+/logout = logout
+/favicon.ico = anon
+/static/** = anon
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+
+2018-01-05 12:49:06,377 INFO  (Reflections.java:205) - Reflections took 307 ms to scan 1 urls, producing 1 keys and 11 values 
+2018-01-05 12:49:06,389 INFO  (ConstantUtil.java:35) - constant:[class com.sinochem.yunlian.upm.admin.constant.UserStatus, class com.sinochem.yunlian.upm.admin.constant.RoleStatus, class com.sinochem.yunlian.upm.admin.constant.MenuType, class com.sinochem.yunlian.upm.admin.constant.RolePermissionRltStatus, class com.sinochem.yunlian.upm.admin.constant.MenuStatus, class com.sinochem.yunlian.upm.admin.constant.UserRoleSourceType, class com.sinochem.yunlian.upm.admin.constant.UserRoleType, class com.sinochem.yunlian.upm.admin.constant.UserType, class com.sinochem.yunlian.upm.admin.constant.SMSStatus, class com.sinochem.yunlian.upm.admin.constant.ContextAttrType, class com.sinochem.yunlian.upm.admin.constant.CommonStatus]
+2018-01-05 12:49:06,390 INFO  (ConstantUtil.java:42) - begin create D:\git\zhongshihua\yunlian-upm\yunlian-upm-admin\src\main\webapp\WEB-INF\views\helper\includeHelper.ftl
+2018-01-05 12:49:06,861 INFO  (ContextLoader.java:347) - Root WebApplicationContext: initialization completed in 15910 ms
+2018-01-05 12:49:07,265 INFO  (FrameworkServlet.java:488) - FrameworkServlet 'appServlet': initialization started
+2018-01-05 12:49:07,270 INFO  (AbstractApplicationContext.java:577) - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 12:49:07 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 12:49:07,271 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/webmvc-basic-webapp.xml]
+2018-01-05 12:49:07,608 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/webmvc-config.xml]
+2018-01-05 12:49:07,823 INFO  (AutowiredAnnotationBeanPostProcessor.java:153) - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-05 12:49:09,036 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/access/denied]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.AccessController.accessDenied()
+2018-01-05 12:49:09,048 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/urls],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.resource(java.lang.String)
+2018-01-05 12:49:09,048 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getAllUser],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserByLoginName(java.lang.Integer,java.lang.Long)
+2018-01-05 12:49:09,049 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getUserByLoginName],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserByLoginName(java.lang.String)
+2018-01-05 12:49:09,049 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/authResource],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.auth(java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 12:49:09,051 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/roles/{userId}/{appkey}],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.userRoles(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,052 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/menus],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.menus(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,053 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/monitor/alive]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.api.APIController.monitorAlive()
+2018-01-05 12:49:09,053 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getUserById],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserById(java.lang.String)
+2018-01-05 12:49:09,054 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/userApps],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.userApps(java.lang.String)
+2018-01-05 12:49:09,054 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/authPerm],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.authPerm(java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 12:49:09,055 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/permissions/{userId}/{appkey}],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.authPerm(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,061 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/delete],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.delete(java.lang.String)
+2018-01-05 12:49:09,061 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/create],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.create()
+2018-01-05 12:49:09,065 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/list],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.list(com.sinochem.yunlian.upm.util.Page,org.springframework.ui.Model)
+2018-01-05 12:49:09,065 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/save],methods=[POST]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.save(com.sinochem.yunlian.upm.admin.domain.AclApplication,org.springframework.ui.Model)
+2018-01-05 12:49:09,066 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/getRoles]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.getRoles(java.lang.String)
+2018-01-05 12:49:09,067 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/addAppManager]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.addAppManager(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,067 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/deleteAppManager]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.deleteAppManager(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,068 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/initDefaultRole]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.initDefaultRole()
+2018-01-05 12:49:09,069 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/queryByAppkey.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.queryByAppkey(java.lang.String)
+2018-01-05 12:49:09,069 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/edit],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.edit(java.lang.String,org.springframework.ui.Model)
+2018-01-05 12:49:09,070 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/changeRole]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.changeRole(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,071 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/uploadImage],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.uploadImageFile(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2018-01-05 12:49:09,071 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/managerList]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.AppController.managerList(com.sinochem.yunlian.upm.util.Page,java.lang.String)
+2018-01-05 12:49:09,073 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/saveUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.saveUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,074 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/roleList],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.roleList(javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,074 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/deleteUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.deleteUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,075 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/updateUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.updateUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,076 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.index() throws java.io.IOException
+2018-01-05 12:49:09,077 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/apps.ajax],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.IndexController.getAllowApps() throws java.io.IOException
+2018-01-05 12:49:09,078 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/unauthorized],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.unauthorized() throws java.io.IOException
+2018-01-05 12:49:09,078 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.ssoHome(javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-01-05 12:49:09,081 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/list]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.MenuController.list(com.sinochem.yunlian.upm.admin.bean.MenuListBean,javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,081 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/delete]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.deleteMenu(com.sinochem.yunlian.upm.admin.domain.AclMenu,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 12:49:09,083 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/getMenu.ajax]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.getMenu(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-01-05 12:49:09,086 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/save]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.saveMenu(com.sinochem.yunlian.upm.admin.bean.MenuBean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 12:49:09,087 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/moveMenu]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.MenuController.moveMenu(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 12:49:09,094 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/create],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.create()
+2018-01-05 12:49:09,094 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.list(com.sinochem.yunlian.upm.admin.bean.RoleListBean,com.sinochem.yunlian.upm.util.Page)
+2018-01-05 12:49:09,095 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/save],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.save(com.sinochem.yunlian.upm.admin.bean.RoleBean)
+2018-01-05 12:49:09,096 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/permission],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.permission(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,096 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/getMenus/{roleId}]}" onto public void com.sinochem.yunlian.upm.admin.web.RoleController.getMenus(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 12:49:09,097 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.edit(com.sinochem.yunlian.upm.admin.bean.RoleBean)
+2018-01-05 12:49:09,097 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/listOfApp]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.listOfApp()
+2018-01-05 12:49:09,099 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/delete]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.deleteRole(java.lang.String)
+2018-01-05 12:49:09,100 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/permission],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.savePermission(java.lang.String,java.lang.String[]) throws java.io.IOException
+2018-01-05 12:49:09,101 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/createRole],methods=[POST]}" onto public void com.sinochem.yunlian.upm.admin.web.RoleController.createRole(com.sinochem.yunlian.upm.admin.bean.RoleBean,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2018-01-05 12:49:09,102 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/createCode.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.createCode(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,109 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/disable]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.disable(java.lang.String)
+2018-01-05 12:49:09,109 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/enable]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.enable(java.lang.String)
+2018-01-05 12:49:09,110 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/profile],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.profile(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2018-01-05 12:49:09,110 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/view],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.profile(java.lang.String,org.springframework.ui.Model)
+2018-01-05 12:49:09,110 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/addUser],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.addUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 12:49:09,111 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/modPassword]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.modPassword(java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.Model) throws java.io.IOException
+2018-01-05 12:49:09,111 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/freeze]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.freeze(java.lang.String)
+2018-01-05 12:49:09,113 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/delUser],methods=[POST]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.delUser(java.lang.String,org.springframework.ui.Model)
+2018-01-05 12:49:09,114 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/users.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.allUser()
+2018-01-05 12:49:09,114 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/resetPass]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.resetPassBySys(java.lang.String)
+2018-01-05 12:49:09,115 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/recovery]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.recovery(java.lang.String)
+2018-01-05 12:49:09,115 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/save],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserController.saveUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 12:49:09,116 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/mobile]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.mobile(java.lang.String)
+2018-01-05 12:49:09,116 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserController.userlist(com.sinochem.yunlian.upm.admin.bean.UserListBean,com.sinochem.yunlian.upm.util.Page,org.springframework.ui.Model)
+2018-01-05 12:49:09,116 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/addUserCheck],methods=[POST]}" onto public com.sinochem.yunlian.upm.admin.model.react.FengResult com.sinochem.yunlian.upm.admin.web.UserController.addUserCheck(com.sinochem.yunlian.upm.admin.domain.AclUser,javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,117 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/updateUser],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.updateUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 12:49:09,119 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/delete]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.delete(java.lang.String,java.lang.String)
+2018-01-05 12:49:09,120 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/save]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.save(javax.servlet.http.HttpServletRequest)
+2018-01-05 12:49:09,120 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/singleConf]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.singleConf(java.lang.String)
+2018-01-05 12:49:09,120 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/roleConf.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.roleConf(java.lang.String)
+2018-01-05 12:49:09,121 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/listHaveRoleNon/{roleId}]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.listHaveRoleNon(com.sinochem.yunlian.upm.admin.bean.UserListBean,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 12:49:09,121 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/listHaveRole],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.listHaveRole(com.sinochem.yunlian.upm.admin.bean.UserListBean,com.sinochem.yunlian.upm.util.Page,java.lang.String)
+2018-01-05 12:49:10,787 INFO  (RequestMappingHandlerAdapter.java:532) - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 12:49:07 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 12:49:10,976 INFO  (RequestMappingHandlerAdapter.java:532) - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 12:49:07 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 12:49:11,226 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-05 12:49:11,233 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/static/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-05 12:49:11,238 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-05 12:49:11,245 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-05 12:49:11,255 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/favicon.ico] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-05 12:49:11,368 INFO  (FreeMarkerConfigurer.java:127) - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-05 12:49:11,773 INFO  (FrameworkServlet.java:507) - FrameworkServlet 'appServlet': initialization completed in 4507 ms
+2018-01-05 12:54:29,434 INFO  (UserFilter.java:39) - access denied, cookie is null... ssoid,null
+2018-01-05 12:54:29,434 INFO  (UserFilter.java:52) - onAccessDenied... null
+2018-01-05 12:54:29,435 INFO  (UserFilter.java:59) - onAccessDenied... set sso.saveRequest http%3A%2F%2Flocalhost%3A8181%2F
+2018-01-05 12:54:29,436 INFO  (AccessControlFilter.java:103) - redirect to sso http://10.144.130.39:8180/auth?return=http%3A%2F%2Flocalhost%3A8181%2Fmt-sso
+2018-01-05 12:54:58,829 INFO  (LoginFilter.java:35) - SSO Target: ST-87191927d5134041b3399eeed90e3028 http://localhost:8181/
+2018-01-05 12:55:00,168 INFO  (UpmAppsFilter.java:39) - api logout...ac81f77234b24d7d9c836c60f1e7f5ca
+2018-01-05 12:55:25,323 INFO  (LogoutFilter.java:32) - api logout...ac81f77234b24d7d9c836c60f1e7f5ca
+2018-01-05 12:55:25,372 INFO  (UserFilter.java:39) - access denied, cookie is null... ssoid,null
+2018-01-05 12:55:25,373 INFO  (UserFilter.java:52) - onAccessDenied... null
+2018-01-05 12:55:25,373 INFO  (UserFilter.java:59) - onAccessDenied... set sso.saveRequest http%3A%2F%2Flocalhost%3A8181%2F
+2018-01-05 12:55:25,373 INFO  (AccessControlFilter.java:103) - redirect to sso http://10.144.130.39:8180/auth?return=http%3A%2F%2Flocalhost%3A8181%2Fmt-sso
+2018-01-05 12:55:53,333 INFO  (LoginFilter.java:35) - SSO Target: ST-e44fe8a257b8435985caa8b6a3f27d94 http://localhost:8181/
+2018-01-05 12:55:53,714 INFO  (UpmAppsFilter.java:39) - api logout...29efd291b06b4d26a0a6388ee56dfe84
+2018-01-05 13:56:18,682 INFO  (UserFilter.java:39) - access denied, cookie is null... ssoid,null
+2018-01-05 13:56:18,693 INFO  (UserFilter.java:52) - onAccessDenied... null
+2018-01-05 13:56:18,694 INFO  (UserFilter.java:59) - onAccessDenied... set sso.saveRequest http%3A%2F%2Flocalhost%3A8181%2F
+2018-01-05 13:56:18,694 INFO  (AccessControlFilter.java:103) - redirect to sso http://10.144.130.39:8180/auth?return=http%3A%2F%2Flocalhost%3A8181%2Fmt-sso
+2018-01-05 13:56:51,559 INFO  (UpmAppsFilter.java:39) - api logout...29efd291b06b4d26a0a6388ee56dfe84
+2018-01-05 13:56:51,768 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+2018-01-05 13:56:51,915 INFO  (SQLErrorCodesFactory.java:126) - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
+2018-01-05 13:56:51,947 ERROR (WebExceptionResolver.java:89) - Error occurred when GET uri: http://localhost:8181/apps.ajax
+org.springframework.dao.RecoverableDataAccessException: 
+### Error querying database.  Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,657,932 milliseconds ago.  The last packet sent successfully to the server was 30 milliseconds ago.
+### The error may exist in file [D:\git\zhongshihua\yunlian-upm\yunlian-upm-admin\target\classes\com\sinochem\yunlian\upm\admin\mapper\UpmMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select distinct a.id, a.NAME, a.role_id, a.appkey, a.secret, a.url, a.status, a.image1, a.image2, a.use_upm         from acl_user_role_rlt ur, acl_role_instance_context ric, acl_application a         where ur.user_id=? and ur.id = ric.user_role_rlt_id and ric.application_id = a.id and ur.status = 0;
+### Cause: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,657,932 milliseconds ago.  The last packet sent successfully to the server was 30 milliseconds ago.
+; SQL []; Communications link failure
+
+The last packet successfully received from the server was 3,657,932 milliseconds ago.  The last packet sent successfully to the server was 30 milliseconds ago.; nested exception is com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,657,932 milliseconds ago.  The last packet sent successfully to the server was 30 milliseconds ago.
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:98)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:71)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:365)
+	at com.sun.proxy.$Proxy36.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:195)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:124)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:90)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:40)
+	at com.sun.proxy.$Proxy53.selectApps4Manager(Unknown Source)
+	at com.sinochem.yunlian.upm.admin.service.UpmService.getAllowedApps(UpmService.java:38)
+	at com.sinochem.yunlian.upm.admin.service.UpmService.getAllowedAppIds(UpmService.java:45)
+	at com.sinochem.yunlian.upm.admin.service.UpmService$$FastClassBySpringCGLIB$$fcdd09e6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:718)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:654)
+	at com.sinochem.yunlian.upm.admin.service.UpmService$$EnhancerBySpringCGLIB$$484e65fe.getAllowedAppIds(<generated>)
+	at com.sinochem.yunlian.upm.admin.interceptor.DefaultAclInterceptor.preHandle(DefaultAclInterceptor.java:52)
+	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:134)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:954)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at com.sinochem.yunlian.upm.filter.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:32)
+	at com.sinochem.yunlian.upm.filter.AdviceFilter.executeChain(AdviceFilter.java:28)
+	at com.sinochem.yunlian.upm.filter.AdviceFilter.doFilterInternal(AdviceFilter.java:43)
+	at com.sinochem.yunlian.upm.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:44)
+	at com.sinochem.yunlian.upm.filter.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:37)
+	at com.sinochem.yunlian.upm.filter.AbstractMtFilter.executeChain(AbstractMtFilter.java:116)
+	at com.sinochem.yunlian.upm.filter.AbstractMtFilter.doFilterInternal(AbstractMtFilter.java:76)
+	at com.sinochem.yunlian.upm.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:44)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:65)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:312)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 3,657,932 milliseconds ago.  The last packet sent successfully to the server was 30 milliseconds ago.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:407)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1116)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3092)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:2978)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3526)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1989)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2150)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2626)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2119)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1362)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.execute(NewProxyPreparedStatement.java:67)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:56)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:70)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:57)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:267)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:141)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:105)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:81)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:101)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:95)
+	at sun.reflect.GeneratedMethodAccessor69.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:355)
+	... 67 more
+Caused by: java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:209)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+	at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+	at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+	at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:2536)
+	at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:2989)
+	... 88 more
+2018-01-05 15:33:40,137 INFO  (ContextLoader.java:307) - Root WebApplicationContext: initialization started
+2018-01-05 15:33:40,321 INFO  (AbstractApplicationContext.java:577) - Refreshing Root WebApplicationContext: startup date [Fri Jan 05 15:33:40 CST 2018]; root of context hierarchy
+2018-01-05 15:33:40,391 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [spring/mt-mybatis.xml]
+2018-01-05 15:33:40,803 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/applicationContext-admin.xml]
+2018-01-05 15:33:41,366 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/applicationContext-ehcache.xml]
+2018-01-05 15:33:41,975 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [database.properties]
+2018-01-05 15:33:41,975 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [config.properties]
+2018-01-05 15:33:41,978 INFO  (PropertiesLoaderSupport.java:172) - Loading properties file from class path resource [config-center.properties]
+2018-01-05 15:33:41,995 INFO  (AutowiredAnnotationBeanPostProcessor.java:153) - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-05 15:33:42,144 INFO  (ExecutorConfigurationSupport.java:165) - Initializing ExecutorService 
+2018-01-05 15:33:42,145 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'executor' of type [class org.springframework.scheduling.config.TaskExecutorFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:42,145 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'executor' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:42,203 INFO  (ExecutorConfigurationSupport.java:165) - Initializing ExecutorService  'scheduler'
+2018-01-05 15:33:42,204 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'scheduler' of type [class org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:42,247 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0' of type [class org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:42,312 INFO  (EhCacheManagerFactoryBean.java:129) - Initializing EhCache CacheManager
+2018-01-05 15:33:42,556 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'cacheManager' of type [class org.springframework.cache.ehcache.EhCacheManagerFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:42,901 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'cacheManager' of type [class net.sf.ehcache.CacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:43,302 INFO  (Slf4jMLog.java:203) - MLog clients using slf4j logging.
+2018-01-05 15:33:43,421 INFO  (Slf4jMLog.java:203) - Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10]
+2018-01-05 15:33:43,626 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'dataSource' of type [class com.mchange.v2.c3p0.ComboPooledDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:44,738 INFO  (Slf4jMLog.java:203) - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 2, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 2swgz59s1iq691p1otng2k|63426ecd, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 2swgz59s1iq691p1otng2k|63426ecd, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://10.144.130.201:3307/yunlian_upm?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
+2018-01-05 15:33:45,708 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionFactory' of type [class org.mybatis.spring.SqlSessionFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,714 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionFactory' of type [class org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,823 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'sqlSessionTemplate' of type [class org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,844 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'upmMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,849 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserRoleSourceMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,854 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserRoleRltMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,856 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclUserMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,857 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRolePermissionRltMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,859 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRoleMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,861 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclRoleInstanceContextMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,864 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclMenuMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,868 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'aclApplicationMapper' of type [class org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,909 INFO  (PostProcessorRegistrationDelegate.java:328) - Bean 'upmAuthService' of type [class com.sinochem.yunlian.upm.tools.UpmAuthService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-05 15:33:45,927 INFO  (FilterFactoryBean.java:169) - defaultDefinitions: {/mt-sso=login, /logout=logout, /favicon.ico=anon, /static/**=anon}
+2018-01-05 15:33:45,928 INFO  (FilterFactoryBean.java:170) - authUrls: null
+2018-01-05 15:33:45,928 INFO  (FilterFactoryBean.java:171) - filterChainDefinitions: 
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+            
+2018-01-05 15:33:45,929 INFO  (FilterFactoryBean.java:156) - merged urls: /mt-sso = login
+/logout = logout
+/favicon.ico = anon
+/static/** = anon
+                /static/** = anon
+                /favicon.ico = anon
+                /generatImage = anon
+                /unauthorized = anon
+                /api/** = anon
+                /logout = logout
+                /upmApps = upmApps
+                /**/*.ajax = user
+                /** = userMenu
+
+2018-01-05 15:33:48,137 INFO  (Reflections.java:205) - Reflections took 175 ms to scan 1 urls, producing 1 keys and 11 values 
+2018-01-05 15:33:48,152 INFO  (ConstantUtil.java:35) - constant:[class com.sinochem.yunlian.upm.admin.constant.UserRoleType, class com.sinochem.yunlian.upm.admin.constant.UserType, class com.sinochem.yunlian.upm.admin.constant.SMSStatus, class com.sinochem.yunlian.upm.admin.constant.ContextAttrType, class com.sinochem.yunlian.upm.admin.constant.UserRoleSourceType, class com.sinochem.yunlian.upm.admin.constant.RolePermissionRltStatus, class com.sinochem.yunlian.upm.admin.constant.MenuType, class com.sinochem.yunlian.upm.admin.constant.MenuStatus, class com.sinochem.yunlian.upm.admin.constant.RoleStatus, class com.sinochem.yunlian.upm.admin.constant.CommonStatus, class com.sinochem.yunlian.upm.admin.constant.UserStatus]
+2018-01-05 15:33:48,153 INFO  (ConstantUtil.java:42) - begin create D:\git\zhongshihua\yunlian-upm\yunlian-upm-admin\src\main\webapp\WEB-INF\views\helper\includeHelper.ftl
+2018-01-05 15:33:48,544 INFO  (ContextLoader.java:347) - Root WebApplicationContext: initialization completed in 8403 ms
+2018-01-05 15:33:48,889 INFO  (FrameworkServlet.java:488) - FrameworkServlet 'appServlet': initialization started
+2018-01-05 15:33:48,895 INFO  (AbstractApplicationContext.java:577) - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 15:33:48 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 15:33:48,896 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/webmvc-basic-webapp.xml]
+2018-01-05 15:33:49,161 INFO  (XmlBeanDefinitionReader.java:317) - Loading XML bean definitions from class path resource [public/webmvc-config.xml]
+2018-01-05 15:33:49,380 INFO  (AutowiredAnnotationBeanPostProcessor.java:153) - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-05 15:33:50,646 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/access/denied]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.AccessController.accessDenied()
+2018-01-05 15:33:50,660 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/urls],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.resource(java.lang.String)
+2018-01-05 15:33:50,661 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/authResource],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.auth(java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 15:33:50,662 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getUserByLoginName],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserByLoginName(java.lang.String)
+2018-01-05 15:33:50,662 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getAllUser],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserByLoginName(java.lang.Integer,java.lang.Long)
+2018-01-05 15:33:50,665 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/menus],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.menus(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,665 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/userApps],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.userApps(java.lang.String)
+2018-01-05 15:33:50,666 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/user/getUserById],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.getUserById(java.lang.String)
+2018-01-05 15:33:50,667 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/monitor/alive]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.api.APIController.monitorAlive()
+2018-01-05 15:33:50,668 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/authPerm],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.authPerm(java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 15:33:50,668 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/permissions/{userId}/{appkey}],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.authPerm(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,669 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/roles/{userId}/{appkey}],methods=[GET]}" onto public com.sinochem.yunlian.upm.common.rpc.Response com.sinochem.yunlian.upm.admin.web.api.APIController.userRoles(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,675 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/delete],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.delete(java.lang.String)
+2018-01-05 15:33:50,676 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/create],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.create()
+2018-01-05 15:33:50,677 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/list],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.list(com.sinochem.yunlian.upm.util.Page,org.springframework.ui.Model)
+2018-01-05 15:33:50,677 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/save],methods=[POST]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.save(com.sinochem.yunlian.upm.admin.domain.AclApplication,org.springframework.ui.Model)
+2018-01-05 15:33:50,679 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/getRoles]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.getRoles(java.lang.String)
+2018-01-05 15:33:50,680 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/deleteAppManager]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.deleteAppManager(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,680 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/initDefaultRole]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.initDefaultRole()
+2018-01-05 15:33:50,681 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/addAppManager]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.addAppManager(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,682 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/edit],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.AppController.edit(java.lang.String,org.springframework.ui.Model)
+2018-01-05 15:33:50,682 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/uploadImage],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.uploadImageFile(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile) throws java.lang.Exception
+2018-01-05 15:33:50,683 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/managerList]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.AppController.managerList(com.sinochem.yunlian.upm.util.Page,java.lang.String)
+2018-01-05 15:33:50,684 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/queryByAppkey.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.queryByAppkey(java.lang.String)
+2018-01-05 15:33:50,684 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/app/changeRole]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.AppController.changeRole(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,688 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/saveUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.saveUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,688 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/deleteUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.deleteUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,689 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/updateUserRole],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.updateUserRole(javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,689 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/api/roleList],methods=[POST]}" onto public java.lang.Object com.sinochem.yunlian.upm.admin.web.foryunlian.uaaController.roleList(javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,694 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.index() throws java.io.IOException
+2018-01-05 15:33:50,694 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/unauthorized],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.unauthorized() throws java.io.IOException
+2018-01-05 15:33:50,695 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/home],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.IndexController.ssoHome(javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-01-05 15:33:50,708 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/apps.ajax],methods=[GET]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.IndexController.getAllowApps() throws java.io.IOException
+2018-01-05 15:33:50,710 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/list]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.MenuController.list(com.sinochem.yunlian.upm.admin.bean.MenuListBean,javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,712 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/delete]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.deleteMenu(com.sinochem.yunlian.upm.admin.domain.AclMenu,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 15:33:50,712 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/save]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.saveMenu(com.sinochem.yunlian.upm.admin.bean.MenuBean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 15:33:50,713 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/moveMenu]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.MenuController.moveMenu(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2018-01-05 15:33:50,714 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/menu/getMenu.ajax]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.MenuController.getMenu(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest) throws java.io.IOException
+2018-01-05 15:33:50,719 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/create],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.create()
+2018-01-05 15:33:50,719 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.list(com.sinochem.yunlian.upm.admin.bean.RoleListBean,com.sinochem.yunlian.upm.util.Page)
+2018-01-05 15:33:50,720 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/save],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.save(com.sinochem.yunlian.upm.admin.bean.RoleBean)
+2018-01-05 15:33:50,720 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/permission],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.permission(java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,721 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/getMenus/{roleId}]}" onto public void com.sinochem.yunlian.upm.admin.web.RoleController.getMenus(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 15:33:50,721 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.RoleController.edit(com.sinochem.yunlian.upm.admin.bean.RoleBean)
+2018-01-05 15:33:50,722 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/delete]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.deleteRole(java.lang.String)
+2018-01-05 15:33:50,723 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/createRole],methods=[POST]}" onto public void com.sinochem.yunlian.upm.admin.web.RoleController.createRole(com.sinochem.yunlian.upm.admin.bean.RoleBean,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2018-01-05 15:33:50,723 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/createCode.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.createCode(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,724 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/listOfApp]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.listOfApp()
+2018-01-05 15:33:50,726 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/role/permission],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.RoleController.savePermission(java.lang.String,java.lang.String[]) throws java.io.IOException
+2018-01-05 15:33:50,732 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/disable]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.disable(java.lang.String)
+2018-01-05 15:33:50,733 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/enable]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.enable(java.lang.String)
+2018-01-05 15:33:50,736 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/profile],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.profile(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2018-01-05 15:33:50,738 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/view],methods=[GET]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.profile(java.lang.String,org.springframework.ui.Model)
+2018-01-05 15:33:50,739 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/recovery]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.recovery(java.lang.String)
+2018-01-05 15:33:50,740 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/save],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserController.saveUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 15:33:50,741 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/list],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserController.userlist(com.sinochem.yunlian.upm.admin.bean.UserListBean,com.sinochem.yunlian.upm.util.Page,org.springframework.ui.Model)
+2018-01-05 15:33:50,742 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/users.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.allUser()
+2018-01-05 15:33:50,742 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/freeze]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.freeze(java.lang.String)
+2018-01-05 15:33:50,743 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/delUser],methods=[POST]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.delUser(java.lang.String,org.springframework.ui.Model)
+2018-01-05 15:33:50,744 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/updateUser],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.updateUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 15:33:50,744 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/addUserCheck],methods=[POST]}" onto public com.sinochem.yunlian.upm.admin.model.react.FengResult com.sinochem.yunlian.upm.admin.web.UserController.addUserCheck(com.sinochem.yunlian.upm.admin.domain.AclUser,javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,745 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/resetPass]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.resetPassBySys(java.lang.String)
+2018-01-05 15:33:50,746 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/mobile]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.mobile(java.lang.String)
+2018-01-05 15:33:50,747 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/modPassword]}" onto public java.lang.String com.sinochem.yunlian.upm.admin.web.UserController.modPassword(java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,org.springframework.ui.Model) throws java.io.IOException
+2018-01-05 15:33:50,747 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/user/addUser],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserController.addUser(com.sinochem.yunlian.upm.admin.domain.AclUser)
+2018-01-05 15:33:50,750 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/delete]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.delete(java.lang.String,java.lang.String)
+2018-01-05 15:33:50,750 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/save]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.save(javax.servlet.http.HttpServletRequest)
+2018-01-05 15:33:50,751 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/singleConf]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.singleConf(java.lang.String)
+2018-01-05 15:33:50,751 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/listHaveRole],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.listHaveRole(com.sinochem.yunlian.upm.admin.bean.UserListBean,com.sinochem.yunlian.upm.util.Page,java.lang.String)
+2018-01-05 15:33:50,752 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/listHaveRoleNon/{roleId}]}" onto public org.springframework.web.servlet.ModelAndView com.sinochem.yunlian.upm.admin.web.UserRoleController.listHaveRoleNon(com.sinochem.yunlian.upm.admin.bean.UserListBean,java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2018-01-05 15:33:50,753 INFO  (AbstractHandlerMethodMapping.java:515) - Mapped "{[/userRole/roleConf.ajax]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.sinochem.yunlian.upm.admin.web.UserRoleController.roleConf(java.lang.String)
+2018-01-05 15:33:52,700 INFO  (RequestMappingHandlerAdapter.java:532) - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 15:33:48 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 15:33:53,087 INFO  (RequestMappingHandlerAdapter.java:532) - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Fri Jan 05 15:33:48 CST 2018]; parent: Root WebApplicationContext
+2018-01-05 15:33:53,479 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/static/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+2018-01-05 15:33:53,488 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/static/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+2018-01-05 15:33:53,494 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+2018-01-05 15:33:53,501 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#3'
+2018-01-05 15:33:53,506 INFO  (AbstractUrlHandlerMapping.java:341) - Mapped URL path [/favicon.ico] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#4'
+2018-01-05 15:33:53,615 INFO  (FreeMarkerConfigurer.java:127) - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-05 15:33:54,052 INFO  (FrameworkServlet.java:507) - FrameworkServlet 'appServlet': initialization completed in 5162 ms
+2018-01-05 15:34:20,388 WARN  (HttpClient.java:79) - retry 1 http://localhost:8180/api/session -> Connection to http://localhost:8180 refused
+2018-01-05 15:34:20,389 INFO  (DefaultRequestDirector.java:574) - I/O exception (org.apache.http.conn.HttpHostConnectException) caught when connecting to the target host: Connection to http://localhost:8180 refused
+2018-01-05 15:34:20,389 INFO  (DefaultRequestDirector.java:581) - Retrying connect
+2018-01-05 15:34:22,392 WARN  (HttpClient.java:79) - retry 2 http://localhost:8180/api/session -> Connection to http://localhost:8180 refused
+2018-01-05 15:34:22,393 INFO  (DefaultRequestDirector.java:574) - I/O exception (org.apache.http.conn.HttpHostConnectException) caught when connecting to the target host: Connection to http://localhost:8180 refused
+2018-01-05 15:34:22,393 INFO  (DefaultRequestDirector.java:581) - Retrying connect
+2018-01-05 15:34:24,408 WARN  (HttpClient.java:79) - retry 3 http://localhost:8180/api/session -> Connection to http://localhost:8180 refused
+2018-01-05 15:34:24,409 INFO  (DefaultRequestDirector.java:574) - I/O exception (org.apache.http.conn.HttpHostConnectException) caught when connecting to the target host: Connection to http://localhost:8180 refused
+2018-01-05 15:34:24,409 INFO  (DefaultRequestDirector.java:581) - Retrying connect
+2018-01-05 15:34:26,415 ERROR (HttpClient.java:176) - http://localhost:8180/api/session -> Connection to http://localhost:8180 refused
+org.apache.http.conn.HttpHostConnectException: Connection to http://localhost:8180 refused
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:158)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:149)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:121)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:561)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:415)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:820)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:754)
+	at org.apache.http.impl.client.AbstractHttpClient.execute(AbstractHttpClient.java:732)
+	at com.sinochem.yunlian.upm.tools.HttpClient.executeRaw(HttpClient.java:164)
+	at com.sinochem.yunlian.upm.tools.HttpClient.execute(HttpClient.java:191)
+	at com.sinochem.yunlian.upm.tools.HttpClient.executeResponse(HttpClient.java:274)
+	at com.sinochem.yunlian.upm.tools.UpmAuthService.invoke(UpmAuthService.java:90)
+	at com.sinochem.yunlian.upm.tools.UpmAuthService.getUser(UpmAuthService.java:173)
+	at com.sinochem.yunlian.upm.filter.util.UserUtils.fetchUser(UserUtils.java:66)
+	at com.sinochem.yunlian.upm.filter.sso.UserFilter.isAccessAllowed(UserFilter.java:25)
+	at com.sinochem.yunlian.upm.filter.sso.UserWithMenuFilter.isAccessAllowed(UserWithMenuFilter.java:21)
+	at com.sinochem.yunlian.upm.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:77)
+	at com.sinochem.yunlian.upm.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:109)
+	at com.sinochem.yunlian.upm.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:94)
+	at com.sinochem.yunlian.upm.filter.AdviceFilter.doFilterInternal(AdviceFilter.java:37)
+	at com.sinochem.yunlian.upm.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:44)
+	at com.sinochem.yunlian.upm.filter.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:37)
+	at com.sinochem.yunlian.upm.filter.AbstractMtFilter.executeChain(AbstractMtFilter.java:116)
+	at com.sinochem.yunlian.upm.filter.AbstractMtFilter.doFilterInternal(AbstractMtFilter.java:76)
+	at com.sinochem.yunlian.upm.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:44)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:346)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:262)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:121)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129)
+	at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:123)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:148)
+	... 50 more
+2018-01-05 15:35:13,519 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:hRaOoxWe5RIMqyPxhw++QSKECOM=,MWS upm:hRaOoxWe5RIMqyPxhw++QSKECOM=,/api/menus,GET,Fri, 5 Jan 2018 07:35:13 GMT,127.0.0.1
+2018-01-05 15:35:13,593 INFO  (APIController.java:163) - upm,6354886576337585173,0
+2018-01-05 15:35:14,588 INFO  (UpmAppsFilter.java:39) - api logout...29efd291b06b4d26a0a6388ee56dfe84
+2018-01-05 15:35:14,631 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:/cipz0wT2Rs37EmQz3ARYqcpnT4=,MWS upm:/cipz0wT2Rs37EmQz3ARYqcpnT4=,/api/userApps,GET,Fri, 5 Jan 2018 07:35:14 GMT,127.0.0.1
+2018-01-05 15:36:00,306 INFO  (UserFilter.java:39) - access denied, cookie is null... ssoid,null
+2018-01-05 15:36:00,306 INFO  (UserFilter.java:52) - onAccessDenied... null
+2018-01-05 15:36:00,307 INFO  (UserFilter.java:59) - onAccessDenied... set sso.saveRequest http%3A%2F%2Flocalhost%3A8280%2F
+2018-01-05 15:36:00,308 INFO  (AccessControlFilter.java:103) - redirect to sso http://localhost:8180/auth?return=http%3A%2F%2Flocalhost%3A8280%2Fmt-sso
+2018-01-05 15:36:28,022 INFO  (LoginFilter.java:35) - SSO Target: ST-2c9ae8e0d4b246c0942bb3f901fd8202 http://localhost:8280/
+2018-01-05 15:36:28,072 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:io+TFDAlL1aHHVNvsdVCpJIUpKY=,MWS upm:io+TFDAlL1aHHVNvsdVCpJIUpKY=,/api/menus,GET,Fri, 5 Jan 2018 07:36:28 GMT,127.0.0.1
+2018-01-05 15:36:28,108 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:36:28,462 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:36:28,788 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:3I9dRLc4PyBYI6927E7VyDBVv7I=,MWS upm:3I9dRLc4PyBYI6927E7VyDBVv7I=,/api/userApps,GET,Fri, 5 Jan 2018 07:36:28 GMT,127.0.0.1
+2018-01-05 15:36:53,984 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:jYKtZWGnC5N1JnNv3T4B3SOemYo=,MWS upm:jYKtZWGnC5N1JnNv3T4B3SOemYo=,/api/menus,GET,Fri, 5 Jan 2018 07:36:53 GMT,127.0.0.1
+2018-01-05 15:36:53,985 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:36:54,199 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:36:54,235 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:tKmh/SN/QRCupeO71Ei/ij0JhRg=,MWS upm:tKmh/SN/QRCupeO71Ei/ij0JhRg=,/api/userApps,GET,Fri, 5 Jan 2018 07:36:54 GMT,127.0.0.1
+2018-01-05 15:38:26,690 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:qhZekg2QdQvuYKt2UcVHSTmUrG8=,MWS upm:qhZekg2QdQvuYKt2UcVHSTmUrG8=,/api/menus,GET,Fri, 5 Jan 2018 07:38:26 GMT,127.0.0.1
+2018-01-05 15:38:26,691 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:38:27,359 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:38:27,686 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:HEPpEnET+Wtuaklml/VExnjPzkI=,MWS upm:HEPpEnET+Wtuaklml/VExnjPzkI=,/api/userApps,GET,Fri, 5 Jan 2018 07:38:27 GMT,127.0.0.1
+2018-01-05 15:38:30,264 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:qOxKKMqJjFu1wCsWlVITb6muhcg=,MWS upm:qOxKKMqJjFu1wCsWlVITb6muhcg=,/api/menus,GET,Fri, 5 Jan 2018 07:38:30 GMT,127.0.0.1
+2018-01-05 15:38:30,265 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:38:30,645 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:38:30,683 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:MCPFlVSwuMp0/psg5JA+8NUrHZ8=,MWS upm:MCPFlVSwuMp0/psg5JA+8NUrHZ8=,/api/userApps,GET,Fri, 5 Jan 2018 07:38:30 GMT,127.0.0.1
+2018-01-05 15:38:35,542 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:AeL8pFVg6D2WybFpmmkPdiv0F74=,MWS upm:AeL8pFVg6D2WybFpmmkPdiv0F74=,/api/menus,GET,Fri, 5 Jan 2018 07:38:35 GMT,127.0.0.1
+2018-01-05 15:38:35,543 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:38:35,841 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:lYEQHYpZchO7CplQKCpKpdLTC88=,MWS upm:lYEQHYpZchO7CplQKCpKpdLTC88=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:38:35 GMT,127.0.0.1
+2018-01-05 15:38:35,852 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:39:12,475 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:39:12,727 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:F6JMqYGvLmcAdV3/al7nTj6a3tc=,MWS upm:F6JMqYGvLmcAdV3/al7nTj6a3tc=,/api/userApps,GET,Fri, 5 Jan 2018 07:39:12 GMT,127.0.0.1
+2018-01-05 15:41:26,556 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:9Iu9t/oyJREsTdPtZk9H0n9itck=,MWS upm:9Iu9t/oyJREsTdPtZk9H0n9itck=,/api/menus,GET,Fri, 5 Jan 2018 07:41:26 GMT,127.0.0.1
+2018-01-05 15:41:26,557 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:41:26,812 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:6GzcnQRIhkm6OIUbbnlIN3iKkbo=,MWS upm:6GzcnQRIhkm6OIUbbnlIN3iKkbo=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:41:26 GMT,127.0.0.1
+2018-01-05 15:41:26,813 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:41:27,865 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:41:27,892 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:LRWnKoOLvE84Jr+KCQWNcP03R88=,MWS upm:LRWnKoOLvE84Jr+KCQWNcP03R88=,/api/userApps,GET,Fri, 5 Jan 2018 07:41:27 GMT,127.0.0.1
+2018-01-05 15:41:31,996 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:eXbXbsQG/Ito0LyRVW1h77zXfNw=,MWS upm:eXbXbsQG/Ito0LyRVW1h77zXfNw=,/api/menus,GET,Fri, 5 Jan 2018 07:41:31 GMT,127.0.0.1
+2018-01-05 15:41:32,012 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:41:32,058 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:biYgnu7FO1Y+GOfqwLG4ACPFBV0=,MWS upm:biYgnu7FO1Y+GOfqwLG4ACPFBV0=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:41:32 GMT,127.0.0.1
+2018-01-05 15:41:32,059 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:41:32,272 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:41:32,300 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:lcssQ/YyCcGmaaybiMxfURrxQJs=,MWS upm:lcssQ/YyCcGmaaybiMxfURrxQJs=,/api/userApps,GET,Fri, 5 Jan 2018 07:41:32 GMT,127.0.0.1
+2018-01-05 15:42:36,859 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:J+cW85wuD9XE2oHB3MSyryZHVaM=,MWS upm:J+cW85wuD9XE2oHB3MSyryZHVaM=,/api/menus,GET,Fri, 5 Jan 2018 07:42:36 GMT,127.0.0.1
+2018-01-05 15:42:36,860 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:42:36,912 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:oHhYC02wx+oZVCMQr/NfYPngyO0=,MWS upm:oHhYC02wx+oZVCMQr/NfYPngyO0=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:42:36 GMT,127.0.0.1
+2018-01-05 15:42:36,913 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:42:37,253 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:42:37,281 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:AP4KCyjLcXfVoXo+dqWQp4fF7lk=,MWS upm:AP4KCyjLcXfVoXo+dqWQp4fF7lk=,/api/userApps,GET,Fri, 5 Jan 2018 07:42:37 GMT,127.0.0.1
+2018-01-05 15:42:37,445 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:l2R7xROCfmna56jlSOM9wSlGzrk=,MWS upm:l2R7xROCfmna56jlSOM9wSlGzrk=,/api/menus,GET,Fri, 5 Jan 2018 07:42:37 GMT,127.0.0.1
+2018-01-05 15:42:37,446 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:42:37,702 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:p7OdCrUS5tWepYQ9yu8pVObld2A=,MWS upm:p7OdCrUS5tWepYQ9yu8pVObld2A=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:42:37 GMT,127.0.0.1
+2018-01-05 15:42:37,703 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:42:52,695 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:sfra3UaCrGAhHumYWICnNdVxbdQ=,MWS upm:sfra3UaCrGAhHumYWICnNdVxbdQ=,/api/menus,GET,Fri, 5 Jan 2018 07:42:52 GMT,127.0.0.1
+2018-01-05 15:42:52,696 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:42:52,961 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:x3DwGiw+funszeHEikzmukKPPHc=,MWS upm:x3DwGiw+funszeHEikzmukKPPHc=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:42:52 GMT,127.0.0.1
+2018-01-05 15:42:52,962 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:42:53,962 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:42:53,988 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Dy1Ya7hIGo5nXUuQyKBjqWKSg/Q=,MWS upm:Dy1Ya7hIGo5nXUuQyKBjqWKSg/Q=,/api/userApps,GET,Fri, 5 Jan 2018 07:42:53 GMT,127.0.0.1
+2018-01-05 15:43:55,434 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:3Wz0FcRCOQwY+qWSQqCC4W6yyas=,MWS upm:3Wz0FcRCOQwY+qWSQqCC4W6yyas=,/api/menus,GET,Fri, 5 Jan 2018 07:43:55 GMT,127.0.0.1
+2018-01-05 15:43:55,435 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:43:55,704 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:GkSYlvGDglMsC5E/C8DroRbg8Eo=,MWS upm:GkSYlvGDglMsC5E/C8DroRbg8Eo=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:43:55 GMT,127.0.0.1
+2018-01-05 15:43:55,715 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:44:02,405 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:zA4vwHsRKOBZqvpW3adRDLYS+Bg=,MWS upm:zA4vwHsRKOBZqvpW3adRDLYS+Bg=,/api/menus,GET,Fri, 5 Jan 2018 07:44:02 GMT,127.0.0.1
+2018-01-05 15:44:02,406 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:44:02,457 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:71jHLk2Oamt4CN1O6G1RkUQTLng=,MWS upm:71jHLk2Oamt4CN1O6G1RkUQTLng=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:44:02 GMT,127.0.0.1
+2018-01-05 15:44:02,458 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:44:03,258 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:44:03,284 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:XFCzWUGfsOL3hAPjFGnTFC7SG7g=,MWS upm:XFCzWUGfsOL3hAPjFGnTFC7SG7g=,/api/userApps,GET,Fri, 5 Jan 2018 07:44:03 GMT,127.0.0.1
+2018-01-05 15:44:10,032 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:dLk2VjZKXF5drm9FPOjv1rc9Pu4=,MWS upm:dLk2VjZKXF5drm9FPOjv1rc9Pu4=,/api/menus,GET,Fri, 5 Jan 2018 07:44:10 GMT,127.0.0.1
+2018-01-05 15:44:10,032 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:44:10,072 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:ByVWXQYsYhLHc67HQAnugH6gEfw=,MWS upm:ByVWXQYsYhLHc67HQAnugH6gEfw=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:44:10 GMT,127.0.0.1
+2018-01-05 15:44:10,073 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:44:10,666 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:44:10,697 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Cj7HyACRBUJDX304cpRmgpBo2YI=,MWS upm:Cj7HyACRBUJDX304cpRmgpBo2YI=,/api/userApps,GET,Fri, 5 Jan 2018 07:44:10 GMT,127.0.0.1
+2018-01-05 15:44:16,459 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:2MhBfNR+AFWWhclj7Em3aUXbRDE=,MWS upm:2MhBfNR+AFWWhclj7Em3aUXbRDE=,/api/menus,GET,Fri, 5 Jan 2018 07:44:16 GMT,127.0.0.1
+2018-01-05 15:44:16,462 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:44:16,729 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:QPO6qXpnor37V2fzh4eg4QHJOkY=,MWS upm:QPO6qXpnor37V2fzh4eg4QHJOkY=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:44:16 GMT,127.0.0.1
+2018-01-05 15:44:16,730 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:44:16,988 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:44:17,020 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:gqNwMt5NXBIrjqVlzvlrLotbjQ4=,MWS upm:gqNwMt5NXBIrjqVlzvlrLotbjQ4=,/api/userApps,GET,Fri, 5 Jan 2018 07:44:17 GMT,127.0.0.1
+2018-01-05 15:44:26,747 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:oU6F5wD59sKBnJealxqq2WnMU68=,MWS upm:oU6F5wD59sKBnJealxqq2WnMU68=,/api/menus,GET,Fri, 5 Jan 2018 07:44:26 GMT,127.0.0.1
+2018-01-05 15:44:26,749 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:44:26,789 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:+BXP8GBMVNnu7zs5kx3QrcuX9Xw=,MWS upm:+BXP8GBMVNnu7zs5kx3QrcuX9Xw=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:44:26 GMT,127.0.0.1
+2018-01-05 15:44:26,790 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:44:44,644 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:PdzVe4mBV+64SYw53YIt55Ke4Y8=,MWS upm:PdzVe4mBV+64SYw53YIt55Ke4Y8=,/api/menus,GET,Fri, 5 Jan 2018 07:44:44 GMT,127.0.0.1
+2018-01-05 15:44:44,644 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:44:44,960 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:JV+xyxn70bLPj6XlJbq9RFGl24s=,MWS upm:JV+xyxn70bLPj6XlJbq9RFGl24s=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:44:44 GMT,127.0.0.1
+2018-01-05 15:44:44,961 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:44:45,302 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:44:45,328 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:6Gel6cyUj6GpK3V+bYla5XkuzFI=,MWS upm:6Gel6cyUj6GpK3V+bYla5XkuzFI=,/api/userApps,GET,Fri, 5 Jan 2018 07:44:45 GMT,127.0.0.1
+2018-01-05 15:44:48,529 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:41RNww0GyL2ySMnifarLfdY/haQ=,MWS upm:41RNww0GyL2ySMnifarLfdY/haQ=,/api/menus,GET,Fri, 5 Jan 2018 07:44:48 GMT,127.0.0.1
+2018-01-05 15:44:48,530 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:44:48,575 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:qyg6Oh5NTLJAmJ8xE1KqJzr5oKQ=,MWS upm:qyg6Oh5NTLJAmJ8xE1KqJzr5oKQ=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:44:48 GMT,127.0.0.1
+2018-01-05 15:44:48,576 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:45:24,877 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:45:24,908 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:u69nzCv6PXm9SwexkwsNvHhOzno=,MWS upm:u69nzCv6PXm9SwexkwsNvHhOzno=,/api/userApps,GET,Fri, 5 Jan 2018 07:45:24 GMT,127.0.0.1
+2018-01-05 15:45:49,086 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:bHOv42ylWZ6G5CpAYKpwAnOsRMk=,MWS upm:bHOv42ylWZ6G5CpAYKpwAnOsRMk=,/api/menus,GET,Fri, 5 Jan 2018 07:45:49 GMT,127.0.0.1
+2018-01-05 15:45:49,087 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:45:49,131 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:UfjdD0xCUsVVFGL+krITpV9ZCYc=,MWS upm:UfjdD0xCUsVVFGL+krITpV9ZCYc=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:45:49 GMT,127.0.0.1
+2018-01-05 15:45:49,132 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:45:49,741 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:45:49,766 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:jxSYcirK8IZ0XSvsGq03wS7Ao18=,MWS upm:jxSYcirK8IZ0XSvsGq03wS7Ao18=,/api/userApps,GET,Fri, 5 Jan 2018 07:45:49 GMT,127.0.0.1
+2018-01-05 15:46:13,245 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Mt8pA+G+S+pBV6esmE0WxphBTuk=,MWS upm:Mt8pA+G+S+pBV6esmE0WxphBTuk=,/api/menus,GET,Fri, 5 Jan 2018 07:46:13 GMT,127.0.0.1
+2018-01-05 15:46:13,246 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:46:13,941 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:iRrIXbGv2TWyLie7XJvq8ZIZ5U4=,MWS upm:iRrIXbGv2TWyLie7XJvq8ZIZ5U4=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:46:13 GMT,127.0.0.1
+2018-01-05 15:46:13,942 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:46:14,203 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:46:14,528 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:zUyjcdPp8BWlmMljwxjepqpNkoc=,MWS upm:zUyjcdPp8BWlmMljwxjepqpNkoc=,/api/userApps,GET,Fri, 5 Jan 2018 07:46:14 GMT,127.0.0.1
+2018-01-05 15:46:25,198 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:nD1jzTs5bkVlHz5Twu45h8rM+N4=,MWS upm:nD1jzTs5bkVlHz5Twu45h8rM+N4=,/api/menus,GET,Fri, 5 Jan 2018 07:46:25 GMT,127.0.0.1
+2018-01-05 15:46:25,199 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:46:25,237 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:eHLXdK/iGd6m0MWwWskFTcugxBA=,MWS upm:eHLXdK/iGd6m0MWwWskFTcugxBA=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:46:25 GMT,127.0.0.1
+2018-01-05 15:46:25,238 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:46:25,464 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:46:25,492 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:VTmYHDoGygSi4b7luBz+yqES6PM=,MWS upm:VTmYHDoGygSi4b7luBz+yqES6PM=,/api/userApps,GET,Fri, 5 Jan 2018 07:46:25 GMT,127.0.0.1
+2018-01-05 15:46:46,804 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:5k15opwvByR7U3egKCUfgJT4pt4=,MWS upm:5k15opwvByR7U3egKCUfgJT4pt4=,/api/menus,GET,Fri, 5 Jan 2018 07:46:46 GMT,127.0.0.1
+2018-01-05 15:46:46,815 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:46:47,072 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:twXrTTpfl2HvApsrziPVJyOpTAU=,MWS upm:twXrTTpfl2HvApsrziPVJyOpTAU=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:46:47 GMT,127.0.0.1
+2018-01-05 15:46:47,074 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:46:47,281 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:46:47,307 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:6Fxa7CmE6fcOpjsUvGG50UK8TEU=,MWS upm:6Fxa7CmE6fcOpjsUvGG50UK8TEU=,/api/userApps,GET,Fri, 5 Jan 2018 07:46:47 GMT,127.0.0.1
+2018-01-05 15:46:53,386 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:goxdUf1WBA3c2bUotEd1O7N6+O8=,MWS upm:goxdUf1WBA3c2bUotEd1O7N6+O8=,/api/menus,GET,Fri, 5 Jan 2018 07:46:53 GMT,127.0.0.1
+2018-01-05 15:46:53,386 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:46:53,681 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:oc6RSMsJaI785pDvE1hAIZhWK4w=,MWS upm:oc6RSMsJaI785pDvE1hAIZhWK4w=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:46:53 GMT,127.0.0.1
+2018-01-05 15:46:53,683 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:46:53,904 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:46:53,930 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:l9U0gCseWfOwX8JPSVJpnztym3M=,MWS upm:l9U0gCseWfOwX8JPSVJpnztym3M=,/api/userApps,GET,Fri, 5 Jan 2018 07:46:53 GMT,127.0.0.1
+2018-01-05 15:46:57,861 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:yAtcGQfBHQ9M5YtfeU1nqmEkVjU=,MWS upm:yAtcGQfBHQ9M5YtfeU1nqmEkVjU=,/api/menus,GET,Fri, 5 Jan 2018 07:46:57 GMT,127.0.0.1
+2018-01-05 15:46:57,862 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:46:57,905 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:rr6eaeyCPArqAhYeClHg2bzeN/A=,MWS upm:rr6eaeyCPArqAhYeClHg2bzeN/A=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:46:57 GMT,127.0.0.1
+2018-01-05 15:46:57,905 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:46:58,118 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:46:58,144 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:IqDx9z49Gbp6t1IohS94oTsvn3w=,MWS upm:IqDx9z49Gbp6t1IohS94oTsvn3w=,/api/userApps,GET,Fri, 5 Jan 2018 07:46:58 GMT,127.0.0.1
+2018-01-05 15:47:23,525 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:0QBYNePfEjA3L/ivTHtQYll4z30=,MWS upm:0QBYNePfEjA3L/ivTHtQYll4z30=,/api/menus,GET,Fri, 5 Jan 2018 07:47:23 GMT,127.0.0.1
+2018-01-05 15:47:23,526 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:47:23,567 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:N2FA6bPzIsrSE3cb7kezJ1qRPHg=,MWS upm:N2FA6bPzIsrSE3cb7kezJ1qRPHg=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:47:23 GMT,127.0.0.1
+2018-01-05 15:47:23,568 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:47:23,763 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:47:23,786 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:d8ozjLmtkCjRl0LeSsJWi1XheHQ=,MWS upm:d8ozjLmtkCjRl0LeSsJWi1XheHQ=,/api/userApps,GET,Fri, 5 Jan 2018 07:47:23 GMT,127.0.0.1
+2018-01-05 15:47:31,433 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:7zL7E/c8iBcBfdX6LYvH1XODDB4=,MWS upm:7zL7E/c8iBcBfdX6LYvH1XODDB4=,/api/menus,GET,Fri, 5 Jan 2018 07:47:31 GMT,127.0.0.1
+2018-01-05 15:47:31,433 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:47:31,691 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:qEKZ5pTFjZ5VMtG7IYInlRgbgeU=,MWS upm:qEKZ5pTFjZ5VMtG7IYInlRgbgeU=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:47:31 GMT,127.0.0.1
+2018-01-05 15:47:31,692 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:47:32,176 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:47:32,208 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:NLkUL35CBdTrD3GUuX9rQJmgN0o=,MWS upm:NLkUL35CBdTrD3GUuX9rQJmgN0o=,/api/userApps,GET,Fri, 5 Jan 2018 07:47:32 GMT,127.0.0.1
+2018-01-05 15:48:01,765 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:7l2YZu0eNWoFkmAyfZnfEc/hZFA=,MWS upm:7l2YZu0eNWoFkmAyfZnfEc/hZFA=,/api/menus,GET,Fri, 5 Jan 2018 07:48:01 GMT,127.0.0.1
+2018-01-05 15:48:01,766 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:48:02,036 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:1fRj6Hhg9oy80tVGUJZq50KQpto=,MWS upm:1fRj6Hhg9oy80tVGUJZq50KQpto=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:48:02 GMT,127.0.0.1
+2018-01-05 15:48:02,037 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:48:02,489 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:48:02,516 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:M/ufHSvJ3cmWbhqLXQHEMgrHtJ8=,MWS upm:M/ufHSvJ3cmWbhqLXQHEMgrHtJ8=,/api/userApps,GET,Fri, 5 Jan 2018 07:48:02 GMT,127.0.0.1
+2018-01-05 15:48:28,424 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:E9gms5L5OBztwCl6qc4fTMEUWdo=,MWS upm:E9gms5L5OBztwCl6qc4fTMEUWdo=,/api/menus,GET,Fri, 5 Jan 2018 07:48:28 GMT,127.0.0.1
+2018-01-05 15:48:28,425 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:48:28,463 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:7mq3iPBnMmBFRYay68ZmoxWOYx0=,MWS upm:7mq3iPBnMmBFRYay68ZmoxWOYx0=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:48:28 GMT,127.0.0.1
+2018-01-05 15:48:28,463 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:48:28,782 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:48:28,811 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:MXR0YyDMmXreSNLpfADPrbZTl0M=,MWS upm:MXR0YyDMmXreSNLpfADPrbZTl0M=,/api/userApps,GET,Fri, 5 Jan 2018 07:48:28 GMT,127.0.0.1
+2018-01-05 15:48:57,586 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:nSfWMJlVQR4Te9BfXQoHhNBNBXc=,MWS upm:nSfWMJlVQR4Te9BfXQoHhNBNBXc=,/api/menus,GET,Fri, 5 Jan 2018 07:48:57 GMT,127.0.0.1
+2018-01-05 15:48:57,587 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:48:57,638 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:S11BWG/mZ+qXMMGquuUX6wP4Wz0=,MWS upm:S11BWG/mZ+qXMMGquuUX6wP4Wz0=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:48:57 GMT,127.0.0.1
+2018-01-05 15:48:57,646 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:48:57,947 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:48:58,284 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:RmlSdHKcwRCeqrQUfCCNYUq27Gs=,MWS upm:RmlSdHKcwRCeqrQUfCCNYUq27Gs=,/api/userApps,GET,Fri, 5 Jan 2018 07:48:58 GMT,127.0.0.1
+2018-01-05 15:49:08,844 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:EewvljJnuYziF0cFKVZdgaVZnZo=,MWS upm:EewvljJnuYziF0cFKVZdgaVZnZo=,/api/menus,GET,Fri, 5 Jan 2018 07:49:08 GMT,127.0.0.1
+2018-01-05 15:49:08,845 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:49:08,923 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:NhFg9KEP7hb9/sgRnBQXngS8/hk=,MWS upm:NhFg9KEP7hb9/sgRnBQXngS8/hk=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:49:08 GMT,127.0.0.1
+2018-01-05 15:49:08,924 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:49:09,167 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:49:09,195 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:W6Y+chUa3Ne0NV54ldZ4d8O1IGc=,MWS upm:W6Y+chUa3Ne0NV54ldZ4d8O1IGc=,/api/userApps,GET,Fri, 5 Jan 2018 07:49:09 GMT,127.0.0.1
+2018-01-05 15:49:18,879 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:rg6oA/KmN4Rws6uT9kU5rU4HxRI=,MWS upm:rg6oA/KmN4Rws6uT9kU5rU4HxRI=,/api/menus,GET,Fri, 5 Jan 2018 07:49:18 GMT,127.0.0.1
+2018-01-05 15:49:18,880 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:49:18,944 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Q2uNBnfPLfuGWUyl0oiSc7TAs3E=,MWS upm:Q2uNBnfPLfuGWUyl0oiSc7TAs3E=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:49:18 GMT,127.0.0.1
+2018-01-05 15:49:18,945 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:49:19,187 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:49:19,213 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Pg2hfwDcRpuwxlhzmGsZAUHKakI=,MWS upm:Pg2hfwDcRpuwxlhzmGsZAUHKakI=,/api/userApps,GET,Fri, 5 Jan 2018 07:49:19 GMT,127.0.0.1
+2018-01-05 15:49:28,638 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:fp8HtREyisX7CFQZnVbT3HYE7yA=,MWS upm:fp8HtREyisX7CFQZnVbT3HYE7yA=,/api/menus,GET,Fri, 5 Jan 2018 07:49:28 GMT,127.0.0.1
+2018-01-05 15:49:28,640 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:49:28,679 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:6MUz68FfgmBX40LWPKxGd+DFDPw=,MWS upm:6MUz68FfgmBX40LWPKxGd+DFDPw=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:49:28 GMT,127.0.0.1
+2018-01-05 15:49:28,680 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:49:29,057 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:49:29,083 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:wJgPWYwZzxV+8dw1zWJHT7iJLg8=,MWS upm:wJgPWYwZzxV+8dw1zWJHT7iJLg8=,/api/userApps,GET,Fri, 5 Jan 2018 07:49:29 GMT,127.0.0.1
+2018-01-05 15:49:34,875 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:IYSrZivigFJyZdJag1zIRYTOnI4=,MWS upm:IYSrZivigFJyZdJag1zIRYTOnI4=,/api/menus,GET,Fri, 5 Jan 2018 07:49:34 GMT,127.0.0.1
+2018-01-05 15:49:34,875 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:49:34,914 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:cuTBAImsZXkkB4IeIDMwrBdWFXM=,MWS upm:cuTBAImsZXkkB4IeIDMwrBdWFXM=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:49:34 GMT,127.0.0.1
+2018-01-05 15:49:34,915 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:49:35,143 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:49:35,168 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:CNK+kG70atSA6Rl7Ig0FGMUKuUw=,MWS upm:CNK+kG70atSA6Rl7Ig0FGMUKuUw=,/api/userApps,GET,Fri, 5 Jan 2018 07:49:35 GMT,127.0.0.1
+2018-01-05 15:51:19,061 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:ccQ5P/kQv050F+DNl2fTrfWHqLg=,MWS upm:ccQ5P/kQv050F+DNl2fTrfWHqLg=,/api/menus,GET,Fri, 5 Jan 2018 07:51:19 GMT,127.0.0.1
+2018-01-05 15:51:19,062 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:19,524 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:19,556 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:tmQnlEnijsJvT3zer8jWsBH+hRA=,MWS upm:tmQnlEnijsJvT3zer8jWsBH+hRA=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:19 GMT,127.0.0.1
+2018-01-05 15:51:24,078 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:EUnBtkL9mXu8XghCjj7YKR7ORC4=,MWS upm:EUnBtkL9mXu8XghCjj7YKR7ORC4=,/api/menus,GET,Fri, 5 Jan 2018 07:51:24 GMT,127.0.0.1
+2018-01-05 15:51:24,078 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:24,285 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:24,315 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:ntiL7ay260cg/a54eBFKAuaa9xE=,MWS upm:ntiL7ay260cg/a54eBFKAuaa9xE=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:24 GMT,127.0.0.1
+2018-01-05 15:51:27,847 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Deam6dPmaasHn7BY2xwhAoAe9P0=,MWS upm:Deam6dPmaasHn7BY2xwhAoAe9P0=,/api/menus,GET,Fri, 5 Jan 2018 07:51:27 GMT,127.0.0.1
+2018-01-05 15:51:27,848 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:28,094 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:28,120 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:K71TePuvyMlmJW3b3fuUetaNw7U=,MWS upm:K71TePuvyMlmJW3b3fuUetaNw7U=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:28 GMT,127.0.0.1
+2018-01-05 15:51:30,250 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:Ly4Qy9WteFSFSjZCZ4HSd5DgdFA=,MWS upm:Ly4Qy9WteFSFSjZCZ4HSd5DgdFA=,/api/menus,GET,Fri, 5 Jan 2018 07:51:30 GMT,127.0.0.1
+2018-01-05 15:51:30,253 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:30,471 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:30,498 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:hQkrW88xZC5ucC88BsuEFuijDEU=,MWS upm:hQkrW88xZC5ucC88BsuEFuijDEU=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:30 GMT,127.0.0.1
+2018-01-05 15:51:33,185 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:uCyo0p81jehOIgBZ3rzr9IjrVD0=,MWS upm:uCyo0p81jehOIgBZ3rzr9IjrVD0=,/api/menus,GET,Fri, 5 Jan 2018 07:51:33 GMT,127.0.0.1
+2018-01-05 15:51:33,185 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:33,411 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:33,437 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:5XxKJqH4x4Iy0tLSxfwM1I9lxQA=,MWS upm:5XxKJqH4x4Iy0tLSxfwM1I9lxQA=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:33 GMT,127.0.0.1
+2018-01-05 15:51:39,906 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:qQjCuyHPSTEZ4K8vFNmtNyW1myk=,MWS upm:qQjCuyHPSTEZ4K8vFNmtNyW1myk=,/api/menus,GET,Fri, 5 Jan 2018 07:51:39 GMT,127.0.0.1
+2018-01-05 15:51:39,906 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:40,084 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:40,337 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:GhkdFcmQS/29yp60ntghPYU58Bs=,MWS upm:GhkdFcmQS/29yp60ntghPYU58Bs=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:40 GMT,127.0.0.1
+2018-01-05 15:51:43,241 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:1FwvM9/nKOMnko1miEWxSPgDwjw=,MWS upm:1FwvM9/nKOMnko1miEWxSPgDwjw=,/api/menus,GET,Fri, 5 Jan 2018 07:51:43 GMT,127.0.0.1
+2018-01-05 15:51:43,242 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:43,447 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:43,478 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:erPiiLti7bey2AdQLtluWvvWP+Q=,MWS upm:erPiiLti7bey2AdQLtluWvvWP+Q=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:43 GMT,127.0.0.1
+2018-01-05 15:51:50,883 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:84MeEm5eXwmZmG91P+ExccBnK3c=,MWS upm:84MeEm5eXwmZmG91P+ExccBnK3c=,/api/menus,GET,Fri, 5 Jan 2018 07:51:50 GMT,127.0.0.1
+2018-01-05 15:51:50,893 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:51:51,070 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:51:51,097 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:s9onDQmzHxsPSnnW9GKCHsAoCUM=,MWS upm:s9onDQmzHxsPSnnW9GKCHsAoCUM=,/api/userApps,GET,Fri, 5 Jan 2018 07:51:51 GMT,127.0.0.1
+2018-01-05 15:52:12,850 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:uRHYIB7fivY4lgBz4thD3zx+iMA=,MWS upm:uRHYIB7fivY4lgBz4thD3zx+iMA=,/api/menus,GET,Fri, 5 Jan 2018 07:52:12 GMT,127.0.0.1
+2018-01-05 15:52:12,851 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:52:12,895 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:NIk+KbH/c/l3WYrzo4nv32bE3X4=,MWS upm:NIk+KbH/c/l3WYrzo4nv32bE3X4=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:52:12 GMT,127.0.0.1
+2018-01-05 15:52:12,895 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:52:49,310 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:52:49,340 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:ybCly4o4FHd+99GU4XKCZ4DKKQk=,MWS upm:ybCly4o4FHd+99GU4XKCZ4DKKQk=,/api/userApps,GET,Fri, 5 Jan 2018 07:52:49 GMT,127.0.0.1
+2018-01-05 15:53:47,457 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:3fpum2iyFwg7SW67BH+fxfgbLDo=,MWS upm:3fpum2iyFwg7SW67BH+fxfgbLDo=,/api/menus,GET,Fri, 5 Jan 2018 07:53:47 GMT,127.0.0.1
+2018-01-05 15:53:47,458 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:53:47,494 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:x62O7mmCtZWKGJ2yL2mIBlTpgmw=,MWS upm:x62O7mmCtZWKGJ2yL2mIBlTpgmw=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:53:47 GMT,127.0.0.1
+2018-01-05 15:53:47,494 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:54:21,054 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:BPb/i4ZDYo3gV1eZbCTqEVMfgo0=,MWS upm:BPb/i4ZDYo3gV1eZbCTqEVMfgo0=,/api/menus,GET,Fri, 5 Jan 2018 07:54:21 GMT,127.0.0.1
+2018-01-05 15:54:21,078 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:54:21,161 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:nAZNzr/lTGZ6KWw8C0r6uOa4ZMY=,MWS upm:nAZNzr/lTGZ6KWw8C0r6uOa4ZMY=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:54:21 GMT,127.0.0.1
+2018-01-05 15:54:21,170 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:54:21,573 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:54:21,605 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:He8dJhpuiY0XtNXQXhQcWpTgn5w=,MWS upm:He8dJhpuiY0XtNXQXhQcWpTgn5w=,/api/userApps,GET,Fri, 5 Jan 2018 07:54:21 GMT,127.0.0.1
+2018-01-05 15:54:22,306 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:o6wd0eij/gr0xfCKOd5Ymgr6qsU=,MWS upm:o6wd0eij/gr0xfCKOd5Ymgr6qsU=,/api/menus,GET,Fri, 5 Jan 2018 07:54:22 GMT,127.0.0.1
+2018-01-05 15:54:22,307 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:54:22,356 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:gN+Enr5lYdRAGLoIk0NBgASaXrQ=,MWS upm:gN+Enr5lYdRAGLoIk0NBgASaXrQ=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:54:22 GMT,127.0.0.1
+2018-01-05 15:54:22,357 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:54:22,674 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:54:22,707 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:XsewwoFh4WWjwakmY4ntgJ1AU3U=,MWS upm:XsewwoFh4WWjwakmY4ntgJ1AU3U=,/api/userApps,GET,Fri, 5 Jan 2018 07:54:22 GMT,127.0.0.1
+2018-01-05 15:54:37,279 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:4mBI58w1/SA8vLZxv6ylyyYL+vw=,MWS upm:4mBI58w1/SA8vLZxv6ylyyYL+vw=,/api/menus,GET,Fri, 5 Jan 2018 07:54:37 GMT,127.0.0.1
+2018-01-05 15:54:37,280 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:54:38,393 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:OXEPO0S20aP/uHrqOoQxs3SZzug=,MWS upm:OXEPO0S20aP/uHrqOoQxs3SZzug=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:54:38 GMT,127.0.0.1
+2018-01-05 15:54:38,394 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:54:38,853 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:54:38,886 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:JAQWsZ7oB+IsGI8f6oUrOxpSv2M=,MWS upm:JAQWsZ7oB+IsGI8f6oUrOxpSv2M=,/api/userApps,GET,Fri, 5 Jan 2018 07:54:38 GMT,127.0.0.1
+2018-01-05 15:54:42,498 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:ki/0Jrmsh9vDsXhL2J9z/SRpzkE=,MWS upm:ki/0Jrmsh9vDsXhL2J9z/SRpzkE=,/api/menus,GET,Fri, 5 Jan 2018 07:54:42 GMT,127.0.0.1
+2018-01-05 15:54:42,498 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:54:42,538 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:ZHYj4Bq7o4NXuI+s8XwB1EdJpaQ=,MWS upm:ZHYj4Bq7o4NXuI+s8XwB1EdJpaQ=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:54:42 GMT,127.0.0.1
+2018-01-05 15:54:42,539 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:54:42,847 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:54:42,877 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:6UxwuXC03WBKqtUAowVgEKW5Tf0=,MWS upm:6UxwuXC03WBKqtUAowVgEKW5Tf0=,/api/userApps,GET,Fri, 5 Jan 2018 07:54:42 GMT,127.0.0.1
+2018-01-05 15:54:45,574 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:R+zKkahi9DLlxbYeh9kb/Y0suPU=,MWS upm:R+zKkahi9DLlxbYeh9kb/Y0suPU=,/api/menus,GET,Fri, 5 Jan 2018 07:54:45 GMT,127.0.0.1
+2018-01-05 15:54:45,574 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:54:45,614 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:X4P3cJ9nBwfQIVzoSmgm8DJGCoA=,MWS upm:X4P3cJ9nBwfQIVzoSmgm8DJGCoA=,/api/permissions/9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a/upm,GET,Fri, 5 Jan 2018 07:54:45 GMT,127.0.0.1
+2018-01-05 15:54:45,615 INFO  (APIController.java:117) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,[user:admin, menu, userRole, app, role]
+2018-01-05 15:54:45,821 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:54:45,846 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:peJZZY6wVWSfGeybjS0GwMiB8Jg=,MWS upm:peJZZY6wVWSfGeybjS0GwMiB8Jg=,/api/userApps,GET,Fri, 5 Jan 2018 07:54:45 GMT,127.0.0.1
+2018-01-05 15:54:51,703 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:buBphjICWAEB3Fs/syY7hd08w1o=,MWS upm:buBphjICWAEB3Fs/syY7hd08w1o=,/api/menus,GET,Fri, 5 Jan 2018 07:54:51 GMT,127.0.0.1
+2018-01-05 15:54:51,704 INFO  (APIController.java:163) - upm,9b2f3618-fdd3-4ba8-9b8e-345b0a6bd31a,4
+2018-01-05 15:54:52,156 INFO  (UpmAppsFilter.java:39) - api logout...166b7c1b200e4c72b2586284a0ca5301
+2018-01-05 15:54:52,185 INFO  (ApiInterceptor.java:71) - auth ok,upm,88f98889-0b23-42dd-b36f-2d2f4349ege5,MWS upm:vFuau6akpFD/BoXYtJi/414l4Qk=,MWS upm:vFuau6akpFD/BoXYtJi/414l4Qk=,/api/userApps,GET,Fri, 5 Jan 2018 07:54:52 GMT,127.0.0.1
