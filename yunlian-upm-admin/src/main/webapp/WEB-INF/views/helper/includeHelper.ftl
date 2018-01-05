@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <#assign UserRoleType=statics["com.sinochem.yunlian.upm.admin.constant.UserRoleType"]>
 <#assign UserType=statics["com.sinochem.yunlian.upm.admin.constant.UserType"]>
 <#assign SMSStatus=statics["com.sinochem.yunlian.upm.admin.constant.SMSStatus"]>
@@ -9,3 +10,16 @@
 <#assign RoleStatus=statics["com.sinochem.yunlian.upm.admin.constant.RoleStatus"]>
 <#assign CommonStatus=statics["com.sinochem.yunlian.upm.admin.constant.CommonStatus"]>
 <#assign UserStatus=statics["com.sinochem.yunlian.upm.admin.constant.UserStatus"]>
+=======
+<#assign ContextAttrType=statics["com.sinochem.yunlian.upm.admin.constant.ContextAttrType"]>
+<#assign SMSStatus=statics["com.sinochem.yunlian.upm.admin.constant.SMSStatus"]>
+<#assign UserRoleSourceType=statics["com.sinochem.yunlian.upm.admin.constant.UserRoleSourceType"]>
+<#assign UserStatus=statics["com.sinochem.yunlian.upm.admin.constant.UserStatus"]>
+<#assign MenuStatus=statics["com.sinochem.yunlian.upm.admin.constant.MenuStatus"]>
+<#assign CommonStatus=statics["com.sinochem.yunlian.upm.admin.constant.CommonStatus"]>
+<#assign UserType=statics["com.sinochem.yunlian.upm.admin.constant.UserType"]>
+<#assign RoleStatus=statics["com.sinochem.yunlian.upm.admin.constant.RoleStatus"]>
+<#assign MenuType=statics["com.sinochem.yunlian.upm.admin.constant.MenuType"]>
+<#assign RolePermissionRltStatus=statics["com.sinochem.yunlian.upm.admin.constant.RolePermissionRltStatus"]>
+<#assign UserRoleType=statics["com.sinochem.yunlian.upm.admin.constant.UserRoleType"]>
+>>>>>>> 54ef7eebb51d9c41791c130321d9f8948fb27c6d

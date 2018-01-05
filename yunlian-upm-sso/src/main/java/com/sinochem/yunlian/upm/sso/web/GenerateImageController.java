@@ -39,6 +39,14 @@ public class GenerateImageController {
     @Resource
     private SsoCacheFacade ssoCacheFacade;
 
+    /**
+     * 测试使用
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Deprecated
     @RequestMapping(value = "/generatImage123")
     public void imageCaptcha(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
