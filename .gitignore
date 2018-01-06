@@ -7,5 +7,5 @@ target/
 .settings/
 .classpath
 /logs
-/yunlian-upm-admin/logs/
-/yunlian-upm-sso/logs/
+/yunlian-upm-admin/logs/*
+/yunlian-upm-sso/logs/*
