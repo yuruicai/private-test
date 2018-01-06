@@ -16,6 +16,19 @@ import java.util.List;
 
 public class ApiInterceptor extends HandlerInterceptorAdapter {
     private final static Logger LOG = LoggerFactory.getLogger(ApiInterceptor.class);
+    private final static List<String> IGNORE_URLS = new ArrayList<>();
+
+    static {
+
+        //不走验证名单
+        IGNORE_URLS.add("/api/monitor/alive");
+        IGNORE_URLS.add("/api/saveUserRole");
+        IGNORE_URLS.add("/api/deleteUserRole");
+        IGNORE_URLS.add("/api/roleList");
+        IGNORE_URLS.add("/api/updateUserRole");
+        IGNORE_URLS.add("/api/company");
+        IGNORE_URLS.add("/api/company/modification");
+    }
 
     @Resource
     private ApplicationService applicationService;
@@ -29,14 +42,7 @@ public class ApiInterceptor extends HandlerInterceptorAdapter {
         if (action.equalsIgnoreCase("/api/monitor/alive")) {
             return true;
         }
-        //不走验证名单
-        List<String> actionList = new ArrayList();
-        actionList.add("/api/monitor/alive");
-        actionList.add("/api/saveUserRole");
-        actionList.add("/api/deleteUserRole");
-        actionList.add("/api/roleList");
-        actionList.add("/api/updateUserRole");
-        for (String actionForadmin:actionList) {
+        for (String actionForadmin : IGNORE_URLS) {
             if (actionForadmin.equalsIgnoreCase(action)) {
                 return true;
             }
