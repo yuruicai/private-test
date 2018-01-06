@@ -4,6 +4,7 @@ import com.sinochem.yunlian.upm.admin.domain.Company;
 import com.sinochem.yunlian.upm.admin.mapper.CompanyMapper;
 import com.sinochem.yunlian.upm.api.exception.ApiException;
 import com.sinochem.yunlian.upm.api.service.CompanyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @Description:
  * @date 2018/01/05 下午5:13
  */
+@Slf4j
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
@@ -60,6 +62,4 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return company.getStatus();
     }
-
-
 }
