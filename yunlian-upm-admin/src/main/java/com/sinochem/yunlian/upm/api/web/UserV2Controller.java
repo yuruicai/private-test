@@ -22,7 +22,7 @@ import java.util.List;
  * @date 2018/01/05 下午5:13
  */
 @Controller
-@RequestMapping("internal/users")
+@RequestMapping("inner/api/users")
 public class UserV2Controller {
     @Autowired
     private UserService userService;

@@ -31,6 +31,7 @@
                 /generatImage = anon
                 /unauthorized = anon
                 /api/** = anon
+                /inner/api/** = anon
                 /logout = logout
                 /upmApps = upmApps
                 /**/*.ajax = user
