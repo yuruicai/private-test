@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="C:\\Users\\zhanghongze\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.15\\mysql-connector-java-5.1.15.jar"/>
+    <classPathEntry location="/Users/huangyang/.m2/repository/mysql/mysql-connector-java/5.1.15/mysql-connector-java-5.1.15.jar"/>
 
     <context id="ormgenerator" targetRuntime="MyBatis3">
 
@@ -14,9 +14,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.255.0.108:3306/upm?autoReconnect:true;useUnicode:true;characterEncoding:UTF-8"
-                        userId="quwei"
-                        password="nop@ss.1">
+                        connectionURL="jdbc:mysql://1.203.115.47:3306/upm_1?autoReconnect:true;useUnicode:true;characterEncoding:UTF-8"
+                        userId="mysql"
+                        password="123456">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -24,45 +24,24 @@
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.sinochem.yunlian.upm.admin.domain"
-                            targetProject="e:\\workspace\\sinochem.yunlian-upm\\sinochem.yunlian-upm-admin\\src\\main\\java\\">
+                            targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-admin/src/main/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="com.sinochem.yunlian.upm.admin.mapper"
-                         targetProject="D:\\workspace\\sinochem.yunlian-upm\\sinochem.yunlian-upm-admin\\src\\main\\resources\\">
+                         targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-admin/src/main/resources/">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.sinochem.yunlian.upm.admin.mapper"
-                             targetProject="e:\\workspace\\sinochem.yunlian-upm\\sinochem.yunlian-upm-admin\\src\\main\\java\\">
+                             targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-admin/src/main/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="exampleMethodVisibility" value="default"/>
         </javaClientGenerator>
 
-        <table tableName="acl_user" domainObjectName="AclUser">
-        </table>
-
+        <table tableName="company" domainObjectName="Company"> </table>
         <!--<table tableName="acl_application" domainObjectName="AclApplication">-->
-        <!--</table>-->
-
-        <!--<table tableName="acl_role" domainObjectName="AclRole">-->
-        <!--</table>-->
-        <!--<table tableName="acl_role_instance_context" domainObjectName="AclRoleInstanceContext">-->
-        <!--</table>-->
-        <!--<table tableName="acl_role_permission_rlt" domainObjectName="AclRolePermissionRlt">-->
-        <!--</table>-->
-        <!--<table tableName="acl_user_role_rlt" domainObjectName="AclUserRoleRlt">-->
-        <!--</table>-->
-        <!--<table tableName="acl_user_role_source" domainObjectName="AclUserRoleSource">-->
-        <!--</table>-->
-
-        <!--<table tableName="acl_menu" domainObjectName="AclMenu">-->
-        <!--</table>-->
-
-        <!--<table tableName="acl_resource" domainObjectName="AclResource">-->
-        <!--</table>-->
-        <!--<table tableName="acl_permission" domainObjectName="AclPermission">-->
         <!--</table>-->
 
     </context>

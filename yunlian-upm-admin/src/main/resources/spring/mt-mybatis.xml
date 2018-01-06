@@ -26,11 +26,11 @@
         <property name="jdbcUrl" value="${database.url}"/>
         <property name="user" value="${database.username}"/>
         <property name="password" value="${database.password}"/>
-        <!--<property name="initialPoolSize" value="${pool.initialPoolSize}"/>-->
-        <!--<property name="minPoolSize" value="${pool.minPoolSize}"/>-->
-        <!--<property name="maxPoolSize" value="${pool.maxPoolSize}"/>-->
-        <!--<property name="maxIdleTime" value="${pool.maxIdleTime}"/>-->
-        <!--<property name="acquireIncrement" value="${pool.acquireIncrement}"/>-->
+        <property name="initialPoolSize" value="${pool.initialPoolSize}"/>
+        <property name="minPoolSize" value="${pool.minPoolSize}"/>
+        <property name="maxPoolSize" value="${pool.maxPoolSize}"/>
+        <property name="maxIdleTime" value="${pool.maxIdleTime}"/>
+        <property name="acquireIncrement" value="${pool.acquireIncrement}"/>
         <property name="acquireRetryAttempts" value = "2"/>
     </bean>
 

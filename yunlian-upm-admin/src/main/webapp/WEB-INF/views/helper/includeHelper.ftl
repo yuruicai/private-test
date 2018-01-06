@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <#assign UserRoleType=statics["com.sinochem.yunlian.upm.admin.constant.UserRoleType"]>
 <#assign UserType=statics["com.sinochem.yunlian.upm.admin.constant.UserType"]>
 <#assign SMSStatus=statics["com.sinochem.yunlian.upm.admin.constant.SMSStatus"]>
@@ -22,4 +21,3 @@
 <#assign MenuType=statics["com.sinochem.yunlian.upm.admin.constant.MenuType"]>
 <#assign RolePermissionRltStatus=statics["com.sinochem.yunlian.upm.admin.constant.RolePermissionRltStatus"]>
 <#assign UserRoleType=statics["com.sinochem.yunlian.upm.admin.constant.UserRoleType"]>
->>>>>>> 54ef7eebb51d9c41791c130321d9f8948fb27c6d
