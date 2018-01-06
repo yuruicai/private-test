@@ -31,4 +31,6 @@ public interface AclUserMapper {
     int updateByPrimaryKeySelective(AclUser record);
 
     int updateByPrimaryKey(AclUser record);
+
+    int getCount(String name);
 }
