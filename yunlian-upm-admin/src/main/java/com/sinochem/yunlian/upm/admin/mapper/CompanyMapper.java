@@ -15,5 +15,7 @@ public interface CompanyMapper {
 
     Company findById(Integer id);
 
+    Company findByCompanyName(String companyName);
+
 
 }

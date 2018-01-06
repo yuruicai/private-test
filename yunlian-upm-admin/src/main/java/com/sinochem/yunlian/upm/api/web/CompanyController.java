@@ -5,10 +5,7 @@ import com.sinochem.yunlian.upm.api.service.CompanyService;
 import com.sinochem.yunlian.upm.api.vo.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author huangyang
@@ -29,11 +26,42 @@ public class CompanyController {
         return Response.succeed().put("id", id);
     }
 
-    @RequestMapping(value = "company/modification" ,method = RequestMethod.POST)
-    public Response modify(@RequestBody Company company){
+    @RequestMapping(value = "company/modification", method = RequestMethod.POST)
+    public Response modify(@RequestBody Company company) {
         companyService.update(company);
         return Response.succeed();
 
+    }
+
+    @RequestMapping(value = "company", method = RequestMethod.GET)
+    public Response getOne(String companyName) {
+        Company company = companyService.getByCompanyName(companyName);
+        if (company == null) {
+            return Response.fail(String.format("公司信息不存在.公司名=%s", companyName));
+        }
+        return Response.succeed(company);
+    }
+
+    @RequestMapping(value = "company/{id}", method = RequestMethod.GET)
+    public Response getOne(@PathVariable("id") Integer companyId) {
+        if (companyId == null) {
+            return Response.fail("companyId参数为空");
+        }
+        Company company = companyService.getById(companyId);
+        if (company == null) {
+            return Response.fail(String.format("公司信息不存在.公司ID=%s", companyId));
+        }
+        return Response.succeed(company);
+    }
+
+    /**
+     * 获取公司认证状态
+     * @param companyId
+     * @return 0-未认证，1-已认证，2：未通过
+     */
+    @RequestMapping(value = "company/{id}/certification",method = RequestMethod.GET)
+    public Response getCertificateFlag(Integer companyId) {
+        return Response.succeed().put("certificationStatus", companyService.getCertificateStatus(companyId));
     }
 
 }

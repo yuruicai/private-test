@@ -13,6 +13,9 @@ public interface CompanyService {
 
     Company getById(int id);
 
+    Company getByCompanyName(String compaynName);
+
     int update(Company company);
 
+    int getCertificateStatus(Integer id);
 }

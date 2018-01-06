@@ -17,6 +17,9 @@ import java.util.List;
 public class ApiInterceptor extends HandlerInterceptorAdapter {
     private final static Logger LOG = LoggerFactory.getLogger(ApiInterceptor.class);
     private final static List<String> IGNORE_URLS = new ArrayList<>();
+    //正则匹配
+    private final static List<String> IGNORE_REGEX_URLS = new ArrayList<>();
+
 
     static {
 
@@ -26,8 +29,9 @@ public class ApiInterceptor extends HandlerInterceptorAdapter {
         IGNORE_URLS.add("/api/deleteUserRole");
         IGNORE_URLS.add("/api/roleList");
         IGNORE_URLS.add("/api/updateUserRole");
-        IGNORE_URLS.add("/api/company");
-        IGNORE_URLS.add("/api/company/modification");
+//        IGNORE_URLS.add("/api/company");
+//        IGNORE_URLS.add("/api/company/modification");
+        IGNORE_REGEX_URLS.add("/api/company(/)?.*");
     }
 
     @Resource
@@ -44,6 +48,11 @@ public class ApiInterceptor extends HandlerInterceptorAdapter {
         }
         for (String actionForadmin : IGNORE_URLS) {
             if (actionForadmin.equalsIgnoreCase(action)) {
+                return true;
+            }
+        }
+        for (String regexUrl : IGNORE_REGEX_URLS) {
+            if (action.matches(regexUrl)) {
                 return true;
             }
         }

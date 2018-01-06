@@ -47,7 +47,14 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <insert id="insertDynamic" parameterType="com.sinochem.yunlian.upm.admin.domain.Company" >
+  <select id="findByCompanyName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from company
+    where company_name = #{companyName,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insertDynamic" useGeneratedKeys="true" keyProperty="id" parameterType="com.sinochem.yunlian.upm.admin.domain.Company" >
     insert into company
     <trim prefix="(" suffix=")" suffixOverrides="," >
 
