@@ -21,12 +21,18 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public int insert(Company company) {
         //todo 数据验证
-        return companyDao.insertDynamic(company);
+        companyDao.insertDynamic(company);
+        return company.getId();
     }
 
     @Override
     public Company getById(int id) {
         return companyDao.findById(id);
+    }
+
+    @Override
+    public Company getByCompanyName(String compaynName) {
+        return companyDao.findByCompanyName(compaynName);
     }
 
     @Override
@@ -37,4 +43,23 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return companyDao.updateDynamicById(company);
     }
+
+    /**
+     * 企业认证的标识码
+     * @param id
+     * @return
+     */
+    @Override
+    public int getCertificateStatus(Integer id) {
+        if (id == null) {
+            throw ApiException.of("企业ID不能为空");
+        }
+        Company company = companyDao.findById(id);
+        if (company == null) {
+            throw ApiException.of("企业不存在：id=" + id);
+        }
+        return company.getStatus();
+    }
+
+
 }
