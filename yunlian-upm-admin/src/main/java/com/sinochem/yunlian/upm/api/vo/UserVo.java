@@ -1,44 +1,59 @@
 package com.sinochem.yunlian.upm.api.vo;
 
-import com.sinochem.yunlian.upm.admin.bean.UserListBean;
+
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
-import com.sinochem.yunlian.upm.util.Page;
 import lombok.Data;
 
-import java.util.List;
 
-/**
- * User  model
- */
-@Data
 public class UserVo {
 
-    private long total;
-    private List rows;
+    private AclUser aclUser;
+/*
+    private String id;
 
+    private Short type;
 
-    public UserVo() {
-    }
+    private String loginName;
 
-    public UserVo(long total, List rows) {
-        this.total = total;
-        this.rows = rows;
-    }
-    public long getTotal() {
-        return total;
-    }
+    private String email;
 
-    public void setTotal(long total) {
-        this.total = total;
-    }
+    private String mobile;
 
-    public List getRows() {
-        return rows;
-    }
+    private String name;
 
-    public void setRows(List rows) {
-        this.rows = rows;
+    private Short status;
+    */
+
+    public UserVo(AclUser aclUser){
+        this.aclUser = aclUser;
     }
 
 
+    public String getId() {
+        return aclUser.getId();
+    }
+
+    public Short getType() {
+        return aclUser.getType();
+    }
+
+    public String getLoginName() {
+        return aclUser.getLoginName();
+    }
+
+    public String getEmail() {
+        return aclUser.getEmail();
+    }
+
+    public String getMobile() {
+        return aclUser.getMobile();
+    }
+
+    public String getName() {
+        return aclUser.getName();
+    }
+
+    public Short getStatus() {
+        return aclUser.getStatus();
+    }
 }

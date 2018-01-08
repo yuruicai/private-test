@@ -121,14 +121,15 @@ public class AclUser {
     }
 
     public String getDecryptMobile(){
-        if(StringUtil.isNotBlank(mobile)) {
+        /*if(StringUtil.isNotBlank(mobile)) {
             return CommonConvert.decryptMobile(mobile);
-        }
+        }*/
         return mobile;
     }
 
     public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : CommonConvert.encryptMobile(mobile.trim());
+//        this.mobile = mobile == null ? null : CommonConvert.encryptMobile(mobile.trim());
+        this.mobile = mobile;
     }
 
     public String getName() {

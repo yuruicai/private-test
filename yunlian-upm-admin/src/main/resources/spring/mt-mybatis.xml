@@ -40,6 +40,23 @@
         <property name="configLocation" value="classpath:public/mybatis-config.xml"/>
         <!-- 配置扫描Mapper XML的位置 -->
         <property name="mapperLocations" value="classpath*:com/sinochem/yunlian/upm/admin/mapper/*.xml"/>
+
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+                    <property name="properties">
+                        <value>
+                            helperDialect=mysql
+                            reasonable=true
+                            supportMethodsArguments=true
+                            params=count=countSql
+                            autoRuntimeDialect=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- 配置扫描Mapper接口的包路径 -->

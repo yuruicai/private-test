@@ -81,7 +81,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, type, code, login_name, email, mobile, name, password, qq_code, org_id, comment, 
+    id, type, code, login_name, email, mobile, name , qq_code, org_id, comment,
     status, create_time, update_time, id_code, salt, password_update_time, create_uid, 
     update_uid
   </sql>
