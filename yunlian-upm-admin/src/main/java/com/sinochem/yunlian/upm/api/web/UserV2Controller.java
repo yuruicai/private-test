@@ -35,7 +35,7 @@ public class UserV2Controller {
         if( !StringUtils.isEmpty(user)){
             return Response.succeed(user);
         }
-        return Response.fail("查询无结构");
+        return Response.fail("查询无结果");
     }
     @RequestMapping(value = "user/update" , method = RequestMethod.POST)
     public Response updateUser(@RequestBody AclUser aclUser){
