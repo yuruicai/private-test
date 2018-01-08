@@ -44,13 +44,13 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public PageInfo<Company> getPagedByCompanyName(String companyName, int curPage, int pageSize) {
+    public PageInfo getPagedByCompanyName(String companyName, int curPage, int pageSize) {
         PageHelper.startPage(curPage, pageSize);
         String name = "".equals(companyName) ? null : companyName;
         List<Company> companies = companyDao.findAllByCompanyName(name);
         List<CompanyVo> companyVos = companies.stream().map(c -> new CompanyVo(c)).collect(Collectors.toList());
         com.github.pagehelper.PageInfo pageInfo = new com.github.pagehelper.PageInfo(companyVos);
-        return new PageInfo(pageInfo.getPageNum(), pageInfo.getPageSize(), pageInfo.getPages(), (int) pageInfo.getTotal(), pageInfo.getList());
+        return new PageInfo(pageInfo.getPageNum(), pageSize, pageInfo.getPages(), (int) pageInfo.getTotal(), pageInfo.getList());
 
     }
 

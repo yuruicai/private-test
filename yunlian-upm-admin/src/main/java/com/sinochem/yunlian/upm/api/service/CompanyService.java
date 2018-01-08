@@ -3,8 +3,6 @@ package com.sinochem.yunlian.upm.api.service;
 import com.sinochem.yunlian.upm.admin.domain.Company;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
 
-import java.util.List;
-
 /**
  * @author huangyang
  * @Description: ${todo}(这里用一句话描述这个类的作用)
@@ -23,7 +21,7 @@ public interface CompanyService {
      * @param companyName
      * @return
      */
-    PageInfo<Company> getPagedByCompanyName(String companyName, int curPage, int pageSize);
+    PageInfo getPagedByCompanyName(String companyName, int curPage, int pageSize);
 
     int update(Company company);
 
