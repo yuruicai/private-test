@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.admin.domain.AclUserExample;
 import com.sinochem.yunlian.upm.admin.mapper.AclUserMapper;
+import com.sinochem.yunlian.upm.api.exception.ApiException;
 import com.sinochem.yunlian.upm.api.service.UserService;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
 import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
@@ -33,10 +34,6 @@ public class UserServiceImpl implements UserService {
         com.github.pagehelper.PageInfo info = new com.github.pagehelper.PageInfo(userVos);
         return new PageInfo(info.getPageNum(),info.getPageSize(),info.getPages(),(int) info.getTotal(),info.getList());
     }
-    public int getUserCount(String name){
-       int count = aclUserMapper.getCount(name);
-       return count;
-    }
 
     /**
      * 查看用户的方法
@@ -46,8 +43,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserByIdVo getUserById(String id) {
         AclUser user = aclUserMapper.selectByPrimaryKey(id);
-        UserByIdVo userByIdVo = new UserByIdVo(user);
+        UserByIdVo userByIdVo=null;
+        if(!StringUtils.isEmpty(user)){
+             userByIdVo = new UserByIdVo(user);
+        }
         return userByIdVo;
+    }
+
+    @Override
+    public int updateUser(AclUser aclUser) {
+        int i = 0;
+        if(aclUser.getId() == null){
+            throw ApiException.of("用户ID不能为空");
+        }
+        return aclUserMapper.updateByPrimaryKeySelective(aclUser);
     }
 
 }

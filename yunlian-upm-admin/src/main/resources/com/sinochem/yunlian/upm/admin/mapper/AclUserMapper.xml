@@ -6,6 +6,7 @@
     <result column="type" property="type" jdbcType="SMALLINT" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="mobile" property="mobile" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -19,6 +20,8 @@
     <result column="id_code" property="idCode" jdbcType="VARCHAR" />
     <result column="salt" property="salt" jdbcType="VARCHAR" />
     <result column="password_update_time" property="passwordUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="head_image" property="headImage" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="SMALLINT" />
     <result column="create_uid" property="createUid" jdbcType="VARCHAR" />
     <result column="update_uid" property="updateUid" jdbcType="VARCHAR" />
   </resultMap>
@@ -81,9 +84,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, type, code, login_name, email, mobile, name , qq_code, org_id, comment,
-    status, create_time, update_time, id_code, salt, password_update_time, create_uid, 
-    update_uid
+    id, type, code, login_name, source, email, mobile, name, password, qq_code, org_id, 
+    comment, status, create_time, update_time, id_code, salt, password_update_time, head_image, 
+    gender, create_uid, update_uid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUserExample" >
     select
@@ -117,18 +120,20 @@
   </delete>
   <insert id="insert" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUser" >
     insert into acl_user (id, type, code, 
-      login_name, email, mobile, 
-      name, password, qq_code, 
-      org_id, comment, status, 
-      create_time, update_time, id_code, 
-      salt, password_update_time, create_uid, 
+      login_name, source, email, 
+      mobile, name, password, 
+      qq_code, org_id, comment, 
+      status, create_time, update_time, 
+      id_code, salt, password_update_time, 
+      head_image, gender, create_uid, 
       update_uid)
     values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, #{code,jdbcType=VARCHAR}, 
-      #{loginName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{qqCode,jdbcType=VARCHAR}, 
-      #{orgId,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{idCode,jdbcType=VARCHAR}, 
-      #{salt,jdbcType=VARCHAR}, #{passwordUpdateTime,jdbcType=TIMESTAMP}, #{createUid,jdbcType=VARCHAR}, 
+      #{loginName,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{qqCode,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{status,jdbcType=SMALLINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{idCode,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{passwordUpdateTime,jdbcType=TIMESTAMP}, 
+      #{headImage,jdbcType=VARCHAR}, #{gender,jdbcType=SMALLINT}, #{createUid,jdbcType=VARCHAR}, 
       #{updateUid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sinochem.yunlian.upm.admin.domain.AclUser" >
@@ -145,6 +150,9 @@
       </if>
       <if test="loginName != null" >
         login_name,
+      </if>
+      <if test="source != null" >
+        source,
       </if>
       <if test="email != null" >
         email,
@@ -185,6 +193,12 @@
       <if test="passwordUpdateTime != null" >
         password_update_time,
       </if>
+      <if test="headImage != null" >
+        head_image,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
       <if test="createUid != null" >
         create_uid,
       </if>
@@ -204,6 +218,9 @@
       </if>
       <if test="loginName != null" >
         #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
       </if>
       <if test="email != null" >
         #{email,jdbcType=VARCHAR},
@@ -244,6 +261,12 @@
       <if test="passwordUpdateTime != null" >
         #{passwordUpdateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="headImage != null" >
+        #{headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=SMALLINT},
+      </if>
       <if test="createUid != null" >
         #{createUid,jdbcType=VARCHAR},
       </if>
@@ -272,6 +295,9 @@
       </if>
       <if test="record.loginName != null" >
         login_name = #{record.loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=VARCHAR},
       </if>
       <if test="record.email != null" >
         email = #{record.email,jdbcType=VARCHAR},
@@ -312,6 +338,12 @@
       <if test="record.passwordUpdateTime != null" >
         password_update_time = #{record.passwordUpdateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.headImage != null" >
+        head_image = #{record.headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null" >
+        gender = #{record.gender,jdbcType=SMALLINT},
+      </if>
       <if test="record.createUid != null" >
         create_uid = #{record.createUid,jdbcType=VARCHAR},
       </if>
@@ -329,6 +361,7 @@
       type = #{record.type,jdbcType=SMALLINT},
       code = #{record.code,jdbcType=VARCHAR},
       login_name = #{record.loginName,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       mobile = #{record.mobile,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
@@ -342,6 +375,8 @@
       id_code = #{record.idCode,jdbcType=VARCHAR},
       salt = #{record.salt,jdbcType=VARCHAR},
       password_update_time = #{record.passwordUpdateTime,jdbcType=TIMESTAMP},
+      head_image = #{record.headImage,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=SMALLINT},
       create_uid = #{record.createUid,jdbcType=VARCHAR},
       update_uid = #{record.updateUid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -359,6 +394,9 @@
       </if>
       <if test="loginName != null" >
         login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
       </if>
       <if test="email != null" >
         email = #{email,jdbcType=VARCHAR},
@@ -399,6 +437,12 @@
       <if test="passwordUpdateTime != null" >
         password_update_time = #{passwordUpdateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="headImage != null" >
+        head_image = #{headImage,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=SMALLINT},
+      </if>
       <if test="createUid != null" >
         create_uid = #{createUid,jdbcType=VARCHAR},
       </if>
@@ -413,6 +457,7 @@
     set type = #{type,jdbcType=SMALLINT},
       code = #{code,jdbcType=VARCHAR},
       login_name = #{loginName,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
@@ -426,6 +471,8 @@
       id_code = #{idCode,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
       password_update_time = #{passwordUpdateTime,jdbcType=TIMESTAMP},
+      head_image = #{headImage,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=SMALLINT},
       create_uid = #{createUid,jdbcType=VARCHAR},
       update_uid = #{updateUid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}

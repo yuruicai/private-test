@@ -45,7 +45,7 @@ public class UserVo {
     }
 
     public String getMobile() {
-        return aclUser.getMobile();
+        return aclUser.getDecryptMobile();
     }
 
     public String getName() {

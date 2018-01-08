@@ -26,19 +26,19 @@ public class UserByIdVo {
 
     private String headImage;
 
-    private Integer sex;
+    private short gender;
 
-    public UserByIdVo(AclUser userByIdVo) {
-        this.id = userByIdVo.getId();
-        this.type = userByIdVo.getType();
-        this.loginName = userByIdVo.getLoginName();
-        this.email = userByIdVo.getEmail();
-        this.mobile = userByIdVo.getMobile();
-        this.name = userByIdVo.getName();
-        this.status = userByIdVo.getStatus();
-        this.source = userByIdVo.getSource();
-        this.headImage = userByIdVo.getHeadImage();
-        this.sex = userByIdVo.getSex();
+    public UserByIdVo(AclUser aclUser) {
+        this.id = aclUser.getId();
+        this.type = aclUser.getType();
+        this.loginName = aclUser.getLoginName();
+        this.email = aclUser.getEmail();
+        this.mobile = aclUser.getMobile();
+        this.name = aclUser.getName();
+        this.status = aclUser.getStatus();
+        this.source = aclUser.getSource();
+        this.headImage = aclUser.getHeadImage();
+        this.gender = aclUser.getGender();
     }
 
     public String getId() {
@@ -113,11 +113,11 @@ public class UserByIdVo {
         this.headImage = headImage;
     }
 
-    public Integer getSex() {
-        return sex;
+    public short getGender() {
+        return gender;
     }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setGender(short sex) {
+        this.gender = sex;
     }
 }

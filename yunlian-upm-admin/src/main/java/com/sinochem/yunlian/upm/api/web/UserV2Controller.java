@@ -7,24 +7,21 @@ import com.sinochem.yunlian.upm.api.vo.Response;
 import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author huangyang
  * @Description: ${todo}(这里用一句话描述这个类的作用)
  * @date 2018/01/05 下午5:13
  */
-@Controller
+@RestController
 @RequestMapping("inner/api/users")
 public class UserV2Controller {
     @Autowired
     private UserService userService;
 
     @RequestMapping("list")
-    @ResponseBody
     public Response userList(
              String name,
             @RequestParam(defaultValue = "1",required = true) Integer  page,
@@ -32,11 +29,21 @@ public class UserV2Controller {
         PageInfo pageInfo = userService.getUserListByCriteria( name , page,  rows);
         return Response.succeed(pageInfo);
     }
-    @RequestMapping("getUser/{id}")
-    @ResponseBody
-    public UserByIdVo getUser(@PathVariable(value = "id") String id){
+    @RequestMapping(value = "user/{id}",method = RequestMethod.GET)
+    public Response getUser(@PathVariable(value = "id") String id){
         UserByIdVo user = userService.getUserById(id);
-        return  user;
+        if( !StringUtils.isEmpty(user)){
+            return Response.succeed(user);
+        }
+        return Response.fail("查询无结构");
+    }
+    @RequestMapping(value = "user/update" , method = RequestMethod.POST)
+    public Response updateUser(@RequestBody AclUser aclUser){
+        int a = userService.updateUser(aclUser);
+        if(a>0){
+            Response.succeed("修改成功！");
+        }
+        return Response.fail("修改失败！");
     }
 
 }

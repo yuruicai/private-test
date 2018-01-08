@@ -1,12 +1,18 @@
 package com.sinochem.yunlian.upm.api.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.sinochem.yunlian.upm.admin.domain.Company;
 import com.sinochem.yunlian.upm.admin.mapper.CompanyMapper;
 import com.sinochem.yunlian.upm.api.exception.ApiException;
 import com.sinochem.yunlian.upm.api.service.CompanyService;
+import com.sinochem.yunlian.upm.api.vo.CompanyVo;
+import com.sinochem.yunlian.upm.api.vo.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author huangyang
@@ -33,8 +39,19 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Company getByCompanyName(String compaynName) {
-        return companyDao.findByCompanyName(compaynName);
+    public Company getByCompanyName(String companyName) {
+        return companyDao.findByCompanyName(companyName);
+    }
+
+    @Override
+    public PageInfo<Company> getPagedByCompanyName(String companyName, int curPage, int pageSize) {
+        PageHelper.startPage(curPage, pageSize);
+        String name = "".equals(companyName) ? null : companyName;
+        List<Company> companies = companyDao.findAllByCompanyName(name);
+        List<CompanyVo> companyVos = companies.stream().map(c -> new CompanyVo(c)).collect(Collectors.toList());
+        com.github.pagehelper.PageInfo pageInfo = new com.github.pagehelper.PageInfo(companyVos);
+        return new PageInfo(pageInfo.getPageNum(), pageInfo.getPageSize(), pageInfo.getPages(), (int) pageInfo.getTotal(), pageInfo.getList());
+
     }
 
     @Override
@@ -48,6 +65,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     /**
      * 企业认证的标识码
+     *
      * @param id
      * @return
      */

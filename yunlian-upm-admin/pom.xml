@@ -278,6 +278,7 @@
                 <configuration>
                     <path>/</path>
                     <port>8280</port>
+                    <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
 

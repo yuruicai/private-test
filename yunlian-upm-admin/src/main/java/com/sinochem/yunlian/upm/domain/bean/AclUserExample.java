@@ -1,4 +1,4 @@
-package com.sinochem.yunlian.upm.admin.domain;
+package com.sinochem.yunlian.upm.domain.bean;
 
 import java.util.ArrayList;
 import java.util.Date;

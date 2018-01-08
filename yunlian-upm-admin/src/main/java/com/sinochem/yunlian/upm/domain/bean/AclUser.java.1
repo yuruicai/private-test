@@ -1,10 +1,8 @@
-package com.sinochem.yunlian.upm.admin.domain;
-
-import com.sinochem.yunlian.upm.api.domain.RichUtil;
+package com.sinochem.yunlian.upm.domain.bean;
 
 import java.util.Date;
 
-public class AclUser extends RichUtil{
+public class AclUser {
     private String id;
 
     private Short type;
@@ -97,23 +95,14 @@ public class AclUser extends RichUtil{
         this.email = email == null ? null : email.trim();
     }
 
-
-
     public String getMobile() {
         return mobile;
     }
 
     public void setMobile(String mobile) {
-//        this.mobile = mobile == null ? null : CommonConvert.encryptMobile(mobile.trim());
-        this.mobile = mobile;
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getDecryptMobile(){
-        /*if(StringUtil.isNotBlank(mobile)) {
-            return CommonConvert.decryptMobile(mobile);
-        }*/
-        return mobile;
-    }
     public String getName() {
         return name;
     }
