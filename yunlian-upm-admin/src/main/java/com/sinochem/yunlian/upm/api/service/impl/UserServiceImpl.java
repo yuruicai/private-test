@@ -6,12 +6,12 @@ import com.sinochem.yunlian.upm.admin.domain.AclUserExample;
 import com.sinochem.yunlian.upm.admin.mapper.AclUserMapper;
 import com.sinochem.yunlian.upm.api.service.UserService;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
+import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
 import com.sinochem.yunlian.upm.api.vo.UserVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.security.acl.Acl;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,4 +37,17 @@ public class UserServiceImpl implements UserService {
        int count = aclUserMapper.getCount(name);
        return count;
     }
+
+    /**
+     * 查看用户的方法
+     * @param id
+     * @return
+     */
+    @Override
+    public UserByIdVo getUserById(String id) {
+        AclUser user = aclUserMapper.selectByPrimaryKey(id);
+        UserByIdVo userByIdVo = new UserByIdVo(user);
+        return userByIdVo;
+    }
+
 }

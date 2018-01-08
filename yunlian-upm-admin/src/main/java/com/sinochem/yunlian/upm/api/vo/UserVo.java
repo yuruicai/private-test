@@ -2,7 +2,6 @@ package com.sinochem.yunlian.upm.api.vo;
 
 
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
-import lombok.Data;
 
 
 public class UserVo {
@@ -24,7 +23,7 @@ public class UserVo {
     private Short status;
     */
 
-    public UserVo(AclUser aclUser){
+    public UserVo(AclUser aclUser) {
         this.aclUser = aclUser;
     }
 
