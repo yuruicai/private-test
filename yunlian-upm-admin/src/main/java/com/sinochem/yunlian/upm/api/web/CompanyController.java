@@ -2,6 +2,7 @@ package com.sinochem.yunlian.upm.api.web;
 
 import com.sinochem.yunlian.upm.admin.domain.Company;
 import com.sinochem.yunlian.upm.api.service.CompanyService;
+import com.sinochem.yunlian.upm.api.vo.PageInfo;
 import com.sinochem.yunlian.upm.api.vo.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,15 @@ public class CompanyController {
         return Response.succeed(company);
     }
 
+    @RequestMapping(value = "company/list", method = RequestMethod.GET)
+    public Response getList(String companyName, @RequestParam(value = "curPage", defaultValue = "1") Integer curPage,
+                            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+
+        PageInfo pageInfo = companyService.getPagedByCompanyName(companyName, curPage, pageSize);
+        return Response.succeed(pageInfo);
+
+    }
+
     /**
      * 获取公司认证状态
      *
@@ -66,5 +76,6 @@ public class CompanyController {
     public Response getCertificateFlag(Integer companyId) {
         return Response.succeed().put("certificationStatus", companyService.getCertificateStatus(companyId));
     }
+
 
 }

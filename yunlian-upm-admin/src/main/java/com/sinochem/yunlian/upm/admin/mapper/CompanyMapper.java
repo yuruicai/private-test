@@ -1,6 +1,7 @@
 package com.sinochem.yunlian.upm.admin.mapper;
 
 import com.sinochem.yunlian.upm.admin.domain.Company;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -44,6 +45,6 @@ public interface CompanyMapper {
      * @param companyName
      * @return
      */
-    List<Company> findAllByCompanyName(String companyName);
+    List<Company> findAllByCompanyName(@Param("companyName") String companyName);
 
 }
