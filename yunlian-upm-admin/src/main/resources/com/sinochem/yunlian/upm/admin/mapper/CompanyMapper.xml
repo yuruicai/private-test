@@ -54,6 +54,13 @@
     where company_name = #{companyName,jdbcType=VARCHAR}
   </select>
 
+  <select id="findAllByCompanyName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+      select id , company_name , kind , address , status , create_time  from company
+       <if test="companyName !=null">
+           where company_name like concat('%',  #{companyName} ,'%')
+       </if>
+  </select>
+
   <insert id="insertDynamic" useGeneratedKeys="true" keyProperty="id" parameterType="com.sinochem.yunlian.upm.admin.domain.Company" >
     insert into company
     <trim prefix="(" suffix=")" suffixOverrides="," >

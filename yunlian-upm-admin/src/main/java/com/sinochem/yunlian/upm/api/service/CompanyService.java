@@ -1,6 +1,9 @@
 package com.sinochem.yunlian.upm.api.service;
 
 import com.sinochem.yunlian.upm.admin.domain.Company;
+import com.sinochem.yunlian.upm.api.vo.PageInfo;
+
+import java.util.List;
 
 /**
  * @author huangyang
@@ -13,7 +16,14 @@ public interface CompanyService {
 
     Company getById(int id);
 
-    Company getByCompanyName(String compaynName);
+    Company getByCompanyName(String companyName);
+
+    /**
+     * 根据企业名称查询，支持模糊查询，分页
+     * @param companyName
+     * @return
+     */
+    PageInfo<Company> getPagedByCompanyName(String companyName, int curPage, int pageSize);
 
     int update(Company company);
 
