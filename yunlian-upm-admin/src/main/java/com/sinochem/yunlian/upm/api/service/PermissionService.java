@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface PermissionService {
     List<AclMenu> getByUserIdAndAppKey(String appKey, String userId);
+
+    List<AclMenu> getFirstLevelByUserIdAndAppKey(String appKey, String userId);
 }
