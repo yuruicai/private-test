@@ -1,14 +1,10 @@
 package com.sinochem.yunlian.upm.admin.domain;
 
-import com.sinochem.yunlian.upm.admin.constant.UserStatus;
-import com.sinochem.yunlian.upm.admin.constant.UserType;
-import com.sinochem.yunlian.upm.util.CommonConvert;
-import com.sinochem.yunlian.upm.util.StringUtil;
+import com.sinochem.yunlian.upm.api.domain.RichUtil;
 
 import java.util.Date;
-import java.util.List;
 
-public class AclUser {
+public class AclUser extends RichUtil{
     private String id;
 
     private Short type;
@@ -16,6 +12,8 @@ public class AclUser {
     private String code;
 
     private String loginName;
+
+    private String source;
 
     private String email;
 
@@ -43,38 +41,13 @@ public class AclUser {
 
     private Date passwordUpdateTime;
 
+    private String headImage;
+
+    private Short gender;
+
     private String createUid;
 
     private String updateUid;
-
-    private String typeName;
-
-    private String statusName;
-
-    public static void richUser(AclUser user){
-        if(user != null){
-            if(user.getType() != null){
-                user.setTypeName(UserType.getName(user.getType()));
-            }
-
-            if(user.getStatus() != null){
-                user.setStatusName(UserStatus.getName(user.getStatus()));
-            }
-
-        }
-    }
-
-    public static List<AclUser> richUser(List<AclUser> users){
-
-        if(users != null && users.size() > 0){
-            for(AclUser user : users){
-                richUser(user);
-            }
-        }
-
-        return users;
-    }
-
 
     public String getId() {
         return id;
@@ -108,6 +81,14 @@ public class AclUser {
         this.loginName = loginName == null ? null : loginName.trim();
     }
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source == null ? null : source.trim();
+    }
+
     public String getEmail() {
         return email;
     }
@@ -116,14 +97,9 @@ public class AclUser {
         this.email = email == null ? null : email.trim();
     }
 
-    public String getMobile() {
-        return mobile;
-    }
 
-    public String getDecryptMobile(){
-        /*if(StringUtil.isNotBlank(mobile)) {
-            return CommonConvert.decryptMobile(mobile);
-        }*/
+
+    public String getMobile() {
         return mobile;
     }
 
@@ -132,6 +108,12 @@ public class AclUser {
         this.mobile = mobile;
     }
 
+    public String getDecryptMobile(){
+        /*if(StringUtil.isNotBlank(mobile)) {
+            return CommonConvert.decryptMobile(mobile);
+        }*/
+        return mobile;
+    }
     public String getName() {
         return name;
     }
@@ -197,14 +179,11 @@ public class AclUser {
     }
 
     public String getIdCode() {
-        if(StringUtil.isNotBlank(idCode)) {
-            return CommonConvert.decryptIdNumber(idCode);
-        }
         return idCode;
     }
 
     public void setIdCode(String idCode) {
-        this.idCode = idCode == null ? null : CommonConvert.encryptIdNumber(idCode.trim());
+        this.idCode = idCode == null ? null : idCode.trim();
     }
 
     public String getSalt() {
@@ -223,6 +202,22 @@ public class AclUser {
         this.passwordUpdateTime = passwordUpdateTime;
     }
 
+    public String getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage == null ? null : headImage.trim();
+    }
+
+    public Short getGender() {
+        return gender;
+    }
+
+    public void setGender(Short gender) {
+        this.gender = gender;
+    }
+
     public String getCreateUid() {
         return createUid;
     }
@@ -237,21 +232,5 @@ public class AclUser {
 
     public void setUpdateUid(String updateUid) {
         this.updateUid = updateUid == null ? null : updateUid.trim();
-    }
-
-    public String getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    public String getStatusName() {
-        return statusName;
-    }
-
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
     }
 }

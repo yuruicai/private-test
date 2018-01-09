@@ -4,8 +4,10 @@ import com.github.pagehelper.PageHelper;
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.admin.domain.AclUserExample;
 import com.sinochem.yunlian.upm.admin.mapper.AclUserMapper;
+import com.sinochem.yunlian.upm.api.exception.ApiException;
 import com.sinochem.yunlian.upm.api.service.UserService;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
+import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
 import com.sinochem.yunlian.upm.api.vo.UserVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -40,7 +42,32 @@ public class UserServiceImpl implements UserService {
         AclUserExample.Criteria criteria = example.createCriteria();
         criteria.andIdIn(ids);
         List<AclUser> users = aclUserMapper.selectByExample(example);
-        return users.stream().map(u->new UserVo(u)).collect(Collectors.toList());
+        return users.stream().map(u -> new UserVo(u)).collect(Collectors.toList());
+    }
+
+    /**
+     * 查看用户的方法
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public UserByIdVo getUserById(String id) {
+        AclUser user = aclUserMapper.selectByPrimaryKey(id);
+        UserByIdVo userByIdVo = null;
+        if (!StringUtils.isEmpty(user)) {
+            userByIdVo = new UserByIdVo(user);
+        }
+        return userByIdVo;
+    }
+
+    @Override
+    public int updateUser(AclUser aclUser) {
+        int i = 0;
+        if (aclUser.getId() == null) {
+            throw ApiException.of("用户ID不能为空");
+        }
+        return aclUserMapper.updateByPrimaryKeySelective(aclUser);
     }
 
 }

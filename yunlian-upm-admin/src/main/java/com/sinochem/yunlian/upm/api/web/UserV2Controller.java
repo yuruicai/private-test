@@ -1,15 +1,15 @@
 package com.sinochem.yunlian.upm.api.web;
 
+import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.api.service.RoleService;
 import com.sinochem.yunlian.upm.api.service.UserService;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
 import com.sinochem.yunlian.upm.api.vo.Response;
+import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
 import com.sinochem.yunlian.upm.api.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +35,23 @@ public class UserV2Controller {
         PageInfo pageInfo = userService.getUserListByCriteria(name, page, rows);
         return Response.succeed(pageInfo);
     }
+    @RequestMapping(value = "user/{id}",method = RequestMethod.GET)
+    public Response getUser(@PathVariable(value = "id") String id){
+        UserByIdVo user = userService.getUserById(id);
+        if( !StringUtils.isEmpty(user)){
+            return Response.succeed(user);
+        }
+        return Response.fail("查询无结果");
+    }
+    @RequestMapping(value = "user/update" , method = RequestMethod.POST)
+    public Response updateUser(@RequestBody AclUser aclUser){
+        int a = userService.updateUser(aclUser);
+        if(a>0){
+            return Response.succeed();
+        }
+        return Response.fail("修改失败！");
+    }
+
 
     /**
      * 获取角色下的用户
