@@ -30,13 +30,13 @@ public class UserApiController {
      */
     @RequestMapping(value = "role",method = RequestMethod.GET)
     public Response getRoles(String appKey,String userId){
-        List<AclRole> roles = roleService.getUserRoleInApp(appKey, userId);
+        List<AclRole> roles = roleService.getByUserIdAndAppKey(appKey, userId);
         return Response.succeed().put("roles",roles);
     }
 
     @RequestMapping(value = "permission",method = RequestMethod.GET)
     public Response getPermissions(String appKey,String userId){
-        List<AclRole> roles = roleService.getUserRoleInApp(appKey, userId);
+        List<AclRole> roles = roleService.getByUserIdAndAppKey(appKey, userId);
         return Response.succeed().put("permissions",roles);
     }
 

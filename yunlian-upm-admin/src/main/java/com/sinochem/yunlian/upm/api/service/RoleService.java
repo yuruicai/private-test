@@ -32,5 +32,7 @@ public interface RoleService {
 
     PageInfo<RoleVo> getByCodeOrName(String param, int curPage, int pageSize);
 
-    List<AclRole> getUserRoleInApp(String appKey, String userId);
+    List<AclRole> getByUserIdAndAppKey(String appKey, String userId);
+
+    List<String> getUserIds(String roleId);
 }
