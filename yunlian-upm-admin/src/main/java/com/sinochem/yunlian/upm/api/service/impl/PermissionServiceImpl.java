@@ -50,6 +50,13 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
 
+    /**
+     * 用户在某个应用中的顶级权限资源
+     * @param appKey
+     * @param userId
+     * @return
+     */
+    @Override
     public List<AclMenu> getFirstLevelByUserIdAndAppKey(String appKey, String userId) {
 
         List<String> menuIds = getMenuIds(appKey, userId);

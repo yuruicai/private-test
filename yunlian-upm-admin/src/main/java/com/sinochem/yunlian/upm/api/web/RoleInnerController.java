@@ -20,6 +20,13 @@ public class RoleInnerController {
     @Autowired
     private RoleService roleService;
 
+
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public Response add(AclRole role) {
+        roleService.insert(role);
+        return Response.succeed();
+    }
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public Response list(String name, @RequestParam(value = "curPage", defaultValue = "1") Integer curPage,
                          @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
@@ -38,6 +45,5 @@ public class RoleInnerController {
     public Response modify(AclRole role) {
         roleService.modifyById(role);
         return Response.succeed();
-
     }
 }

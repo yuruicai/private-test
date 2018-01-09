@@ -1,7 +1,7 @@
 package com.sinochem.yunlian.upm.admin.domain;
 
-import com.sinochem.yunlian.upm.api.util.StringUtils;
 import lombok.Data;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 
@@ -28,6 +28,18 @@ public class AclRole {
 
     //应用ID
     private String applicationId;
+
+    public void setCode(String code) {
+        if (!StringUtils.isEmpty(code)) {
+            this.code = code.trim();
+        }
+    }
+
+    public void setName(String name) {
+        if (!StringUtils.isEmpty(name)) {
+            this.name = name.trim();
+        }
+    }
 
 }
 

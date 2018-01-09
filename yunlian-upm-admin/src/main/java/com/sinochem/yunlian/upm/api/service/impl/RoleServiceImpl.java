@@ -30,6 +30,8 @@ import java.util.stream.Collectors;
 @Service
 public class RoleServiceImpl implements RoleService {
 
+    private static final short STATUS = 0;
+
     @Autowired
     private AclRoleMapper roleDao;
     @Autowired
@@ -46,8 +48,8 @@ public class RoleServiceImpl implements RoleService {
         if (role.getCode() == null || role.getName() == null) {
             throw ApiException.of("角色编码或角色名不能为空");
         }
-        role = getByCode(role.getCode());
-        if (null != role) {
+        AclRole oldRole = getByCode(role.getCode());
+        if (null != oldRole) {
             throw ApiException.of("角色编码已存在");
         }
         List<AclRole> roles = getByNameAndApp(role.getName(), role.getApplicationId());
@@ -58,6 +60,8 @@ public class RoleServiceImpl implements RoleService {
         Date now = new Date();
         role.setCreateTime(now);
         role.setUpdateTime(now);
+        role.setStatus(STATUS);
+        roleDao.insert(role);
         return role.getId();
     }
 
@@ -67,7 +71,7 @@ public class RoleServiceImpl implements RoleService {
             log.info("更新角色内容：" + JSON.toJSONString(role));
         }
         if (org.springframework.util.StringUtils.isEmpty(role.getId())) {
-            throw ApiException.of("角色ID不存在");
+            throw ApiException.of("角色ID参数为空");
         }
         if (role.getCode() == null || role.getName() == null) {
             throw ApiException.of("角色编码或角色名不能为空");
@@ -94,7 +98,9 @@ public class RoleServiceImpl implements RoleService {
     public PageInfo<RoleVo> getByCodeOrName(String param, int curPage, int pageSize){
         PageHelper.startPage(curPage, pageSize);
         AclRoleExample example = new AclRoleExample();
-        example.or().andCodeLike(param).andNameLike(param);
+        if(! org.springframework.util.StringUtils.isEmpty(param)){
+            example.or().andCodeLike(param).andNameLike(param);
+        }
         List<AclRole> roles = roleDao.selectByExample(example);
         List<RoleVo> roleVos = roles.stream().map(r -> new RoleVo(r)).collect(Collectors.toList());
         com.github.pagehelper.PageInfo<RoleVo> pageInfo = new com.github.pagehelper.PageInfo(roleVos);
