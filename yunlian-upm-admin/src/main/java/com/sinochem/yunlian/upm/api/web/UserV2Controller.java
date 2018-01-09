@@ -41,7 +41,7 @@ public class UserV2Controller {
     public Response updateUser(@RequestBody AclUser aclUser){
         int a = userService.updateUser(aclUser);
         if(a>0){
-            Response.succeed("修改成功！");
+            return Response.succeed();
         }
         return Response.fail("修改失败！");
     }

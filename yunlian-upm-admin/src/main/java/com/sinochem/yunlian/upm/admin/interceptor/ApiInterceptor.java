@@ -32,12 +32,8 @@ public class ApiInterceptor extends HandlerInterceptorAdapter {
 //        IGNORE_URLS.add("/api/company");
 //        IGNORE_URLS.add("/api/company/modification");
         IGNORE_REGEX_URLS.add("/api/company(/)?.*");
-<<<<<<< HEAD
-        IGNORE_REGEX_URLS.add("/inner/api/users(/)?.*");
-=======
         IGNORE_REGEX_URLS.add("/api/role(/)?.*");
         IGNORE_REGEX_URLS.add("/internal/users(/)?.*");
->>>>>>> 168035d0a7eace6d0dc9bb9188c40b175fea86d8
     }
 
     @Resource
