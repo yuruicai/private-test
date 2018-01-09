@@ -9,6 +9,7 @@ import com.sinochem.yunlian.upm.api.service.UserService;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
 import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
 import com.sinochem.yunlian.upm.api.vo.UserVo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     @Resource
     private AclUserMapper aclUserMapper;
@@ -47,7 +49,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 查看用户的方法
-     *
      * @param id
      * @return
      */
@@ -61,6 +62,11 @@ public class UserServiceImpl implements UserService {
         return userByIdVo;
     }
 
+    /**
+     * user修改的方法
+     * @param aclUser
+     * @return
+     */
     @Override
     public int updateUser(AclUser aclUser) {
         int i = 0;
@@ -70,4 +76,29 @@ public class UserServiceImpl implements UserService {
         return aclUserMapper.updateByPrimaryKeySelective(aclUser);
     }
 
-}
+    /**
+     * 电话号码验证
+     * @param id
+     * @param newMobile
+     * @return
+     */
+    @Override
+    public boolean mobileCheck(String id , String newMobile) {
+            if(id == null ){
+                return false;
+            }
+            AclUser   user = aclUserMapper.selectByPrimaryKey( id);
+            if (user != null ){
+                String mobile = user.getDecryptMobile();
+                if(!StringUtils.isEmpty(mobile)){
+                    log.info("原号码片段，subMobile={}",mobile.substring(3,7));
+                    log.info("新号码片段，newMobile={}",newMobile);
+                   return (mobile.substring(3,7)).equals(newMobile);
+                }
+                return false;
+            }
+            return false;
+        }
+    }
+
+

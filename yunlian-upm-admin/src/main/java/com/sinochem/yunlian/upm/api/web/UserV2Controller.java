@@ -3,15 +3,13 @@ package com.sinochem.yunlian.upm.api.web;
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.api.service.RoleService;
 import com.sinochem.yunlian.upm.api.service.UserService;
-import com.sinochem.yunlian.upm.api.vo.PageInfo;
-import com.sinochem.yunlian.upm.api.vo.Response;
-import com.sinochem.yunlian.upm.api.vo.UserByIdVo;
-import com.sinochem.yunlian.upm.api.vo.UserVo;
+import com.sinochem.yunlian.upm.api.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author huangyang
@@ -65,6 +63,14 @@ public class UserV2Controller {
         List<UserVo> vos = userService.getByIds(userIds);
         return Response.succeed().put("users", vos);
 
+    }
+    @RequestMapping(value = "user/mobile/check" , method = RequestMethod.POST)
+    public Response userMobileCheck( String id , String newMobile){
+        boolean b=userService.mobileCheck(id , newMobile);
+        if(b){
+            return  Response.succeed();
+        }
+        return Response.fail("您输入的号码不符");
     }
 
 
