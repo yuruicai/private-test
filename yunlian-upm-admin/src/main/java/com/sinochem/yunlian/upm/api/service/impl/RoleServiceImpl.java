@@ -86,6 +86,7 @@ public class RoleServiceImpl implements RoleService {
         List<AclRole> list = roleDao.selectByExample(example);
         return CollectionUtils.isEmpty(list) ? null : list.get(0);
     }
+
     @Override
     public AclRole getById(String id) {
         AclRoleExample example = new AclRoleExample();
@@ -95,10 +96,10 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public PageInfo<RoleVo> getByCodeOrName(String param, int curPage, int pageSize){
+    public PageInfo<RoleVo> getByCodeOrName(String param, int curPage, int pageSize) {
         PageHelper.startPage(curPage, pageSize);
         AclRoleExample example = new AclRoleExample();
-        if(! org.springframework.util.StringUtils.isEmpty(param)){
+        if (!org.springframework.util.StringUtils.isEmpty(param)) {
             example.or().andCodeLike(param).andNameLike(param);
         }
         List<AclRole> roles = roleDao.selectByExample(example);
@@ -108,30 +109,41 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<AclRole> getUserRoleInApp(String appKey, String userId){
-          //查询用户拥有的角色
+    public List<AclRole> getByUserIdAndAppKey(String appKey, String userId) {
+        //查询用户拥有的角色
         AclUserRoleRltExample example = new AclUserRoleRltExample();
         AclUserRoleRltExample.Criteria criteria = example.createCriteria();
-        criteria.andUserIdEqualTo(userId).andStatusEqualTo((short)1);
+        criteria.andUserIdEqualTo(userId).andStatusEqualTo(STATUS);
 
 //        example.or().andStatusEqualTo((short)1).andUserIdEqualTo(userId);
         List<AclUserRoleRlt> userRoleRltList = userRoleDao.selectByExample(example);
-        if(CollectionUtils.isEmpty(userRoleRltList)){
+        if (CollectionUtils.isEmpty(userRoleRltList)) {
             return Collections.EMPTY_LIST;
         }
 
-        List<String> roleIds = userRoleRltList.stream().map(r->r.getRoleId()).collect(Collectors.toList());
+        List<String> roleIds = userRoleRltList.stream().map(r -> r.getRoleId()).collect(Collectors.toList());
         AclRoleExample roleExample = new AclRoleExample();
         roleExample.createCriteria().andIdIn(roleIds).andApplicationIdEqualTo(getAppId(appKey));
         return roleDao.selectByExample(roleExample);
 
     }
 
-    private String getAppId(String appKey){
+    @Override
+    public List<String> getUserIds(String roleId) {
+        AclUserRoleRltExample example = new AclUserRoleRltExample();
+        example.createCriteria().andStatusEqualTo(STATUS).andRoleIdEqualTo(roleId);
+        List<AclUserRoleRlt> userIds = userRoleDao.selectByExample(example);
+        if (CollectionUtils.isEmpty(userIds)) {
+            return Collections.EMPTY_LIST;
+        }
+        return userIds.stream().map(u -> u.getUserId()).collect(Collectors.toList());
+    }
+
+    private String getAppId(String appKey) {
         AclApplicationExample example = new AclApplicationExample();
         example.or().andAppkeyEqualTo(appKey);
         List<AclApplication> aclApplications = applicationDao.selectByExample(example);
-        if(CollectionUtils.isEmpty(aclApplications)){
+        if (CollectionUtils.isEmpty(aclApplications)) {
             throw ApiException.of("应用不存在：appKey=" + appKey);
         }
         return aclApplications.get(0).getId();
@@ -146,7 +158,7 @@ public class RoleServiceImpl implements RoleService {
 
     public List<AclRole> getByNameAndApp(String name, String applicationId) {
         AclRoleExample example = new AclRoleExample();
-        example.or().andNameEqualTo(name).andApplicationIdEqualTo(applicationId).andStatusEqualTo((short) 0);
+        example.or().andNameEqualTo(name).andApplicationIdEqualTo(applicationId).andStatusEqualTo(STATUS);
         List<AclRole> list = roleDao.selectByExample(example);
         return list;
     }

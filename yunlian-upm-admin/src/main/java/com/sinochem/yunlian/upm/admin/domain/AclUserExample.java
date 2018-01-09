@@ -375,6 +375,76 @@ public class AclUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andSourceIsNull() {
+            addCriterion("source is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIsNotNull() {
+            addCriterion("source is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceEqualTo(String value) {
+            addCriterion("source =", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceNotEqualTo(String value) {
+            addCriterion("source <>", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceGreaterThan(String value) {
+            addCriterion("source >", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceGreaterThanOrEqualTo(String value) {
+            addCriterion("source >=", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceLessThan(String value) {
+            addCriterion("source <", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceLessThanOrEqualTo(String value) {
+            addCriterion("source <=", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceLike(String value) {
+            addCriterion("source like", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceNotLike(String value) {
+            addCriterion("source not like", value, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceIn(List<String> values) {
+            addCriterion("source in", values, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceNotIn(List<String> values) {
+            addCriterion("source not in", values, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceBetween(String value1, String value2) {
+            addCriterion("source between", value1, value2, "source");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceNotBetween(String value1, String value2) {
+            addCriterion("source not between", value1, value2, "source");
+            return (Criteria) this;
+        }
+
         public Criteria andEmailIsNull() {
             addCriterion("email is null");
             return (Criteria) this;
@@ -1242,6 +1312,136 @@ public class AclUserExample {
 
         public Criteria andPasswordUpdateTimeNotBetween(Date value1, Date value2) {
             addCriterion("password_update_time not between", value1, value2, "passwordUpdateTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageIsNull() {
+            addCriterion("head_image is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageIsNotNull() {
+            addCriterion("head_image is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageEqualTo(String value) {
+            addCriterion("head_image =", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageNotEqualTo(String value) {
+            addCriterion("head_image <>", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageGreaterThan(String value) {
+            addCriterion("head_image >", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageGreaterThanOrEqualTo(String value) {
+            addCriterion("head_image >=", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageLessThan(String value) {
+            addCriterion("head_image <", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageLessThanOrEqualTo(String value) {
+            addCriterion("head_image <=", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageLike(String value) {
+            addCriterion("head_image like", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageNotLike(String value) {
+            addCriterion("head_image not like", value, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageIn(List<String> values) {
+            addCriterion("head_image in", values, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageNotIn(List<String> values) {
+            addCriterion("head_image not in", values, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageBetween(String value1, String value2) {
+            addCriterion("head_image between", value1, value2, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeadImageNotBetween(String value1, String value2) {
+            addCriterion("head_image not between", value1, value2, "headImage");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderIsNull() {
+            addCriterion("gender is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderIsNotNull() {
+            addCriterion("gender is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderEqualTo(Short value) {
+            addCriterion("gender =", value, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderNotEqualTo(Short value) {
+            addCriterion("gender <>", value, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderGreaterThan(Short value) {
+            addCriterion("gender >", value, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderGreaterThanOrEqualTo(Short value) {
+            addCriterion("gender >=", value, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderLessThan(Short value) {
+            addCriterion("gender <", value, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderLessThanOrEqualTo(Short value) {
+            addCriterion("gender <=", value, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderIn(List<Short> values) {
+            addCriterion("gender in", values, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderNotIn(List<Short> values) {
+            addCriterion("gender not in", values, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderBetween(Short value1, Short value2) {
+            addCriterion("gender between", value1, value2, "gender");
+            return (Criteria) this;
+        }
+
+        public Criteria andGenderNotBetween(Short value1, Short value2) {
+            addCriterion("gender not between", value1, value2, "gender");
             return (Criteria) this;
         }
 

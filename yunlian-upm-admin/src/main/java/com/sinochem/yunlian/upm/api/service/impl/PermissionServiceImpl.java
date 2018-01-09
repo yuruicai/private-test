@@ -71,7 +71,7 @@ public class PermissionServiceImpl implements PermissionService {
 
     private List<String> getMenuIds(String appKey, String userId) {
 
-        List<AclRole> roles = roleService.getUserRoleInApp(appKey, userId);
+        List<AclRole> roles = roleService.getByUserIdAndAppKey(appKey, userId);
         if (CollectionUtils.isEmpty(roles)) {
             return Collections.EMPTY_LIST;
         }
