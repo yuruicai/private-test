@@ -3,8 +3,11 @@ package com.sinochem.yunlian.upm.api.service.impl;
 import com.sinochem.yunlian.upm.admin.domain.*;
 import com.sinochem.yunlian.upm.admin.mapper.AclMenuMapper;
 import com.sinochem.yunlian.upm.admin.mapper.AclRolePermissionRltMapper;
+import com.sinochem.yunlian.upm.admin.mapper.OperationMapper;
+import com.sinochem.yunlian.upm.admin.mapper.ResourceDataMapper;
 import com.sinochem.yunlian.upm.api.service.PermissionService;
 import com.sinochem.yunlian.upm.api.service.RoleService;
+import com.sinochem.yunlian.upm.api.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -29,6 +32,10 @@ public class PermissionServiceImpl implements PermissionService {
     private AclRolePermissionRltMapper rolePermissionDao;
     @Autowired
     private AclMenuMapper menuDao;
+    @Autowired
+    private OperationMapper operationDao;
+    @Autowired
+    private ResourceDataMapper resourceDataDao;
 
     /**
      * 查询用户权限
@@ -83,5 +90,92 @@ public class PermissionServiceImpl implements PermissionService {
         }
         return rolePermission.stream().map(r -> r.getPermissionId()).collect(Collectors.toList());
 
+    }
+
+    @Override
+    public List<Operation> selectElement(String appKey,String typeId) {
+        OperationExample example = new OperationExample();
+        OperationExample.Criteria criteria = example.createCriteria();
+        criteria.andAppIdEqualTo(appKey);
+        criteria.andTypeEqualTo(new Byte(typeId));
+        return operationDao.selectByExample(example);
+    }
+
+    @Override
+    public String randomStr() {
+        return StringUtils.uuid();
+    }
+
+    @Override
+    public int insert(Operation operation) {
+        try{
+            operationDao.insert(operation);
+        }catch(Exception e){
+            return 0;
+        }
+        return 1;
+    }
+
+    @Override
+    public int updateStatus(String code) {
+        try{
+            OperationExample example = new OperationExample();
+            OperationExample.Criteria criteria = example.createCriteria();
+            criteria.andCodeEqualTo(code);
+            List<Operation> operations = operationDao.selectByExample(example);
+            Operation operation = operations.get(0);
+            operation.setStatus(new Byte(0+""));
+            operationDao.updateByPrimaryKey(operation);
+        }catch (Exception e){
+            return 0;
+        }
+        return 1;
+    }
+
+    @Override
+    public Operation getOne(String code) {
+        OperationExample example = new OperationExample();
+        OperationExample.Criteria criteria = example.createCriteria();
+        criteria.andCodeEqualTo(code);
+        List<Operation> operations = operationDao.selectByExample(example);
+        return operations.get(0);
+    }
+
+    @Override
+    public List<ResourceData> selectData(String appKey) {
+        ResourceDataExample example = new ResourceDataExample();
+        ResourceDataExample.Criteria criteria = example.createCriteria();
+        criteria.andAppIdEqualTo(appKey);
+        return resourceDataDao.selectByExample(example);
+    }
+
+    @Override
+    public int updateStatusOfData(String code) {
+        try{
+            ResourceDataExample example = new ResourceDataExample();
+            ResourceDataExample.Criteria criteria = example.createCriteria();
+            criteria.andCodeEqualTo(code);
+            List<ResourceData> resourceDatas = resourceDataDao.selectByExample(example);
+            ResourceData resourceData = resourceDatas.get(0);
+            resourceData.setStatus(new Byte(0+""));
+            resourceDataDao.updateByPrimaryKey(resourceData);
+        }catch (Exception e){
+            return 0;
+        }
+        return 1;
+    }
+
+    @Override
+    public int insertData(ResourceData resourceData) {
+        return resourceDataDao.insert(resourceData);
+    }
+
+    @Override
+    public ResourceData getDataOne(String code) {
+        ResourceDataExample example = new ResourceDataExample();
+        ResourceDataExample.Criteria criteria = example.createCriteria();
+        criteria.andCodeEqualTo(code);
+        List<ResourceData> resourceDatas = resourceDataDao.selectByExample(example);
+        return resourceDatas.get(0);
     }
 }
