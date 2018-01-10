@@ -108,3 +108,52 @@ create table company(
   update_time timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间' ,
   primary key(id)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8  COMMENT='公司信息表';
+
+create table company_user_relation(
+  id  int AUTO_INCREMENT,
+  company_id int not NULL,
+  user_id varchar(64) not NULL,
+  admin smallint(1) default 0 COMMENT '是否是管理员：0-否，1-是',
+  `status` smallint DEFAULT 0 comment '状态（0：关联中、1：解除关联）', -- 是否有必要
+  create_time timestamp DEFAULT CURRENT_TIMESTAMP  comment '创建时间' ,
+  update_time timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment '更新时间' ,
+  primary key(id)
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8  COMMENT='用户与公司关联表';
+
+
+create table user_identity(
+  id int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID' ,
+  user_id varchar(64) not NULL comment '用户ID',
+  front_url varchar(100) comment '正面url',
+  verso_url varchar(100) comment '反面url',
+  code varchar(18) comment '号码',
+  `name` varchar(50) ,
+  race varchar(20) comment '民族',
+  gender smallint(1) default 0 comment '性别：1-男，2-女',
+  birthday  date comment '生日',
+  address varchar(100) default '' comment '住址',
+  licence_issuing_author varchar(50) default ''  comment '发证机关',
+  valid_start date  comment '有效开始日期',
+  valid_end date comment '有效结束日期',
+  status smallint(1) default 0 comment '状态：0-待审核,1-审核未通过，2-已通过',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY(user_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 comment = '用户身份证信息' ;
+
+
+create table operation(
+   id int NOT NULL AUTO_INCREMENT ,
+   `name` VARCHAR(20) NOT NULL COMMENT '名称',
+   `code` VARCHAR(32) NOT NULL COMMENT  '唯一编码',
+   remark VARCHAR(100) DEFAULT '' COMMENT '备注',
+   app_id VARCHAR(64)  COMMENT  '应用ID',
+   `type`  tinyint comment '类型：1-元素，2-操作',
+   url VARCHAR(100) DEFAULT '' COMMENT '拦截的url',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+   PRIMARY KEY (id),
+   UNIQUE (code)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 comment = '元素和操作信息' ;
+
