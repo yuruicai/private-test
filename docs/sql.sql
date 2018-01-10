@@ -141,3 +141,19 @@ create table user_identity(
   PRIMARY KEY (`id`),
   UNIQUE KEY(user_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment = '用户身份证信息' ;
+
+
+create table operation(
+   id int NOT NULL AUTO_INCREMENT ,
+   `name` VARCHAR(20) NOT NULL COMMENT '名称',
+   `code` VARCHAR(32) NOT NULL COMMENT  '唯一编码',
+   remark VARCHAR(100) DEFAULT '' COMMENT '备注',
+   app_id VARCHAR(64)  COMMENT  '应用ID',
+   `type`  tinyint comment '类型：1-元素，2-操作',
+   url VARCHAR(100) DEFAULT '' COMMENT '拦截的url',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+   PRIMARY KEY (id),
+   UNIQUE (code)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 comment = '元素和操作信息' ;
+
