@@ -45,7 +45,6 @@ public class PermissionServiceImpl implements PermissionService {
         AclMenuExample menuExample = new AclMenuExample();
         AclMenuExample.Criteria menuExampleCriteria = menuExample.createCriteria();
         menuExampleCriteria.andStatusEqualTo(STATUS).andIdIn(menuIds);
-        //todo 排序
         return menuDao.selectByExample(menuExample);
     }
 
@@ -64,7 +63,6 @@ public class PermissionServiceImpl implements PermissionService {
         AclMenuExample.Criteria menuExampleCriteria = menuExample.createCriteria();
         menuExampleCriteria.andStatusEqualTo(STATUS).andIdIn(menuIds).andParentIdIsNull();
         menuExample.setOrderByClause("sort_num desc");
-        //todo 排序
         return menuDao.selectByExample(menuExample);
 
     }

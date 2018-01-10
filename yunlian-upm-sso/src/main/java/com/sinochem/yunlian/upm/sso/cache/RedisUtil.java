@@ -1,5 +1,6 @@
 package com.sinochem.yunlian.upm.sso.cache;
 
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +13,11 @@ import javax.annotation.PostConstruct;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * redis 客户端
+ * @author nobody
+ */
+@Data
 public class RedisUtil {
     private static final Logger logger = LoggerFactory.getLogger(RedisUtil.class);
 
@@ -29,8 +34,6 @@ public class RedisUtil {
     private String password;
 
     private static JedisSentinelPool sentinelPool;
-
-
 
 
     @PostConstruct
@@ -51,7 +54,7 @@ public class RedisUtil {
 
         Set<String> sentinels = new HashSet<String>();
 
-        String hosts[] = StringUtils.splitByWholeSeparator(getServerHosts(), ",");
+        String[] hosts = StringUtils.splitByWholeSeparator(getServerHosts(), ",");
 
         for (int i = 0; i < hosts.length; i++) {
             String[] host_port = StringUtils.splitByWholeSeparator(StringUtils.trim(hosts[i]), ":");
@@ -59,7 +62,7 @@ public class RedisUtil {
         }
 
         logger.info("init pool sentinels={}", sentinels);
-        return new JedisSentinelPool(getMasterName(), sentinels, jedisPoolConfig,5000,password);
+        return new JedisSentinelPool(getMasterName(), sentinels, jedisPoolConfig, 5000, password);
     }
 
     /**
@@ -99,7 +102,6 @@ public class RedisUtil {
         }
 
     }
-
 
 
     public void destroy() {
@@ -181,51 +183,4 @@ public class RedisUtil {
         return false;
     }
 
-    public int getMaxIdle() {
-        return maxIdle;
-    }
-
-    public void setMaxIdle(int maxIdle) {
-        this.maxIdle = maxIdle;
-    }
-
-    public int getMaxTotal() {
-        return maxTotal;
-    }
-
-    public void setMaxTotal(int maxTotal) {
-        this.maxTotal = maxTotal;
-    }
-
-    public int getMaxWaitMillis() {
-        return maxWaitMillis;
-    }
-
-    public void setMaxWaitMillis(int maxWaitMillis) {
-        this.maxWaitMillis = maxWaitMillis;
-    }
-
-    public String getServerHosts() {
-        return serverHosts;
-    }
-
-    public void setServerHosts(String serverHosts) {
-        this.serverHosts = serverHosts;
-    }
-
-    public String getMasterName() {
-        return masterName;
-    }
-
-    public void setMasterName(String masterName) {
-        this.masterName = masterName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
