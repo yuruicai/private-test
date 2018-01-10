@@ -26,4 +26,10 @@ public interface CompanyUserManageService {
 
     //条件查询所有企业用户成员
     PageInfo getAllListOfUser(String loginName, String mobile, String name, Integer page, int rows);
+
+    //根据userId更新成员状态
+    int updateStatusOfUser(String id);
+
+    //将勾选成员列表添加到当前企业
+    int add(String[] userIds, String companyId);
 }

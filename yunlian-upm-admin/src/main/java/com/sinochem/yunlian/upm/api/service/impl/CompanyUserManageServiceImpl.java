@@ -4,11 +4,13 @@ import com.github.pagehelper.PageHelper;
 import com.sinochem.yunlian.upm.admin.domain.*;
 import com.sinochem.yunlian.upm.admin.mapper.*;
 import com.sinochem.yunlian.upm.api.service.CompanyUserManageService;
-import com.sinochem.yunlian.upm.api.vo.*;
+import com.sinochem.yunlian.upm.api.vo.CompanyUserVo;
+import com.sinochem.yunlian.upm.api.vo.CompanyVo;
+import com.sinochem.yunlian.upm.api.vo.PageInfo;
+import com.sinochem.yunlian.upm.api.vo.UserCompanyVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -176,4 +178,49 @@ public class CompanyUserManageServiceImpl implements CompanyUserManageService {
         com.github.pagehelper.PageInfo info = new com.github.pagehelper.PageInfo(userCompanyVos);
         return new PageInfo(info.getPageNum(),info.getPageSize(),info.getPages(),(int) info.getTotal(),info.getList());
     }
+
+    @Override
+    public int updateStatusOfUser(String id) {
+        AclUser user = userDao.selectByPrimaryKey(id);
+        int i = user.getStatus() == 0 ? 1 : 0;
+        user.setStatus(new Short(i+""));
+        return userDao.updateByPrimaryKey(user);
+    }
+
+    @Override
+    public int add(String[] userIds, String companyId) {
+        /*
+        遍历成员列表数组，获取到每一个成员
+        将当前成员的状态改为0
+        添加一条记录，companyid的值改成传入的companyid
+         */
+        try{
+            for(String userId:userIds){
+                //根据userId查询userAndCompany，并更改userAndCompany当前状态
+                CompanyUserRelationExample selectByExample = new CompanyUserRelationExample();
+                CompanyUserRelationExample.Criteria criteria = selectByExample.createCriteria();
+                criteria.andUserIdEqualTo(userId);
+                List<CompanyUserRelation> companyUserRelations = companyUserDao.selectByExample(selectByExample);
+                CompanyUserRelation companyUserRelation = companyUserRelations.get(0);
+                companyUserRelation.setStatus(new Short(0+""));
+                //将更改后状态的userAndCompany保存到数据库
+                companyUserDao.updateByPrimaryKey(companyUserRelation);
+                //将新的数据插入到数据库
+                CompanyUserRelation companyUserRelation1 = new CompanyUserRelation();
+                //设置当前companyId
+                companyUserRelation1.setCompanyId(Integer.parseInt(companyId));
+                //设置userId
+                companyUserRelation1.setUserId(userId);
+                //设置adminStatus
+                companyUserRelation1.setAdmin(new Short(0+""));
+                //设置status
+                companyUserRelation1.setStatus(new Short(1+""));
+                companyUserDao.insert(companyUserRelation1);
+            }
+        }catch(Exception e){
+            throw new RuntimeException("操作失败");
+        }
+        return 0;
+    }
+
 }

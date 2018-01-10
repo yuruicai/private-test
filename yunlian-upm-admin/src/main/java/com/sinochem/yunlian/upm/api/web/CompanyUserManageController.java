@@ -104,4 +104,29 @@ public class CompanyUserManageController {
         PageInfo pageInfo = companyUserManageService.getAllListOfUser(loginName,mobile,name, page, rows);
         return Response.succeed(pageInfo);
     }
+
+    /**
+     * 根据userId更新成员状态
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "updateStatus", method = RequestMethod.GET)
+    public Response updateStatus(String id) {
+        int i = companyUserManageService.updateStatusOfUser(id);
+        return i==1?Response.succeed():Response.fail("删除失败");
+    }
+
+    /**
+     * 将勾选成员列表添加到当前企业
+     * @param userIds    成员id列表
+     * @param companyId  企业id
+     * @return
+     */
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public Response add(String[] userIds,String companyId) {
+        int i = companyUserManageService.add(userIds,companyId);
+        return i==0?Response.succeed():Response.fail("操作失败");
+    }
+
+
 }
