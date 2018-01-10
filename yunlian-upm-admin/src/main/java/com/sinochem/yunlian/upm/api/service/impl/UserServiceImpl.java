@@ -99,6 +99,29 @@ public class UserServiceImpl implements UserService {
             }
             return false;
         }
+
+    @Override
+    public boolean restPassword(String id ,String oldPassword, String newPassword1, String newPassword2) {
+            AclUser aclUser = aclUserMapper.selectByPrimaryKey(id);
+            if (aclUser != null){
+                String password = aclUser.getPassword();
+                if(StringUtils.isEmpty(password)){
+                    return false;
+                }
+                if(password.equals(oldPassword) ){
+                    aclUser.setPassword(newPassword1);
+                    int i = aclUserMapper.updateByPrimaryKeySelective(aclUser);
+                    if(i>0){
+                        return true;
+                    }
+                    return false;
+                }
+
+                    return false;
+
+            }
+            return false;
     }
+}
 
 

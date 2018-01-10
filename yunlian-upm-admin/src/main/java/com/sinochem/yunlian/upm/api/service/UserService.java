@@ -19,4 +19,6 @@ public interface UserService {
     int updateUser(AclUser aclUser);
 
     boolean mobileCheck(String id , String newMobile);
+
+    boolean restPassword(String ifd ,String oldPassword, String newPassword1, String newPassword2);
 }
