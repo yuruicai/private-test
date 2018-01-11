@@ -9,6 +9,8 @@ public class AclRoleInstanceContext {
 
     private String applicationId;
 
+    private Byte status;
+
     private String orgId;
 
     private Date createTime;
@@ -37,6 +39,14 @@ public class AclRoleInstanceContext {
 
     public void setApplicationId(String applicationId) {
         this.applicationId = applicationId == null ? null : applicationId.trim();
+    }
+
+    public Byte getStatus() {
+        return status;
+    }
+
+    public void setStatus(Byte status) {
+        this.status = status;
     }
 
     public String getOrgId() {

@@ -158,3 +158,36 @@ create table operation(
    UNIQUE (code)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment = '元素和操作信息' ;
 
+CREATE TABLE `role_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` varchar(32) NOT NULL COMMENT '角色id',
+  `menu_id` varchar(32) NOT NULL COMMENT '菜单id',
+  `status` tinyint(4) DEFAULT NULL COMMENT '状态：0-停用，1-启用',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色与菜单关联表'
+
+
+
+CREATE TABLE `role_operation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` varchar(32) NOT NULL COMMENT '角色id',
+  `operation_id` varchar(32) NOT NULL COMMENT '操作id',
+  `status` tinyint(4) DEFAULT NULL COMMENT '状态：0-停用，1-启用',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色与操作关联表'
+
+
+
+CREATE TABLE `role_resource_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` varchar(32) NOT NULL COMMENT '角色id',
+  `resource_data_id` varchar(32) NOT NULL COMMENT '数据id',
+  `status` tinyint(4) DEFAULT NULL COMMENT '状态：0-停用，1-启用',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色与数据关联表'

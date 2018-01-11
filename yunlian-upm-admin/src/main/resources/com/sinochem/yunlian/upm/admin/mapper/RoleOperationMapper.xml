@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sinochem.yunlian.upm.admin.mapper.AclRoleInstanceContextMapper" >
-  <resultMap id="BaseResultMap" type="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContext" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="user_role_rlt_id" property="userRoleRltId" jdbcType="VARCHAR" />
-    <result column="application_id" property="applicationId" jdbcType="VARCHAR" />
+<mapper namespace="com.sinochem.yunlian.upm.admin.mapper.RoleOperationMapper" >
+  <resultMap id="BaseResultMap" type="com.sinochem.yunlian.upm.admin.domain.RoleOperation" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="role_id" property="roleId" jdbcType="VARCHAR" />
+    <result column="operation_id" property="operationId" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
-    <result column="org_id" property="orgId" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -69,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, user_role_rlt_id, application_id, status, org_id, create_time, update_time
+    id, role_id, operation_id, status, create_time, update_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContextExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperationExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from acl_role_instance_context
+    from role_operation
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,47 +84,44 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from acl_role_instance_context
-    where id = #{id,jdbcType=VARCHAR}
+    from role_operation
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from acl_role_instance_context
-    where id = #{id,jdbcType=VARCHAR}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from role_operation
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContextExample" >
-    delete from acl_role_instance_context
+  <delete id="deleteByExample" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperationExample" >
+    delete from role_operation
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContext" >
-    insert into acl_role_instance_context (id, user_role_rlt_id, application_id, 
-      status, org_id, create_time, 
-      update_time)
-    values (#{id,jdbcType=VARCHAR}, #{userRoleRltId,jdbcType=VARCHAR}, #{applicationId,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{orgId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperation" >
+    insert into role_operation (id, role_id, operation_id, 
+      status, create_time, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=VARCHAR}, #{operationId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContext" >
-    insert into acl_role_instance_context
+  <insert id="insertSelective" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperation" >
+    insert into role_operation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="userRoleRltId != null" >
-        user_role_rlt_id,
+      <if test="roleId != null" >
+        role_id,
       </if>
-      <if test="applicationId != null" >
-        application_id,
+      <if test="operationId != null" >
+        operation_id,
       </if>
       <if test="status != null" >
         status,
-      </if>
-      <if test="orgId != null" >
-        org_id,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -136,19 +132,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="userRoleRltId != null" >
-        #{userRoleRltId,jdbcType=VARCHAR},
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
       </if>
-      <if test="applicationId != null" >
-        #{applicationId,jdbcType=VARCHAR},
+      <if test="operationId != null" >
+        #{operationId,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=TINYINT},
-      </if>
-      <if test="orgId != null" >
-        #{orgId,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -158,29 +151,26 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContextExample" resultType="java.lang.Integer" >
-    select count(*) from acl_role_instance_context
+  <select id="countByExample" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperationExample" resultType="java.lang.Integer" >
+    select count(*) from role_operation
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update acl_role_instance_context
+    update role_operation
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.userRoleRltId != null" >
-        user_role_rlt_id = #{record.userRoleRltId,jdbcType=VARCHAR},
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=VARCHAR},
       </if>
-      <if test="record.applicationId != null" >
-        application_id = #{record.applicationId,jdbcType=VARCHAR},
+      <if test="record.operationId != null" >
+        operation_id = #{record.operationId,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=TINYINT},
-      </if>
-      <if test="record.orgId != null" >
-        org_id = #{record.orgId,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -194,32 +184,28 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update acl_role_instance_context
-    set id = #{record.id,jdbcType=VARCHAR},
-      user_role_rlt_id = #{record.userRoleRltId,jdbcType=VARCHAR},
-      application_id = #{record.applicationId,jdbcType=VARCHAR},
+    update role_operation
+    set id = #{record.id,jdbcType=INTEGER},
+      role_id = #{record.roleId,jdbcType=VARCHAR},
+      operation_id = #{record.operationId,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
-      org_id = #{record.orgId,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContext" >
-    update acl_role_instance_context
+  <update id="updateByPrimaryKeySelective" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperation" >
+    update role_operation
     <set >
-      <if test="userRoleRltId != null" >
-        user_role_rlt_id = #{userRoleRltId,jdbcType=VARCHAR},
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=VARCHAR},
       </if>
-      <if test="applicationId != null" >
-        application_id = #{applicationId,jdbcType=VARCHAR},
+      <if test="operationId != null" >
+        operation_id = #{operationId,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=TINYINT},
-      </if>
-      <if test="orgId != null" >
-        org_id = #{orgId,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -228,25 +214,24 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContext" >
-    update acl_role_instance_context
-    set user_role_rlt_id = #{userRoleRltId,jdbcType=VARCHAR},
-      application_id = #{applicationId,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperation" >
+    update role_operation
+    set role_id = #{roleId,jdbcType=VARCHAR},
+      operation_id = #{operationId,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
-      org_id = #{orgId,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
-  <select resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.AclRoleInstanceContextExample" id="selectByExampleWithRowbounds" >
+  <select resultMap="BaseResultMap" parameterType="com.sinochem.yunlian.upm.admin.domain.RoleOperationExample" id="selectByExampleWithRowbounds" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from acl_role_instance_context
+    from role_operation
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
