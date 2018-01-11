@@ -4,15 +4,14 @@ import com.sinochem.yunlian.upm.common.reflect.TypeReference;
 import com.sinochem.yunlian.upm.common.util.ApiUtil;
 import com.sinochem.yunlian.upm.sso.constant.UserStatus;
 import com.sinochem.yunlian.upm.sso.domain.AclUser;
+import com.sinochem.yunlian.upm.sso.domain.IpLog;
 import com.sinochem.yunlian.upm.sso.model.Session;
 import com.sinochem.yunlian.upm.sso.model.UserForSeesion;
-import com.sinochem.yunlian.upm.sso.service.LoginService;
-import com.sinochem.yunlian.upm.sso.service.SessionService;
-import com.sinochem.yunlian.upm.sso.service.TimesLimitService;
-import com.sinochem.yunlian.upm.sso.service.UserService;
+import com.sinochem.yunlian.upm.sso.service.*;
 import com.sinochem.yunlian.upm.sso.util.*;
 import com.sinochem.yunlian.upm.sso.util.RSAUtils.AESUtils;
 import com.sinochem.yunlian.upm.sso.util.RSAUtils.RSAUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +38,8 @@ public class SsoController {
     private SessionService sessionService;
     @Resource
     private LoginService loginService;
+    @Resource
+    private IpLogService ipLogService;
     @Resource
     private TimesLimitService timesLimitService;
     @Resource
@@ -147,6 +149,21 @@ public class SsoController {
             }
             data.put("token",token);
             data.put("user",user);
+
+            //日志记录
+            IpLog ipLog = new IpLog();
+            //TODO 用户来源
+
+
+            ipLog.setUserAgent(ua);
+            String ip = request.getHeader("X-Real-IP");
+            if (!StringUtils.isBlank(ip) && !"unknown".equalsIgnoreCase(ip)) {
+                ipLog.setIp(ip);
+            }
+            ipLog.setLoginName(username);
+            ipLog.setLoginTime(new Date());
+            ipLogService.addLog(ipLog);
+
             return AjaxResultUtil.resultSuccessAjax(data);
         } catch (Exception e) {
             e.printStackTrace();

@@ -9,3 +9,4 @@ target/
 /logs
 /yunlian-upm-admin/logs/*
 /yunlian-upm-sso/logs/*
+/yunlian-upm-sso/src/main/resources/generatorConfig.xml

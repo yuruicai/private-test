@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="/Users/huangyang/.m2/repository/mysql/mysql-connector-java/5.1.15/mysql-connector-java-5.1.15.jar"/>
+    <classPathEntry location="D:\javaweb_job\generator\mysql-connector-java-5.1.9.jar"/>
 
     <context id="ormgenerator" targetRuntime="MyBatis3">
 
@@ -14,8 +14,8 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/upm?autoReconnect:true;useUnicode:true;characterEncoding:UTF-8"
-                        userId="root"
+                        connectionURL="jdbc:mysql://1.203.115.47:3306/upm_1?autoReconnect:true;useUnicode:true;characterEncoding:UTF-8"
+                        userId="mysql"
                         password="123456">
         </jdbcConnection>
 
@@ -24,23 +24,23 @@
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.sinochem.yunlian.upm.sso.domain"
-                            targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-sso/src/main/java/">
+                            targetProject="/D:/git/zhongshihua/yunlian-upm/yunlian-upm-sso/src/main/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="com.sinochem.yunlian.upm.sso.mapper"
-                         targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-sso/src/main/resources/">
+                         targetProject="/D:/git/zhongshihua/yunlian-upm/yunlian-upm-sso/src/main/resources/">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.sinochem.yunlian.upm.sso.mapper"
-                             targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm-sso/src/main/java/">
+                             targetProject="/D:/git/zhongshihua/yunlian-upm/yunlian-upm-sso/src/main/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="exampleMethodVisibility" value="default"/>
         </javaClientGenerator>
 
-        <table tableName="acl_user" domainObjectName="AclUser">
+        <table tableName="ip_log" domainObjectName="IpLog">
         </table>
         <!--<table tableName="acl_application" domainObjectName="AclApplication">-->
         <!--</table>-->
