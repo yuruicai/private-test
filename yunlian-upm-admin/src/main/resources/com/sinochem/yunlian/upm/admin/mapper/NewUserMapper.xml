@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sinochem.yunlian.upm.admin.mapper.NewUserMapper" >
+    <resultMap id="BaseResultMap" type="com.sinochem.yunlian.upm.admin.domain.AclUser" >
+        <id column="id" property="id" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="SMALLINT" />
+        <result column="code" property="code" jdbcType="VARCHAR" />
+        <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+        <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+        <result column="source" property="source" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="qq_code" property="qqCode" jdbcType="VARCHAR" />
+        <result column="org_id" property="orgId" jdbcType="VARCHAR" />
+        <result column="comment" property="comment" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="SMALLINT" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="id_code" property="idCode" jdbcType="VARCHAR" />
+        <result column="salt" property="salt" jdbcType="VARCHAR" />
+        <result column="password_update_time" property="passwordUpdateTime" jdbcType="TIMESTAMP" />
+        <result column="head_image" property="headImage" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="SMALLINT" />
+        <result column="create_uid" property="createUid" jdbcType="VARCHAR" />
+        <result column="update_uid" property="updateUid" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, type, code, login_name, remarks, source, email, mobile, name, password, qq_code,
+        org_id, comment, status, create_time, update_time, id_code, salt, password_update_time,
+        head_image, gender, create_uid, update_uid
+    </sql>
+    <select id="selectUserRole" resultMap="BaseResultMap" >
+          SELECT
+        <include refid="Base_Column_List" />
+        FROM
+            acl_user
+        WHERE
+            (id IN(#{ids}))
+        AND
+        (
+             login_name LIKE  '%${name}%'
+                    OR mobile LIKE  '%${name}%'
+                    OR NAME LIKE  '%${name}%'
+
+            )
+
+    </select>
+</mapper>

@@ -26,6 +26,8 @@ public class UserV2Controller {
 
     @Autowired
     private RoleService roleService;
+    private String roleId;
+    private String name;
 
     /**
      * 获取用户列表的方法
@@ -140,5 +142,15 @@ public class UserV2Controller {
         }
         return Response.succeed();
     }
+    @RequestMapping(value = "user/role",method = RequestMethod.GET)
+    public Response getRoleList( String roleId ,String name){
+        if(StringUtils.isEmpty(roleId)){
+            log.info("角色id為空");
+            return Response.fail("参数异常，角色id為空！");
+        }
+        List<String> userIds = roleService.getUserIds(roleId);
+        List<UserVo> userVo=userService.selectUserBaseUserIds(userIds ,name);
+    return Response.succeed().put("users",userVo);
+}
 
 }

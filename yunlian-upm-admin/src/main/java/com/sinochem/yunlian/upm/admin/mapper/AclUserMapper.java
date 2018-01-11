@@ -3,7 +3,6 @@ package com.sinochem.yunlian.upm.admin.mapper;
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.admin.domain.AclUserExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
@@ -31,6 +30,4 @@ public interface AclUserMapper {
     int updateByPrimaryKeySelective(AclUser record);
 
     int updateByPrimaryKey(AclUser record);
-
-    int getCount(String name);
 }

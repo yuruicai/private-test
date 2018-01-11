@@ -21,4 +21,6 @@ public interface UserService {
     boolean mobileCheck(String id , String newMobile);
 
     boolean restPassword(String ifd ,String oldPassword, String newPassword1, String newPassword2);
+
+    List<UserVo> selectUserBaseUserIds(List<String> userIds ,String name);
 }

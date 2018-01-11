@@ -6,7 +6,7 @@ import com.sinochem.yunlian.upm.util.StringUtil;
 
 import java.util.Date;
 
-public class AclUser extends RichUtil{
+public class AclUser extends RichUtil {
     private String id;
 
     private Short type;
@@ -14,6 +14,8 @@ public class AclUser extends RichUtil{
     private String code;
 
     private String loginName;
+
+    private String remarks;
 
     private String source;
 
@@ -83,6 +85,14 @@ public class AclUser extends RichUtil{
         this.loginName = loginName == null ? null : loginName.trim();
     }
 
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks == null ? null : remarks.trim();
+    }
+
     public String getSource() {
         return source;
     }
@@ -99,15 +109,13 @@ public class AclUser extends RichUtil{
         this.email = email == null ? null : email.trim();
     }
 
-
-
     public String getMobile() {
         return mobile;
     }
 
     public void setMobile(String mobile) {
-      this.mobile = mobile == null ? null : CommonConvert.encryptMobile(mobile.trim());
-      //  this.mobile = mobile;
+        this.mobile = mobile == null ? null : CommonConvert.encryptMobile(mobile.trim());
+        //  this.mobile = mobile;
     }
 
     public String getDecryptMobile(){

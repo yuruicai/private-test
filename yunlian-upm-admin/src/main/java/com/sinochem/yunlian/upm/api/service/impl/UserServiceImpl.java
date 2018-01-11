@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.admin.domain.AclUserExample;
 import com.sinochem.yunlian.upm.admin.mapper.AclUserMapper;
+import com.sinochem.yunlian.upm.admin.mapper.NewUserMapper;
 import com.sinochem.yunlian.upm.api.exception.ApiException;
 import com.sinochem.yunlian.upm.api.service.UserService;
 import com.sinochem.yunlian.upm.api.vo.PageInfo;
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +25,9 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     @Resource
     private AclUserMapper aclUserMapper;
+
+    @Resource
+    private NewUserMapper newUserMapper;
 
     @Override
     public PageInfo getUserListByCriteria(String name, int page, int rows) {
@@ -122,6 +128,23 @@ public class UserServiceImpl implements UserService {
             }
             return false;
     }
+
+    /**
+     * 根据id查询用户
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<UserVo> selectUserBaseUserIds(List<String> ids ,String name) {
+        if (StringUtils.isEmpty(ids)){
+            return null;
+        }
+        String s = com.sinochem.yunlian.upm.api.util.StringUtils.listToString(ids, ",");
+        List<AclUser> list = newUserMapper .selectUserRole(s ,name);
+        return list.stream().map(u -> new UserVo(u)).collect(Collectors.toList());
+    }
+
+
 }
 
 

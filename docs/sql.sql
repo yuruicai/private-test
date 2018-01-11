@@ -3,6 +3,7 @@ CREATE TABLE `acl_user` (
   `type` smallint(5) DEFAULT NULL COMMENT '用户类型：1：货主、2：物流公司、3：车主',
   `code` varchar(30) DEFAULT NULL COMMENT '工号代码',
   `login_name` varchar(255) NOT NULL COMMENT '登录名',
+  `remarks` varchar(255) DEFAULT NULL COMMENT '备注',
   `source` varchar(255) NOT NULL COMMENT '用户来源',
   `email` varchar(255) DEFAULT NULL COMMENT '邮箱',
   `mobile` varchar(30) NOT NULL COMMENT '手机号码',

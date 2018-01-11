@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="/Users/huangyang/.m2/repository/mysql/mysql-connector-java/5.1.15/mysql-connector-java-5.1.15.jar"/>
+    <classPathEntry location="D:\javaweb_job\generator\mysql-connector-java-5.1.9.jar"/>
 
     <context id="ormgenerator" targetRuntime="MyBatis3">
 
@@ -24,26 +24,26 @@
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.sinochem.yunlian.upm.admin.domain"
-                            targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-admin/src/main/java/">
+                            targetProject="/D:/git/zhongshihua/yunlian-upm/yunlian-upm-admin/src/main/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="com.sinochem.yunlian.upm.admin.mapper"
-                         targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm/yunlian-upm-admin/src/main/resources/">
+                         targetProject="/D:/git/zhongshihua/yunlian-upm/yunlian-upm-admin/src/main/resources/">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.sinochem.yunlian.upm.admin.mapper"
-                             targetProject="/Users/huangyang/YUNLIAN_SHOP/yunlian-upm-admin/src/main/java/">
+                             targetProject="/D:/git/zhongshihua/yunlian-upm/yunlian-upm-admin/src/main/java/">
             <property name="enableSubPackages" value="true"/>
             <property name="exampleMethodVisibility" value="default"/>
         </javaClientGenerator>
 
-        <table tableName="element" domainObjectName="Element">
+        <table tableName="acl_user" domainObjectName="AclUser">
         </table>
-        <table tableName="role_element_relation" domainObjectName="RoleElementRelation">
-        </table>
+        <!--<table tableName="acl_application" domainObjectName="AclApplication">-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

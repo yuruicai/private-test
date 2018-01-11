@@ -14,6 +14,8 @@ public class UserByIdVo {
 
     private String loginName;
 
+    private String remarks;
+
     private String email;
 
     private String mobile;
@@ -28,6 +30,8 @@ public class UserByIdVo {
 
     private short gender;
 
+
+
     public UserByIdVo(AclUser aclUser) {
         this.id = aclUser.getId();
         this.type = aclUser.getType();
@@ -39,6 +43,15 @@ public class UserByIdVo {
         this.source = aclUser.getSource();
         this.headImage = aclUser.getHeadImage();
         this.gender = aclUser.getGender();
+        this.remarks = aclUser.getRemarks();
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     public String getId() {
