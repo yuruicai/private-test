@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,13 +48,13 @@ public class SsoController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     @ResponseBody
-    public Object auth(HttpServletRequest request,HttpServletResponse response) {
+    public Object auth(HttpServletRequest request, HttpServletResponse response , @RequestBody Map<String, String> params) {
 
         Map<String, Object> data = new HashMap<String, Object>();
         try {
             //获取参数
-           Map<String, String> params =
-                    ApiUtil.parse(request.getReader(), new TypeReference<Map<String,String>>() {});
+//           Map<String, String> params =
+//                    ApiUtil.parse(request.getReader(), new TypeReference<Map<String,String>>() {});
             String username = params.get("username");
             String password = params.get("password");
             String captcha = params.get("captcha");

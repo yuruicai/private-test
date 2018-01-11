@@ -96,4 +96,6 @@
         <aop:advisor pointcut-ref="mybatisPointcut" advice-ref="mybatisAdvice"/>
     </aop:config>
 
+    <tx:annotation-driven transaction-manager="mybatisTransactionManager"/>
+
 </beans>
