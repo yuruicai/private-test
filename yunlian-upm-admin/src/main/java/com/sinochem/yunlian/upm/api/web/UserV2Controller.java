@@ -115,30 +115,30 @@ public class UserV2Controller {
     public Response modPassword(String id ,String oldPassword, String newPassword1, String newPassword2){
         if(StringUtils.isEmpty(id)){
             log.info("用户id不能为空！  ， id={}",id);
-            return Response.fail("用户id不能为空。。！");
+            return Response.fail("用户id不能为空！");
         }
         if(StringUtils.isEmpty(oldPassword)){
             log.info("用户原密码不能为空！  ， oldPassword={}",oldPassword);
-            return Response.fail("用户原密码不能为空。。！");
+            return Response.fail("用户原密码不能为空！");
         }
         if(StringUtils.isEmpty(newPassword1)){
             log.info("用户新密码不能为空！  ， newPassword1={}",newPassword1);
-            return  Response.fail("用户新密码不能为空。。！");
+            return  Response.fail("用户新密码不能为空！");
         }
         if(StringUtils.isEmpty(newPassword2)){
             log.info("用户确认密码不能为空！  ， newPassword2={}",newPassword2);
-            return Response.fail("用户确认密码不能为空。。！");
+            return Response.fail("用户确认密码不能为空！");
         }
         if( !newPassword1.equals(newPassword2)){
             log.info("两次新密码不一致！");
-            return   Response.fail("两次新密码不一致。。！");
+            return   Response.fail("两次新密码不一致！");
         }
         oldPassword = EncryptionUtils.getBase64(oldPassword);
         newPassword1 = EncryptionUtils.getBase64(newPassword1);
         newPassword2 = EncryptionUtils.getBase64(newPassword2);
         boolean a = userService.restPassword(id,oldPassword,newPassword1,newPassword2);
         if(!a){
-          return  Response.fail("请您按要求输入。。！");
+          return  Response.fail("请您按要求输入！");
         }
         return Response.succeed();
     }
