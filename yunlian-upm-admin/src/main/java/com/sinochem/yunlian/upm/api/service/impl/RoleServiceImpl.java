@@ -123,7 +123,11 @@ public class RoleServiceImpl implements RoleService {
 
         List<String> roleIds = userRoleRltList.stream().map(r -> r.getRoleId()).collect(Collectors.toList());
         AclRoleExample roleExample = new AclRoleExample();
-        roleExample.createCriteria().andIdIn(roleIds).andApplicationIdEqualTo(getAppId(appKey));
+        AclRoleExample.Criteria criteria1 = roleExample.createCriteria();
+        if (org.springframework.util.StringUtils.isEmpty(appKey)){
+            criteria1.andApplicationIdEqualTo(getAppId(appKey));
+        }
+        criteria1.andIdIn(roleIds);
         return roleDao.selectByExample(roleExample);
 
     }

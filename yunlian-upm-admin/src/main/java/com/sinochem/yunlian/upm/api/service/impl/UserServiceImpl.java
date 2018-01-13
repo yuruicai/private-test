@@ -33,9 +33,10 @@ public class UserServiceImpl implements UserService {
     public PageInfo getUserListByCriteria(String name, int page, int rows) {
         PageHelper.startPage(page, rows);
         AclUserExample example = new AclUserExample();
-        AclUserExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(name)) {
-            criteria.andNameEqualTo(name);
+            example.or().andMobileLike("%"+name+"%");
+            example.or().andLoginNameLike("%"+name+"%");
+            example.or().andNameLike("%"+name+"%");
         }
 
         List<AclUser> list = aclUserMapper.selectByExample(example);

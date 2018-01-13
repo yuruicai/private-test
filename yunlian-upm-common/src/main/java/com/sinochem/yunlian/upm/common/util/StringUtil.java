@@ -1,6 +1,9 @@
 package com.sinochem.yunlian.upm.common.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author zhangxi
@@ -27,5 +30,13 @@ public class StringUtil {
             }
         }
         return out.substring(0, out.length() - 1);
+    }
+
+    public final static String getUuid(){
+        return UUID.randomUUID().toString().replace("-","");
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        System.out.println(URLEncoder.encode("http://1.203.115.214:8888/yunlian-ku/yunlian-upm","utf-8"));
     }
 }

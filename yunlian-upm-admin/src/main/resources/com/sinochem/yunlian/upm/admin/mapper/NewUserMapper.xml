@@ -39,6 +39,7 @@
             acl_user
         WHERE
             (id IN(#{ids}))
+        <if test="name != null" >
         AND
         (
              login_name LIKE  '%${name}%'
@@ -46,6 +47,7 @@
                     OR NAME LIKE  '%${name}%'
 
             )
+        </if>
 
     </select>
 </mapper>
