@@ -84,6 +84,7 @@ public class ApplicationServiceImpl implements ApplicationService {
         return applicationDao.updateByPrimaryKey(newApplication);
     }
 
+
     @Override
     public PageInfo search(String appkey,String name,int page,int rows) {
         PageHelper.startPage(page, rows);

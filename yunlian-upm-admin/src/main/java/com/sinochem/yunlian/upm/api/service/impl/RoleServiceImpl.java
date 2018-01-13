@@ -100,7 +100,7 @@ public class RoleServiceImpl implements RoleService {
         PageHelper.startPage(curPage, pageSize);
         AclRoleExample example = new AclRoleExample();
         if (!org.springframework.util.StringUtils.isEmpty(param)) {
-            example.or().andCodeLike(param).andNameLike(param);
+            example.or().andCodeLike("%"+param+"%").andNameLike("%"+param+"%");
         }
         List<AclRole> roles = roleDao.selectByExample(example);
         List<RoleVo> roleVos = roles.stream().map(r -> new RoleVo(r)).collect(Collectors.toList());

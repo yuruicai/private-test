@@ -29,6 +29,5 @@ public interface ApplicationService {
     PageInfo search(String appkey,String name,int page,int rows);
 
 
-
 }
 

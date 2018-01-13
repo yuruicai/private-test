@@ -11,6 +11,7 @@ import com.sinochem.yunlian.upm.api.vo.UserCompanyVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -129,10 +130,11 @@ public class CompanyUserManageServiceImpl implements CompanyUserManageService {
            criteria1.andAdminEqualTo(new Short(1+""));
            //修改当前管理员的状态
            List<CompanyUserRelation> companyUserRelations1 = companyUserDao.selectByExample(selectByExample1);
-           CompanyUserRelation companyUserRelation1 = companyUserRelations1.get(0);
-           companyUserRelation1.setAdmin(new Short(0+""));
-           companyUserDao.updateByPrimaryKey(companyUserRelation1);
-//        companyUserDao.updateByExample(selectByExample1);
+            if(companyUserRelations1.size()!=0){
+                CompanyUserRelation companyUserRelation1 = companyUserRelations1.get(0);
+                companyUserRelation1.setAdmin(new Short(0+""));
+                companyUserDao.updateByPrimaryKey(companyUserRelation1);
+            }
            //将当前用户设置为管理员
            companyUserRelation.setAdmin(new Short(1+""));
            companyUserDao.updateByPrimaryKey(companyUserRelation);
@@ -143,9 +145,10 @@ public class CompanyUserManageServiceImpl implements CompanyUserManageService {
     }
 
     @Override
-    public PageInfo getAllListOfUser(String loginName, String mobile, String name, Integer page, int rows) {
+    public PageInfo getAllListOfUser(String id,String loginName, String mobile, String name, Integer page, int rows) {
         PageHelper.startPage(page, rows);
-        //查询符合条件的成员
+        //todo:查询符合条件的成员，并且过滤掉已经在当前企业下的成员
+        //todo:1、查询符合条件的成员
         AclUserExample selectByExample = new AclUserExample();
         AclUserExample.Criteria criteria = selectByExample.createCriteria();
         if(loginName!=null){
@@ -168,11 +171,32 @@ public class CompanyUserManageServiceImpl implements CompanyUserManageService {
                CompanyUserRelationExample.Criteria criteria1 = example.createCriteria();
                criteria1.andUserIdEqualTo(user.getId());
                List<CompanyUserRelation> companyUserRelations = companyUserDao.selectByExample(example);
-               Integer companyId = companyUserRelations.get(0).getCompanyId();
-               //根据公司id查询公司名称
-               Company company = companyDao.findById(companyId);
-               userCompanyVo.setCompanyName(company.getCompanyName());
-               userCompanyVos.add(userCompanyVo);
+               CompanyUserRelation companyUserRelation = companyUserRelations.get(0);
+               Integer companyId = companyUserRelation.getCompanyId();
+               //todo:2、如果该成员所在的公司就是当前公司则不显示
+               //todo:2.1、如果用户没有选择企业，则将所有的成员全部展示
+               if(StringUtils.isEmpty(id)){
+                   //根据公司id查询公司名称
+                   Company company = companyDao.findById(companyId);
+                   userCompanyVo.setCompanyName(company.getCompanyName());
+                   userCompanyVos.add(userCompanyVo);
+               }
+               //todo:2.2、如果当前用户选择了某个企业，则在显示成员的时候过滤掉当前企业的成员
+               //todo:2.2.1、该用户之前属于这个企业但是被删除，状态改为0，这种情况不应该被过滤
+               if(!StringUtils.isEmpty(id) && (Integer.parseInt(id)==companyId)&& companyUserRelation.getStatus()==0){
+                   //根据公司id查询公司名称
+                   Company company = companyDao.findById(companyId);
+                   userCompanyVo.setCompanyName(company.getCompanyName());
+                   userCompanyVos.add(userCompanyVo);
+               }
+               //todo:2.2.2、过滤掉当前企业的成员
+               if(!StringUtils.isEmpty(id) && !(Integer.parseInt(id)==companyId)){
+                   //根据公司id查询公司名称
+                   Company company = companyDao.findById(companyId);
+                   userCompanyVo.setCompanyName(company.getCompanyName());
+                   userCompanyVos.add(userCompanyVo);
+               }
+
            }
        }
         com.github.pagehelper.PageInfo info = new com.github.pagehelper.PageInfo(userCompanyVos);

@@ -31,8 +31,8 @@ public class ApplicationController {
      */
     @RequestMapping(value = "insert", method = RequestMethod.POST)
     public Response addCompany(@RequestBody AclApplication application) {
-        String id = applicationService.insert(application);
-        return Response.succeed().put("id", id);
+        applicationService.insert(application);
+        return Response.succeed();
     }
 
     /**
@@ -84,7 +84,7 @@ public class ApplicationController {
      * @param rows
      * @return
      */
-    @RequestMapping(value = "search", method = RequestMethod.POST)
+    @RequestMapping(value = "search", method = RequestMethod.GET)
     public Response search(String appkey,
                            String name,
                        @RequestParam(defaultValue = "1",required = true) Integer  page,
@@ -92,8 +92,6 @@ public class ApplicationController {
         PageInfo pageInfo = applicationService.search(appkey,name,page,rows);
         return Response.succeed(pageInfo);
     }
-
-
 
 
 }
