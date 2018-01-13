@@ -40,7 +40,7 @@
             <property name="exampleMethodVisibility" value="default"/>
         </javaClientGenerator>
 
-        <table tableName="ip_log" domainObjectName="IpLog">
+        <table tableName="user_invite_success" domainObjectName="UserInviteSuccess">
         </table>
         <!--<table tableName="acl_application" domainObjectName="AclApplication">-->
         <!--</table>-->

@@ -2,7 +2,6 @@ package com.sinochem.yunlian.upm.admin.web;
 
 import com.sinochem.yunlian.upm.admin.bean.UserListBean;
 import com.sinochem.yunlian.upm.admin.bean.UserRoleBean;
-import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.admin.service.RoleService;
 import com.sinochem.yunlian.upm.admin.service.UserRoleService;
 import com.sinochem.yunlian.upm.admin.service.UserService;

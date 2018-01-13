@@ -3,7 +3,6 @@ package com.sinochem.yunlian.upm.api.vo;
 
 import com.sinochem.yunlian.upm.admin.domain.AclUser;
 
-
 public class UserVo {
 
     private AclUser aclUser;

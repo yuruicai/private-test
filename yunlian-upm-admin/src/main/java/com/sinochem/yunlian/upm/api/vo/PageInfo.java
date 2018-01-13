@@ -1,8 +1,5 @@
 package com.sinochem.yunlian.upm.api.vo;
 
-import com.sinochem.yunlian.upm.admin.bean.UserListBean;
-import com.sinochem.yunlian.upm.admin.domain.AclUser;
-import com.sinochem.yunlian.upm.util.Page;
 import lombok.Data;
 
 import java.util.List;

@@ -12,6 +12,7 @@ import com.sinochem.yunlian.upm.sso.util.RSAUtils.RSAUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,17 +43,20 @@ class RegisterController {
     private SsoCacheFacade ssoCacheFacade;
     @Resource
     private SessionService sessionService;
+    @Resource
+    private UserInviteSuccessService userInviteService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public Object register(HttpServletRequest request) {
         Map<String, Object> data = new HashMap<String, Object>();
         try {
-            //获取参数
+            //获取参数       http://localhost:8180/api/register
             Map<String, String> params =
                     ApiUtil.parse(request.getReader(), new TypeReference<Map<String, String>>() {});
             String username = params.get("username");
             String password = params.get("password");
+            String oldUserId = params.get("oldUserId");
             String ssmCaptcha = params.get("ssmCaptcha");
             String ssmCaptchaId = params.get("ssmCaptchaId");
             String rsaEncryptKey = params.get("rsaEncryptKey");
@@ -100,6 +104,7 @@ class RegisterController {
             if (StringUtil.isNotBlank(registerMessage)) {
                 return AjaxResultUtil.resultAjax("注册失败", 11206, data);
             }
+
             //生成token,考虑加密
             String token = SSOUtil.generateSid();
             LOG.info("generate new token " + token);
@@ -109,6 +114,14 @@ class RegisterController {
             sessionService.saveSession(token, aclUser, Constants.SESSION_TIMEOUT);
             timesLimitService.increaseUsernameSuccessLoginTimes(username);
             UserForSeesion user = sessionService.getSessionUserAndRefresh(token);
+
+            //判断是否为被邀请用户
+            if(!StringUtils.isEmpty(oldUserId)){
+                //新用户ID    newUserId  老用户ID   oldUserId
+
+                userInviteService.addInvite(oldUserId,user.getUserId());
+            }
+
             data.put("token",token);
             data.put("user",user);
             return AjaxResultUtil.resultSuccessAjax(data);

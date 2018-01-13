@@ -1,6 +1,5 @@
 package com.sinochem.yunlian.upm.util;
 
-import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.filter.util.UserUtils;
 import com.sinochem.yunlian.upm.tools.User;
 import org.slf4j.Logger;

@@ -1,6 +1,5 @@
 package com.sinochem.yunlian.upm.admin.mapper;
 
-import com.sinochem.yunlian.upm.admin.domain.AclUserExample;
 import com.sinochem.yunlian.upm.admin.domain.CompanyUserRelation;
 import com.sinochem.yunlian.upm.admin.domain.CompanyUserRelationExample;
 import java.util.List;

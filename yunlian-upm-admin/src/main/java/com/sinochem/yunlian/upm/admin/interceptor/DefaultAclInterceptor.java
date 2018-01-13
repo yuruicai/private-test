@@ -1,6 +1,5 @@
 package com.sinochem.yunlian.upm.admin.interceptor;
 
-import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.admin.service.ApplicationService;
 import com.sinochem.yunlian.upm.admin.service.UpmService;
 import com.sinochem.yunlian.upm.filter.servlet.WebUtils;

@@ -1,7 +1,6 @@
 package com.sinochem.yunlian.upm.admin.web.api;
 
 import com.sinochem.yunlian.upm.admin.domain.AclApplication;
-import com.sinochem.yunlian.upm.admin.domain.AclUser;
 import com.sinochem.yunlian.upm.util.SortUtil;
 import com.google.common.base.Joiner;
 import com.sinochem.yunlian.upm.common.rpc.MtError;
