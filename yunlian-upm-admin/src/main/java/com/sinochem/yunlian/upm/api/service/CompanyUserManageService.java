@@ -25,7 +25,7 @@ public interface CompanyUserManageService {
     int updateAdmin(String id);
 
     //条件查询所有企业用户成员
-    PageInfo getAllListOfUser(String loginName, String mobile, String name, Integer page, int rows);
+    PageInfo getAllListOfUser(String id,String loginName, String mobile, String name, Integer page, int rows);
 
     //根据userId更新成员状态
     int updateStatusOfUser(String id);

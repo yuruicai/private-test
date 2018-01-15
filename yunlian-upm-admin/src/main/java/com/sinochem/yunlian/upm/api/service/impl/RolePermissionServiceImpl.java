@@ -79,11 +79,7 @@ public class RolePermissionServiceImpl implements RolePermissionService {
         List elementIdList = new ArrayList();
         List operateIdList = new ArrayList();
         for(RoleOperation roleOperation:roleOperations){
-            OperationExample operationExample = new OperationExample();
-            OperationExample.Criteria criteria3 = operationExample.createCriteria();
-            criteria3.andCodeEqualTo(roleOperation.getOperationId());
-            List<Operation> operations = operationDao.selectByExample(operationExample);
-            Operation operation = operations.get(0);
+            Operation operation = operationDao.selectByPrimaryKey(Integer.parseInt(roleOperation.getOperationId()));
             if(operation.getType()==1){
                 elementIdList.add(roleOperation.getOperationId());
             }else{
@@ -135,92 +131,13 @@ public class RolePermissionServiceImpl implements RolePermissionService {
         //定义一个数值记录操作状态  t: 1:处理成功;0:处理失败
         int t =1;
        try{
-           //todo:1、先将该角色下的所有资源进行逻辑删除
-           //todo:1.1、删除该角色下所有的应用
            //查询角色id
            String roleId = (String) map.get("roleId");
-           //根据角色id查询出角色和应用关联列表数据
-           AclRoleInstanceContextExample applicationExample = new AclRoleInstanceContextExample();
-           AclRoleInstanceContextExample.Criteria criteria = applicationExample.createCriteria();
-           criteria.andUserRoleRltIdEqualTo(roleId);
-           List<AclRoleInstanceContext> aclRoleInstanceContexts = roleInstanceContextDao.selectByExample(applicationExample);
-           //遍历角色和应用关联列表，将每一条数据的状态改为0,然后更新
-           for(AclRoleInstanceContext aclRoleInstanceContext:aclRoleInstanceContexts){
-               aclRoleInstanceContext.setStatus(new Byte(0+""));
-               roleInstanceContextDao.updateByPrimaryKey(aclRoleInstanceContext);
-           }
-           int a = 1/0;
-           //todo:1.2、删除该角色下所有的菜单
-           //根据角色id查询出角色和菜单关联列表数据
-           RoleMenuExample menuExample = new RoleMenuExample();
-           RoleMenuExample.Criteria criteria1 = menuExample.createCriteria();
-           criteria1.andRoleIdEqualTo(roleId);
-           List<RoleMenu> roleMenus = roleMenuDao.selectByExample(menuExample);
-           //遍历角色和菜单关联列表，将每一条数据的状态改为0，然后更新
-           for(RoleMenu roleMenu:roleMenus){
-               roleMenu.setStatus(new Byte(0+""));
-               roleMenuDao.updateByPrimaryKey(roleMenu);
-           }
-           //todo:1.3、删除该角色下所有的元素和操作
-           //根据角色id查询出角色和操作关联列表数据
-           RoleOperationExample operationExample = new RoleOperationExample();
-           RoleOperationExample.Criteria criteria2 = operationExample.createCriteria();
-           criteria2.andRoleIdEqualTo(roleId);
-           List<RoleOperation> roleOperations = roleOperationDao.selectByExample(operationExample);
-           //遍历角色和操作关联列表，将每一条数据的状态改为0，然后更新
-           for(RoleOperation roleOperation:roleOperations){
-               roleOperation.setStatus(new Byte(0+""));
-               roleOperationDao.updateByPrimaryKey(roleOperation);
-           }
-           //todo:1.4、删除该角色下所有的数据
-           //根据角色id查询出角色和数据关联列表数据
-           RoleResourceDataExample dataExample = new RoleResourceDataExample();
-           RoleResourceDataExample.Criteria criteria3 = dataExample.createCriteria();
-           criteria3.andRoleIdEqualTo(roleId);
-           List<RoleResourceData> roleResourceDatas = roleResourceDataDao.selectByExample(dataExample);
-           //遍历角色和数据关联列表，将每一条数据的状态改为0，然后更新
-           for(RoleResourceData roleResourceData:roleResourceDatas){
-               roleResourceData.setStatus(new Byte(0+""));
-               roleResourceDataDao.updateByPrimaryKey(roleResourceData);
-           }
+           //todo:1、先将该角色下的所有资源进行逻辑删除
+           delete(roleId);
 
            //todo:2、将新勾选的数据进行保存
-           //todo:2.1、保存应用列表数据
-           List applicationIdList = (List)map.get("applicationIdList");
-           for(Object applicationId:applicationIdList){
-               AclRoleInstanceContext roleInstanceContext = new AclRoleInstanceContext();
-               roleInstanceContext.setUserRoleRltId(roleId);
-               roleInstanceContext.setApplicationId((String)applicationId);
-               roleInstanceContext.setStatus(new Byte(1+""));
-               roleInstanceContextDao.insert(roleInstanceContext);
-           }
-           //todo:2.2、保存菜单列表数据
-           List menuIdList = (List)map.get("menuIdList");
-           for(Object menuId:menuIdList){
-               RoleMenu roleMenu = new RoleMenu();
-               roleMenu.setRoleId(roleId);
-               roleMenu.setMenuId((String)menuId);
-               roleMenu.setStatus(new Byte(1+""));
-               roleMenuDao.insert(roleMenu);
-           }
-           //todo:2.3、保存操作列表数据
-           List operationIdList = (List)map.get("operationIdList");
-           for(Object operationId:operationIdList){
-               RoleOperation roleOpeartion = new RoleOperation();
-               roleOpeartion.setRoleId(roleId);
-               roleOpeartion.setOperationId((String)operationId);
-               roleOpeartion.setStatus(new Byte(1+""));
-               roleOperationDao.insert(roleOpeartion);
-           }
-           //todo:2.4、保存数据列表数据
-           List dataIdList = (List)map.get("dataIdList");
-           for(Object dataId:dataIdList){
-               RoleResourceData roleResourceData = new RoleResourceData();
-               roleResourceData.setRoleId(roleId);
-               roleResourceData.setResourceDataId((String)dataId);
-               roleResourceData.setStatus(new Byte(1+""));
-               roleResourceDataDao.insert(roleResourceData);
-           }
+           save(map, roleId);
        }catch (Exception e){
            t=0;
            throw new RuntimeException("保存失败");
@@ -231,5 +148,91 @@ public class RolePermissionServiceImpl implements RolePermissionService {
            return 1;
        }
 
+    }
+
+    private void save(Map map, String roleId) {
+        //todo:1、保存应用列表数据
+        List applicationIdList = (List)map.get("applicationIdList");
+        for(Object applicationId:applicationIdList){
+            AclRoleInstanceContext roleInstanceContext = new AclRoleInstanceContext();
+            roleInstanceContext.setUserRoleRltId(roleId);
+            roleInstanceContext.setApplicationId((String)applicationId);
+            roleInstanceContext.setStatus(new Byte(1+""));
+            roleInstanceContextDao.insert(roleInstanceContext);
+        }
+        //todo:2、保存菜单列表数据
+        List menuIdList = (List)map.get("menuIdList");
+        for(Object menuId:menuIdList){
+            RoleMenu roleMenu = new RoleMenu();
+            roleMenu.setRoleId(roleId);
+            roleMenu.setMenuId((String)menuId);
+            roleMenu.setStatus(new Byte(1+""));
+            roleMenuDao.insert(roleMenu);
+        }
+        //todo:3、保存操作列表数据
+        List operationIdList = (List)map.get("operationIdList");
+        for(Object operationId:operationIdList){
+            RoleOperation roleOpeartion = new RoleOperation();
+            roleOpeartion.setRoleId(roleId);
+            roleOpeartion.setOperationId((String)operationId);
+            roleOpeartion.setStatus(new Byte(1+""));
+            roleOperationDao.insert(roleOpeartion);
+        }
+        //todo:4、保存数据列表数据
+        List dataIdList = (List)map.get("dataIdList");
+        for(Object dataId:dataIdList){
+            RoleResourceData roleResourceData = new RoleResourceData();
+            roleResourceData.setRoleId(roleId);
+            roleResourceData.setResourceDataId((String)dataId);
+            roleResourceData.setStatus(new Byte(1+""));
+            roleResourceDataDao.insert(roleResourceData);
+        }
+    }
+
+    private void delete(String roleId) {
+        //todo:1、删除该角色下所有的应用
+        //根据角色id查询出角色和应用关联列表数据
+        AclRoleInstanceContextExample applicationExample = new AclRoleInstanceContextExample();
+        AclRoleInstanceContextExample.Criteria criteria = applicationExample.createCriteria();
+        criteria.andUserRoleRltIdEqualTo(roleId);
+        List<AclRoleInstanceContext> aclRoleInstanceContexts = roleInstanceContextDao.selectByExample(applicationExample);
+        //遍历角色和应用关联列表，将每一条数据的状态改为0,然后更新
+        for(AclRoleInstanceContext aclRoleInstanceContext:aclRoleInstanceContexts){
+            aclRoleInstanceContext.setStatus(new Byte(0+""));
+            roleInstanceContextDao.updateByPrimaryKey(aclRoleInstanceContext);
+        }
+        //todo:2、删除该角色下所有的菜单
+        //根据角色id查询出角色和菜单关联列表数据
+        RoleMenuExample menuExample = new RoleMenuExample();
+        RoleMenuExample.Criteria criteria1 = menuExample.createCriteria();
+        criteria1.andRoleIdEqualTo(roleId);
+        List<RoleMenu> roleMenus = roleMenuDao.selectByExample(menuExample);
+        //遍历角色和菜单关联列表，将每一条数据的状态改为0，然后更新
+        for(RoleMenu roleMenu:roleMenus){
+            roleMenu.setStatus(new Byte(0+""));
+            roleMenuDao.updateByPrimaryKey(roleMenu);
+        }
+        //todo:3、删除该角色下所有的元素和操作
+        //根据角色id查询出角色和操作关联列表数据
+        RoleOperationExample operationExample = new RoleOperationExample();
+        RoleOperationExample.Criteria criteria2 = operationExample.createCriteria();
+        criteria2.andRoleIdEqualTo(roleId);
+        List<RoleOperation> roleOperations = roleOperationDao.selectByExample(operationExample);
+        //遍历角色和操作关联列表，将每一条数据的状态改为0，然后更新
+        for(RoleOperation roleOperation:roleOperations){
+            roleOperation.setStatus(new Byte(0+""));
+            roleOperationDao.updateByPrimaryKey(roleOperation);
+        }
+        //todo:4、删除该角色下所有的数据
+        //根据角色id查询出角色和数据关联列表数据
+        RoleResourceDataExample dataExample = new RoleResourceDataExample();
+        RoleResourceDataExample.Criteria criteria3 = dataExample.createCriteria();
+        criteria3.andRoleIdEqualTo(roleId);
+        List<RoleResourceData> roleResourceDatas = roleResourceDataDao.selectByExample(dataExample);
+        //遍历角色和数据关联列表，将每一条数据的状态改为0，然后更新
+        for(RoleResourceData roleResourceData:roleResourceDatas){
+            roleResourceData.setStatus(new Byte(0+""));
+            roleResourceDataDao.updateByPrimaryKey(roleResourceData);
+        }
     }
 }

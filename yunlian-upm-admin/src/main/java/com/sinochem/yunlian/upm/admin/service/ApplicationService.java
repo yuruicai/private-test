@@ -5,6 +5,7 @@ import com.sinochem.yunlian.upm.admin.bean.AppManagerBean;
 import com.sinochem.yunlian.upm.admin.bean.ApplicationBean;
 import com.sinochem.yunlian.upm.admin.bean.ApplicationRoleBean;
 import com.sinochem.yunlian.upm.admin.constant.CommonStatus;
+import com.sinochem.yunlian.upm.admin.mapper.AclUserMapper;
 import com.sinochem.yunlian.upm.admin.mapper.UpmMapper;
 import com.sinochem.yunlian.upm.filter.util.CollectionUtils;
 import com.sinochem.yunlian.upm.util.Page;

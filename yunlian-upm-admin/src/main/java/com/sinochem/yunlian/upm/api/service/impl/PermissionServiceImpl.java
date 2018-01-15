@@ -93,10 +93,10 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public List<Operation> selectElement(String appKey,String typeId) {
+    public List<Operation> selectElement(String appId,String typeId) {
         OperationExample example = new OperationExample();
         OperationExample.Criteria criteria = example.createCriteria();
-        criteria.andAppIdEqualTo(appKey);
+        criteria.andAppIdEqualTo(appId);
         criteria.andTypeEqualTo(new Byte(typeId));
         return operationDao.selectByExample(example);
     }
@@ -107,9 +107,15 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public int insert(Operation operation) {
+    public int saveOperation(Operation operation) {
         try{
-            operationDao.insert(operation);
+            //如果数据库有对应的数据id执行更新操作
+            if(!org.springframework.util.StringUtils.isEmpty(operation.getId())){
+                operationDao.updateByPrimaryKey(operation);
+            }else{
+                //如果数据库没有对应的数据id执行插入操作
+                operationDao.insert(operation);
+            }
         }catch(Exception e){
             return 0;
         }
@@ -117,13 +123,9 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public int updateStatus(String code) {
+    public int updateStatus(String id) {
         try{
-            OperationExample example = new OperationExample();
-            OperationExample.Criteria criteria = example.createCriteria();
-            criteria.andCodeEqualTo(code);
-            List<Operation> operations = operationDao.selectByExample(example);
-            Operation operation = operations.get(0);
+            Operation operation = operationDao.selectByPrimaryKey(Integer.parseInt(id));
             operation.setStatus(new Byte(0+""));
             operationDao.updateByPrimaryKey(operation);
         }catch (Exception e){
@@ -133,30 +135,23 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public Operation getOne(String code) {
-        OperationExample example = new OperationExample();
-        OperationExample.Criteria criteria = example.createCriteria();
-        criteria.andCodeEqualTo(code);
-        List<Operation> operations = operationDao.selectByExample(example);
-        return operations.get(0);
+    public Operation getOne(String id) {
+        return operationDao.selectByPrimaryKey(Integer.parseInt(id));
     }
 
     @Override
-    public List<ResourceData> selectData(String appKey) {
+    public List<ResourceData> selectData(String appId) {
         ResourceDataExample example = new ResourceDataExample();
         ResourceDataExample.Criteria criteria = example.createCriteria();
-        criteria.andAppIdEqualTo(appKey);
+        criteria.andAppIdEqualTo(appId);
+        criteria.andStatusEqualTo(new Byte(1+""));
         return resourceDataDao.selectByExample(example);
     }
 
     @Override
-    public int updateStatusOfData(String code) {
+    public int updateStatusOfData(String id) {
         try{
-            ResourceDataExample example = new ResourceDataExample();
-            ResourceDataExample.Criteria criteria = example.createCriteria();
-            criteria.andCodeEqualTo(code);
-            List<ResourceData> resourceDatas = resourceDataDao.selectByExample(example);
-            ResourceData resourceData = resourceDatas.get(0);
+            ResourceData resourceData = resourceDataDao.selectByPrimaryKey(Integer.parseInt(id));
             resourceData.setStatus(new Byte(0+""));
             resourceDataDao.updateByPrimaryKey(resourceData);
         }catch (Exception e){
@@ -166,8 +161,20 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    public int insertData(ResourceData resourceData) {
-        return resourceDataDao.insert(resourceData);
+    public int saveData(ResourceData resourceData) {
+
+        try{
+            //如果数据库有对应的数据id执行更新操作
+            if(!org.springframework.util.StringUtils.isEmpty(resourceData.getId())){
+                resourceDataDao.updateByPrimaryKey(resourceData);
+            }else{
+                //如果数据库没有对应的数据id执行插入操作
+                resourceDataDao.insert(resourceData);
+            }
+        }catch (Exception e){
+            return 0;
+        }
+        return 1;
     }
 
     @Override

@@ -88,6 +88,7 @@ public class CompanyUserManageController {
 
     /**
      * 条件查询所有企业用户成员
+     * @param id        企业id
      * @param loginName 根据用户名查询
      * @param mobile    根据手机号查询
      * @param name      根据姓名查询
@@ -96,12 +97,13 @@ public class CompanyUserManageController {
      * @return
      */
     @RequestMapping(value = "getAllListOfUser", method = RequestMethod.GET)
-    public Response getAllListOfUser(String loginName,
+    public Response getAllListOfUser(String id,
+                                     String loginName,
                                      String mobile,
                                      String name,
                                   @RequestParam(defaultValue = "1",required = true) Integer  page,
                                   @RequestParam(defaultValue = "20",required = true) int rows) {
-        PageInfo pageInfo = companyUserManageService.getAllListOfUser(loginName,mobile,name, page, rows);
+        PageInfo pageInfo = companyUserManageService.getAllListOfUser(id,loginName,mobile,name, page, rows);
         return Response.succeed(pageInfo);
     }
 
